@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLyHocVuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHUONGTRINH">
+          <Key>
+            <PropertyRef Name="MaChuongTrinh" />
+          </Key>
+          <Property Name="MaChuongTrinh" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="TenChuongTrinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaBacHoc" Type="char" MaxLength="2" />
+          <Property Name="MaKhoa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaGiaoVien_GiamDocCT" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHUONGTRINHMONHOC">
+          <Key>
+            <PropertyRef Name="MaChuongTrinh" />
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaChuongTrinh" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="MaMonHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="HocKy" Type="int" />
+        </EntityType>
+        <EntityType Name="DAMNHIEMMON">
+          <Key>
+            <PropertyRef Name="MaChuongTrinh" />
+            <PropertyRef Name="MaMonHoc" />
+            <PropertyRef Name="MaGiaoVien" />
+          </Key>
+          <Property Name="MaChuongTrinh" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="MaMonHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaGiaoVien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CoLaDamNhiemChinh" Type="int" />
+        </EntityType>
+        <EntityType Name="GIAOVIEN">
+          <Key>
+            <PropertyRef Name="MaGiaoVien" />
+          </Key>
+          <Property Name="MaGiaoVien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaKhoa" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenKhoa" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KHOAHOC">
+          <Key>
+            <PropertyRef Name="MaKhoaHoc" />
+          </Key>
+          <Property Name="MaKhoaHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenKhoaHoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="NamBatDau" Type="int" />
+          <Property Name="NamKetThuc" Type="int" />
+          <Property Name="MaChuongTrinh" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="KHOAHOCMON">
+          <Key>
+            <PropertyRef Name="MaKhoaHoc" />
+            <PropertyRef Name="MaMonHoc" />
+            <PropertyRef Name="MaGiaoVien_day" />
+          </Key>
+          <Property Name="MaKhoaHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaMonHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaGiaoVien_day" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaPhong" Type="varchar" MaxLength="10" />
+          <Property Name="MaThu" Type="char" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaMonHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenMonHoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoTinChi" Type="int" />
+          <Property Name="MaKhoa" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CHUONGTRI__MaChu__300424B4">
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="1" />
+          <End Role="CHUONGTRINHMONHOC" Type="Self.CHUONGTRINHMONHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONGTRINH">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Principal>
+            <Dependent Role="CHUONGTRINHMONHOC">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONGTRI__MaGia__2A4B4B5E">
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIAOVIEN">
+              <PropertyRef Name="MaGiaoVien" />
+            </Principal>
+            <Dependent Role="CHUONGTRINH">
+              <PropertyRef Name="MaGiaoVien_GiamDocCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONGTRI__MaKho__29572725">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="1" />
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="CHUONGTRINH">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONGTRI__MaMon__30F848ED">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="CHUONGTRINHMONHOC" Type="Self.CHUONGTRINHMONHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="CHUONGTRINHMONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAMNHIEMM__MaChu__33D4B598">
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="1" />
+          <End Role="DAMNHIEMMON" Type="Self.DAMNHIEMMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONGTRINH">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Principal>
+            <Dependent Role="DAMNHIEMMON">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAMNHIEMM__MaGia__35BCFE0A">
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+          <End Role="DAMNHIEMMON" Type="Self.DAMNHIEMMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIAOVIEN">
+              <PropertyRef Name="MaGiaoVien" />
+            </Principal>
+            <Dependent Role="DAMNHIEMMON">
+              <PropertyRef Name="MaGiaoVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAMNHIEMM__MaMon__34C8D9D1">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="DAMNHIEMMON" Type="Self.DAMNHIEMMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="DAMNHIEMMON">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GIAOVIEN__MaKhoa__267ABA7A">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="GIAOVIEN">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOC__MaChuon__398D8EEE">
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="1" />
+          <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONGTRINH">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Principal>
+            <Dependent Role="KHOAHOC">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOCMO__MaGia__3D5E1FD2">
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+          <End Role="KHOAHOCMON" Type="Self.KHOAHOCMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIAOVIEN">
+              <PropertyRef Name="MaGiaoVien" />
+            </Principal>
+            <Dependent Role="KHOAHOCMON">
+              <PropertyRef Name="MaGiaoVien_day" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOCMO__MaKho__3B75D760">
+          <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="1" />
+          <End Role="KHOAHOCMON" Type="Self.KHOAHOCMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOAHOC">
+              <PropertyRef Name="MaKhoaHoc" />
+            </Principal>
+            <Dependent Role="KHOAHOCMON">
+              <PropertyRef Name="MaKhoaHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOCMO__MaMon__3C69FB99">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="KHOAHOCMON" Type="Self.KHOAHOCMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="KHOAHOCMON">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MONHOC__MaKhoa__2D27B809">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="1" />
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="MONHOC">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyHocVuModelStoreContainer">
+          <EntitySet Name="CHUONGTRINH" EntityType="Self.CHUONGTRINH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHUONGTRINHMONHOC" EntityType="Self.CHUONGTRINHMONHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAMNHIEMMON" EntityType="Self.DAMNHIEMMON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIAOVIEN" EntityType="Self.GIAOVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOAHOC" EntityType="Self.KHOAHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONHOC" EntityType="Self.MONHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOAHOCMON" EntityType="Self.KHOAHOCMON" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [KHOAHOCMON].[MaKhoaHoc] AS [MaKhoaHoc], 
+    [KHOAHOCMON].[MaMonHoc] AS [MaMonHoc], 
+    [KHOAHOCMON].[MaGiaoVien_day] AS [MaGiaoVien_day], 
+    [KHOAHOCMON].[MaPhong] AS [MaPhong], 
+    [KHOAHOCMON].[MaThu] AS [MaThu]
+    FROM [dbo].[KHOAHOCMON] AS [KHOAHOCMON]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CHUONGTRI__MaChu__300424B4" Association="Self.FK__CHUONGTRI__MaChu__300424B4">
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINH" />
+            <End Role="CHUONGTRINHMONHOC" EntitySet="CHUONGTRINHMONHOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONGTRI__MaGia__2A4B4B5E" Association="Self.FK__CHUONGTRI__MaGia__2A4B4B5E">
+            <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONGTRI__MaKho__29572725" Association="Self.FK__CHUONGTRI__MaKho__29572725">
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONGTRI__MaMon__30F848ED" Association="Self.FK__CHUONGTRI__MaMon__30F848ED">
+            <End Role="MONHOC" EntitySet="MONHOC" />
+            <End Role="CHUONGTRINHMONHOC" EntitySet="CHUONGTRINHMONHOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAMNHIEMM__MaChu__33D4B598" Association="Self.FK__DAMNHIEMM__MaChu__33D4B598">
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINH" />
+            <End Role="DAMNHIEMMON" EntitySet="DAMNHIEMMON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAMNHIEMM__MaGia__35BCFE0A" Association="Self.FK__DAMNHIEMM__MaGia__35BCFE0A">
+            <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+            <End Role="DAMNHIEMMON" EntitySet="DAMNHIEMMON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAMNHIEMM__MaMon__34C8D9D1" Association="Self.FK__DAMNHIEMM__MaMon__34C8D9D1">
+            <End Role="MONHOC" EntitySet="MONHOC" />
+            <End Role="DAMNHIEMMON" EntitySet="DAMNHIEMMON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GIAOVIEN__MaKhoa__267ABA7A" Association="Self.FK__GIAOVIEN__MaKhoa__267ABA7A">
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOC__MaChuon__398D8EEE" Association="Self.FK__KHOAHOC__MaChuon__398D8EEE">
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINH" />
+            <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOCMO__MaGia__3D5E1FD2" Association="Self.FK__KHOAHOCMO__MaGia__3D5E1FD2">
+            <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+            <End Role="KHOAHOCMON" EntitySet="KHOAHOCMON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOCMO__MaKho__3B75D760" Association="Self.FK__KHOAHOCMO__MaKho__3B75D760">
+            <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+            <End Role="KHOAHOCMON" EntitySet="KHOAHOCMON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOCMO__MaMon__3C69FB99" Association="Self.FK__KHOAHOCMO__MaMon__3C69FB99">
+            <End Role="MONHOC" EntitySet="MONHOC" />
+            <End Role="KHOAHOCMON" EntitySet="KHOAHOCMON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MONHOC__MaKhoa__2D27B809" Association="Self.FK__MONHOC__MaKhoa__2D27B809">
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="MONHOC" EntitySet="MONHOC" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyHocVuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHUONGTRINH">
+          <Key>
+            <PropertyRef Name="MaChuongTrinh" />
+          </Key>
+          <Property Name="MaChuongTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenChuongTrinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaBacHoc" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaGiaoVien_GiamDocCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CHUONGTRINHMONHOCs" Relationship="Self.FK__CHUONGTRI__MaChu__300424B4" FromRole="CHUONGTRINH" ToRole="CHUONGTRINHMONHOC" />
+          <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK__CHUONGTRI__MaGia__2A4B4B5E" FromRole="CHUONGTRINH" ToRole="GIAOVIEN" />
+          <NavigationProperty Name="KHOA" Relationship="Self.FK__CHUONGTRI__MaKho__29572725" FromRole="CHUONGTRINH" ToRole="KHOA" />
+          <NavigationProperty Name="DAMNHIEMMONs" Relationship="Self.FK__DAMNHIEMM__MaChu__33D4B598" FromRole="CHUONGTRINH" ToRole="DAMNHIEMMON" />
+          <NavigationProperty Name="KHOAHOCs" Relationship="Self.FK__KHOAHOC__MaChuon__398D8EEE" FromRole="CHUONGTRINH" ToRole="KHOAHOC" />
+        </EntityType>
+        <EntityType Name="CHUONGTRINHMONHOC">
+          <Key>
+            <PropertyRef Name="MaChuongTrinh" />
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaChuongTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HocKy" Type="Int32" />
+          <NavigationProperty Name="CHUONGTRINH" Relationship="Self.FK__CHUONGTRI__MaChu__300424B4" FromRole="CHUONGTRINHMONHOC" ToRole="CHUONGTRINH" />
+          <NavigationProperty Name="MONHOC" Relationship="Self.FK__CHUONGTRI__MaMon__30F848ED" FromRole="CHUONGTRINHMONHOC" ToRole="MONHOC" />
+        </EntityType>
+        <EntityType Name="DAMNHIEMMON">
+          <Key>
+            <PropertyRef Name="MaChuongTrinh" />
+            <PropertyRef Name="MaMonHoc" />
+            <PropertyRef Name="MaGiaoVien" />
+          </Key>
+          <Property Name="MaChuongTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaGiaoVien" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CoLaDamNhiemChinh" Type="Int32" />
+          <NavigationProperty Name="CHUONGTRINH" Relationship="Self.FK__DAMNHIEMM__MaChu__33D4B598" FromRole="DAMNHIEMMON" ToRole="CHUONGTRINH" />
+          <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK__DAMNHIEMM__MaGia__35BCFE0A" FromRole="DAMNHIEMMON" ToRole="GIAOVIEN" />
+          <NavigationProperty Name="MONHOC" Relationship="Self.FK__DAMNHIEMM__MaMon__34C8D9D1" FromRole="DAMNHIEMMON" ToRole="MONHOC" />
+        </EntityType>
+        <EntityType Name="GIAOVIEN">
+          <Key>
+            <PropertyRef Name="MaGiaoVien" />
+          </Key>
+          <Property Name="MaGiaoVien" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CHUONGTRINHs" Relationship="Self.FK__CHUONGTRI__MaGia__2A4B4B5E" FromRole="GIAOVIEN" ToRole="CHUONGTRINH" />
+          <NavigationProperty Name="DAMNHIEMMONs" Relationship="Self.FK__DAMNHIEMM__MaGia__35BCFE0A" FromRole="GIAOVIEN" ToRole="DAMNHIEMMON" />
+          <NavigationProperty Name="KHOA" Relationship="Self.FK__GIAOVIEN__MaKhoa__267ABA7A" FromRole="GIAOVIEN" ToRole="KHOA" />
+          <NavigationProperty Name="KHOAHOCMONs" Relationship="Self.FK__KHOAHOCMO__MaGia__3D5E1FD2" FromRole="GIAOVIEN" ToRole="KHOAHOCMON" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHUONGTRINHs" Relationship="Self.FK__CHUONGTRI__MaKho__29572725" FromRole="KHOA" ToRole="CHUONGTRINH" />
+          <NavigationProperty Name="GIAOVIENs" Relationship="Self.FK__GIAOVIEN__MaKhoa__267ABA7A" FromRole="KHOA" ToRole="GIAOVIEN" />
+          <NavigationProperty Name="MONHOCs" Relationship="Self.FK__MONHOC__MaKhoa__2D27B809" FromRole="KHOA" ToRole="MONHOC" />
+        </EntityType>
+        <EntityType Name="KHOAHOC">
+          <Key>
+            <PropertyRef Name="MaKhoaHoc" />
+          </Key>
+          <Property Name="MaKhoaHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenKhoaHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NamBatDau" Type="Int32" />
+          <Property Name="NamKetThuc" Type="Int32" />
+          <Property Name="MaChuongTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CHUONGTRINH" Relationship="Self.FK__KHOAHOC__MaChuon__398D8EEE" FromRole="KHOAHOC" ToRole="CHUONGTRINH" />
+          <NavigationProperty Name="KHOAHOCMONs" Relationship="Self.FK__KHOAHOCMO__MaKho__3B75D760" FromRole="KHOAHOC" ToRole="KHOAHOCMON" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenMonHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoTinChi" Type="Int32" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CHUONGTRINHMONHOCs" Relationship="Self.FK__CHUONGTRI__MaMon__30F848ED" FromRole="MONHOC" ToRole="CHUONGTRINHMONHOC" />
+          <NavigationProperty Name="DAMNHIEMMONs" Relationship="Self.FK__DAMNHIEMM__MaMon__34C8D9D1" FromRole="MONHOC" ToRole="DAMNHIEMMON" />
+          <NavigationProperty Name="KHOA" Relationship="Self.FK__MONHOC__MaKhoa__2D27B809" FromRole="MONHOC" ToRole="KHOA" />
+          <NavigationProperty Name="KHOAHOCMONs" Relationship="Self.FK__KHOAHOCMO__MaMon__3C69FB99" FromRole="MONHOC" ToRole="KHOAHOCMON" />
+        </EntityType>
+        <EntityType Name="KHOAHOCMON">
+          <Key>
+            <PropertyRef Name="MaKhoaHoc" />
+            <PropertyRef Name="MaMonHoc" />
+            <PropertyRef Name="MaGiaoVien_day" />
+          </Key>
+          <Property Name="MaKhoaHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaGiaoVien_day" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaThu" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK__KHOAHOCMO__MaGia__3D5E1FD2" FromRole="KHOAHOCMON" ToRole="GIAOVIEN" />
+          <NavigationProperty Name="KHOAHOC" Relationship="Self.FK__KHOAHOCMO__MaKho__3B75D760" FromRole="KHOAHOCMON" ToRole="KHOAHOC" />
+          <NavigationProperty Name="MONHOC" Relationship="Self.FK__KHOAHOCMO__MaMon__3C69FB99" FromRole="KHOAHOCMON" ToRole="MONHOC" />
+        </EntityType>
+        <Association Name="FK__CHUONGTRI__MaChu__300424B4">
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="1" />
+          <End Role="CHUONGTRINHMONHOC" Type="Self.CHUONGTRINHMONHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONGTRINH">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Principal>
+            <Dependent Role="CHUONGTRINHMONHOC">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONGTRI__MaGia__2A4B4B5E">
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIAOVIEN">
+              <PropertyRef Name="MaGiaoVien" />
+            </Principal>
+            <Dependent Role="CHUONGTRINH">
+              <PropertyRef Name="MaGiaoVien_GiamDocCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONGTRI__MaKho__29572725">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="1" />
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="CHUONGTRINH">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAMNHIEMM__MaChu__33D4B598">
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="1" />
+          <End Role="DAMNHIEMMON" Type="Self.DAMNHIEMMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONGTRINH">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Principal>
+            <Dependent Role="DAMNHIEMMON">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOC__MaChuon__398D8EEE">
+          <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="1" />
+          <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONGTRINH">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Principal>
+            <Dependent Role="KHOAHOC">
+              <PropertyRef Name="MaChuongTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONGTRI__MaMon__30F848ED">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="CHUONGTRINHMONHOC" Type="Self.CHUONGTRINHMONHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="CHUONGTRINHMONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAMNHIEMM__MaGia__35BCFE0A">
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+          <End Role="DAMNHIEMMON" Type="Self.DAMNHIEMMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIAOVIEN">
+              <PropertyRef Name="MaGiaoVien" />
+            </Principal>
+            <Dependent Role="DAMNHIEMMON">
+              <PropertyRef Name="MaGiaoVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAMNHIEMM__MaMon__34C8D9D1">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="DAMNHIEMMON" Type="Self.DAMNHIEMMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="DAMNHIEMMON">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GIAOVIEN__MaKhoa__267ABA7A">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="GIAOVIEN">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOCMO__MaGia__3D5E1FD2">
+          <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+          <End Role="KHOAHOCMON" Type="Self.KHOAHOCMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIAOVIEN">
+              <PropertyRef Name="MaGiaoVien" />
+            </Principal>
+            <Dependent Role="KHOAHOCMON">
+              <PropertyRef Name="MaGiaoVien_day" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MONHOC__MaKhoa__2D27B809">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="1" />
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="MONHOC">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOCMO__MaKho__3B75D760">
+          <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="1" />
+          <End Role="KHOAHOCMON" Type="Self.KHOAHOCMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOAHOC">
+              <PropertyRef Name="MaKhoaHoc" />
+            </Principal>
+            <Dependent Role="KHOAHOCMON">
+              <PropertyRef Name="MaKhoaHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOAHOCMO__MaMon__3C69FB99">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="KHOAHOCMON" Type="Self.KHOAHOCMON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="KHOAHOCMON">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyHocVuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHUONGTRINHs" EntityType="Self.CHUONGTRINH" />
+          <EntitySet Name="CHUONGTRINHMONHOCs" EntityType="Self.CHUONGTRINHMONHOC" />
+          <EntitySet Name="DAMNHIEMMONs" EntityType="Self.DAMNHIEMMON" />
+          <EntitySet Name="GIAOVIENs" EntityType="Self.GIAOVIEN" />
+          <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
+          <EntitySet Name="KHOAHOCs" EntityType="Self.KHOAHOC" />
+          <EntitySet Name="MONHOCs" EntityType="Self.MONHOC" />
+          <EntitySet Name="KHOAHOCMONs" EntityType="Self.KHOAHOCMON" />
+          <AssociationSet Name="FK__CHUONGTRI__MaChu__300424B4" Association="Self.FK__CHUONGTRI__MaChu__300424B4">
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINHs" />
+            <End Role="CHUONGTRINHMONHOC" EntitySet="CHUONGTRINHMONHOCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONGTRI__MaGia__2A4B4B5E" Association="Self.FK__CHUONGTRI__MaGia__2A4B4B5E">
+            <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONGTRI__MaKho__29572725" Association="Self.FK__CHUONGTRI__MaKho__29572725">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAMNHIEMM__MaChu__33D4B598" Association="Self.FK__DAMNHIEMM__MaChu__33D4B598">
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINHs" />
+            <End Role="DAMNHIEMMON" EntitySet="DAMNHIEMMONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOC__MaChuon__398D8EEE" Association="Self.FK__KHOAHOC__MaChuon__398D8EEE">
+            <End Role="CHUONGTRINH" EntitySet="CHUONGTRINHs" />
+            <End Role="KHOAHOC" EntitySet="KHOAHOCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONGTRI__MaMon__30F848ED" Association="Self.FK__CHUONGTRI__MaMon__30F848ED">
+            <End Role="MONHOC" EntitySet="MONHOCs" />
+            <End Role="CHUONGTRINHMONHOC" EntitySet="CHUONGTRINHMONHOCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAMNHIEMM__MaGia__35BCFE0A" Association="Self.FK__DAMNHIEMM__MaGia__35BCFE0A">
+            <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+            <End Role="DAMNHIEMMON" EntitySet="DAMNHIEMMONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAMNHIEMM__MaMon__34C8D9D1" Association="Self.FK__DAMNHIEMM__MaMon__34C8D9D1">
+            <End Role="MONHOC" EntitySet="MONHOCs" />
+            <End Role="DAMNHIEMMON" EntitySet="DAMNHIEMMONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GIAOVIEN__MaKhoa__267ABA7A" Association="Self.FK__GIAOVIEN__MaKhoa__267ABA7A">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOCMO__MaGia__3D5E1FD2" Association="Self.FK__KHOAHOCMO__MaGia__3D5E1FD2">
+            <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+            <End Role="KHOAHOCMON" EntitySet="KHOAHOCMONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MONHOC__MaKhoa__2D27B809" Association="Self.FK__MONHOC__MaKhoa__2D27B809">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="MONHOC" EntitySet="MONHOCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOCMO__MaKho__3B75D760" Association="Self.FK__KHOAHOCMO__MaKho__3B75D760">
+            <End Role="KHOAHOC" EntitySet="KHOAHOCs" />
+            <End Role="KHOAHOCMON" EntitySet="KHOAHOCMONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOCMO__MaMon__3C69FB99" Association="Self.FK__KHOAHOCMO__MaMon__3C69FB99">
+            <End Role="MONHOC" EntitySet="MONHOCs" />
+            <End Role="KHOAHOCMON" EntitySet="KHOAHOCMONs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyHocVuModelStoreContainer" CdmEntityContainer="QuanLyHocVuEntities">
+          <EntitySetMapping Name="CHUONGTRINHs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.CHUONGTRINH">
+              <MappingFragment StoreEntitySet="CHUONGTRINH">
+                <ScalarProperty Name="MaChuongTrinh" ColumnName="MaChuongTrinh" />
+                <ScalarProperty Name="TenChuongTrinh" ColumnName="TenChuongTrinh" />
+                <ScalarProperty Name="MaBacHoc" ColumnName="MaBacHoc" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="MaGiaoVien_GiamDocCT" ColumnName="MaGiaoVien_GiamDocCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUONGTRINHMONHOCs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.CHUONGTRINHMONHOC">
+              <MappingFragment StoreEntitySet="CHUONGTRINHMONHOC">
+                <ScalarProperty Name="MaChuongTrinh" ColumnName="MaChuongTrinh" />
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="HocKy" ColumnName="HocKy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAMNHIEMMONs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.DAMNHIEMMON">
+              <MappingFragment StoreEntitySet="DAMNHIEMMON">
+                <ScalarProperty Name="MaChuongTrinh" ColumnName="MaChuongTrinh" />
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="MaGiaoVien" ColumnName="MaGiaoVien" />
+                <ScalarProperty Name="CoLaDamNhiemChinh" ColumnName="CoLaDamNhiemChinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIAOVIENs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.GIAOVIEN">
+              <MappingFragment StoreEntitySet="GIAOVIEN">
+                <ScalarProperty Name="MaGiaoVien" ColumnName="MaGiaoVien" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOAs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.KHOA">
+              <MappingFragment StoreEntitySet="KHOA">
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOAHOCs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.KHOAHOC">
+              <MappingFragment StoreEntitySet="KHOAHOC">
+                <ScalarProperty Name="MaKhoaHoc" ColumnName="MaKhoaHoc" />
+                <ScalarProperty Name="TenKhoaHoc" ColumnName="TenKhoaHoc" />
+                <ScalarProperty Name="NamBatDau" ColumnName="NamBatDau" />
+                <ScalarProperty Name="NamKetThuc" ColumnName="NamKetThuc" />
+                <ScalarProperty Name="MaChuongTrinh" ColumnName="MaChuongTrinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONHOCs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.MONHOC">
+              <MappingFragment StoreEntitySet="MONHOC">
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
+                <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOAHOCMONs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.KHOAHOCMON">
+              <MappingFragment StoreEntitySet="KHOAHOCMON">
+                <ScalarProperty Name="MaKhoaHoc" ColumnName="MaKhoaHoc" />
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="MaGiaoVien_day" ColumnName="MaGiaoVien_day" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="MaThu" ColumnName="MaThu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

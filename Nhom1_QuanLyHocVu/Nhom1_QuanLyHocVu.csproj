@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D58ED07-4719-4E21-B2FB-7903F39A4ADA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Nhom1_QuanLyHocVu</RootNamespace>
+    <AssemblyName>Nhom1_QuanLyHocVu</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TaoChuongTrinhDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoChuongTrinhDialog.Designer.cs">
+      <DependentUpon>TaoChuongTrinhDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TaoChuongTrinhMonHocDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoChuongTrinhMonHocDialog.Designer.cs">
+      <DependentUpon>TaoChuongTrinhMonHocDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TaoDamNhiemMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoDamNhiemMon.Designer.cs">
+      <DependentUpon>TaoDamNhiemMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TaoGiaoVienDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoGiaoVienDialog.Designer.cs">
+      <DependentUpon>TaoGiaoVienDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TaoKhoaDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoKhoaDialog.Designer.cs">
+      <DependentUpon>TaoKhoaDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TaoKhoaHocDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoKhoaHocDialog.Designer.cs">
+      <DependentUpon>TaoKhoaHocDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ChuongTrinhUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\ChuongTrinhUserControl.Designer.cs">
+      <DependentUpon>ChuongTrinhUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\KhoaHocUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\KhoaHocUserControl.Designer.cs">
+      <DependentUpon>KhoaHocUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\KhoaUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\KhoaUserControl.Designer.cs">
+      <DependentUpon>KhoaUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\MonHocUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\MonHocUserControl.Designer.cs">
+      <DependentUpon>MonHocUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ProfileBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\ProfileBar.Designer.cs">
+      <DependentUpon>ProfileBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CHUONGTRINH.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CHUONGTRINHMONHOC.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAMNHIEMMON.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GIAOVIEN.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KHOA.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KHOAHOC.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KHOAHOCMON.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MONHOC.cs">
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyHocVuDbContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyHocVuDbContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyHocVuDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyHocVuDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyHocVuDbContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyHocVuDbContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoChuongTrinhDialog.resx">
+      <DependentUpon>TaoChuongTrinhDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoChuongTrinhMonHocDialog.resx">
+      <DependentUpon>TaoChuongTrinhMonHocDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoDamNhiemMon.resx">
+      <DependentUpon>TaoDamNhiemMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoGiaoVienDialog.resx">
+      <DependentUpon>TaoGiaoVienDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoKhoaDialog.resx">
+      <DependentUpon>TaoKhoaDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoKhoaHocDialog.resx">
+      <DependentUpon>TaoKhoaHocDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ChuongTrinhUserControl.resx">
+      <DependentUpon>ChuongTrinhUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\KhoaHocUserControl.resx">
+      <DependentUpon>KhoaHocUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\KhoaUserControl.resx">
+      <DependentUpon>KhoaUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\MonHocUserControl.resx">
+      <DependentUpon>MonHocUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ProfileBar.resx">
+      <DependentUpon>ProfileBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="Model\QuanLyHocVuDbContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyHocVuDbContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\QuanLyHocVuDbContext.edmx.diagram">
+      <DependentUpon>QuanLyHocVuDbContext.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Avatar 1799.png" />
+    <Content Include="Assets\btn-huy.png" />
+    <Content Include="Assets\btn-luu.png" />
+    <Content Include="Assets\button them.png" />
+    <Content Include="Assets\Image 2714.png" />
+    <Content Include="Assets\Smiley 11.png" />
+    <Content Include="Assets\Smiley 5.png" />
+    <Content Include="Assets\Smiley 7.png" />
+    <Content Include="Assets\Smiley 9.png" />
+    <Content Include="Model\QuanLyHocVuDbContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuanLyHocVuDbContext.Context.cs</LastGenOutput>
+      <DependentUpon>QuanLyHocVuDbContext.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\QuanLyHocVuDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyHocVuDbContext.edmx</DependentUpon>
+      <LastGenOutput>QuanLyHocVuDbContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
