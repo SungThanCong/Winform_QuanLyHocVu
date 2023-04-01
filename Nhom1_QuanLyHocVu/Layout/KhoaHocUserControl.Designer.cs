@@ -84,7 +84,7 @@
             // 
             // lsvMonHocKhoaHoc
             // 
-            this.lsvMonHocKhoaHoc.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.lsvMonHocKhoaHoc.BackColor = System.Drawing.Color.Lavender;
             this.lsvMonHocKhoaHoc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
             this.columnHeader7,
@@ -117,6 +117,7 @@
             this.btnThemMonHocKhoaHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnThemMonHocKhoaHoc.TabIndex = 4;
             this.btnThemMonHocKhoaHoc.TabStop = false;
+            this.btnThemMonHocKhoaHoc.Click += new System.EventHandler(this.btnThemMonHocKhoaHoc_Click);
             // 
             // cbxKhoaHoc
             // 
@@ -163,7 +164,7 @@
             this.cbxGiaoVien.Name = "cbxGiaoVien";
             this.cbxGiaoVien.Size = new System.Drawing.Size(202, 33);
             this.cbxGiaoVien.TabIndex = 6;
-            this.cbxGiaoVien.SelectedIndexChanged += new System.EventHandler(this.s);
+            this.cbxGiaoVien.SelectedIndexChanged += new System.EventHandler(this.cbxGiaoVien_SelectedIndexChanged);
             // 
             // cbxMonHoc
             // 
@@ -175,6 +176,7 @@
             this.cbxMonHoc.Name = "cbxMonHoc";
             this.cbxMonHoc.Size = new System.Drawing.Size(202, 33);
             this.cbxMonHoc.TabIndex = 5;
+            this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxMonHoc_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
@@ -203,7 +205,7 @@
             // 
             // lsvKhoaHoc
             // 
-            this.lsvKhoaHoc.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.lsvKhoaHoc.BackColor = System.Drawing.Color.Lavender;
             this.lsvKhoaHoc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -230,6 +232,7 @@
             this.btnThemKhoaHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnThemKhoaHoc.TabIndex = 3;
             this.btnThemKhoaHoc.TabStop = false;
+            this.btnThemKhoaHoc.Click += new System.EventHandler(this.btnThemKhoaHoc_Click);
             // 
             // cbxKhoaKhoaHoc
             // 

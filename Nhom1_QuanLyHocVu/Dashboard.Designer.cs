@@ -134,6 +134,7 @@ namespace Nhom1_QuanLyHocVu
             this.navToKhoa.Name = "navToKhoa";
             this.navToKhoa.Size = new System.Drawing.Size(572, 306);
             this.navToKhoa.TabIndex = 6;
+            this.navToKhoa.Leave += new System.EventHandler(this.navToKhoa_Leave);
             this.navToKhoa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.navToKhoa_Click);
             // 
             // pictureBox1

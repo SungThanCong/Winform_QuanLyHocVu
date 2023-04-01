@@ -1,4 +1,5 @@
-﻿using Nhom1_QuanLyHocVu.Model;
+﻿using Nhom1_QuanLyHocVu.Dialog;
+using Nhom1_QuanLyHocVu.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,14 +85,92 @@ namespace Nhom1_QuanLyHocVu.Layout
             }
         }
 
-        private void s(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbxKhoaHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            if(cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null && cbxGiaoVien.SelectedItem != null)
+                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(),cbxMonHoc.SelectedValue.ToString(), 
+                    cbxGiaoVien.SelectedValue.ToString());
+        }
+
+        private void btnThemKhoaHoc_Click(object sender, EventArgs e)
+        {
+            TaoKhoaHocDialog taoKhoaHocDialog = new TaoKhoaHocDialog();
+            if (taoKhoaHocDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    KHOAHOC khoahoc = new KHOAHOC();
+                    khoahoc.MaChuongTrinh = taoKhoaHocDialog.GetMaChuongTrinh();
+                    khoahoc.MaKhoaHoc = taoKhoaHocDialog.GetMaKhoaHoc();
+                    khoahoc.TenKhoaHoc = taoKhoaHocDialog.GetTenKhoaHoc();
+                    khoahoc.NamBatDau = int.Parse(taoKhoaHocDialog.GetNamBatDau());
+                    khoahoc.NamKetThuc = int.Parse(taoKhoaHocDialog.GetNamKetThuc());
+
+                    entities.KHOAHOCs.Add(khoahoc);
+                    int result = entities.SaveChanges();
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm dữ liêu thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }    
+        }
+
+        private void cbxGiaoVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null && cbxGiaoVien.SelectedItem != null)
+
+                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
+                cbxGiaoVien.SelectedValue.ToString());
+        }
+
+        private void cbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null && cbxGiaoVien.SelectedItem != null)
+
+                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
+                cbxGiaoVien.SelectedValue.ToString());
+        }
+
+        private void btnThemMonHocKhoaHoc_Click(object sender, EventArgs e)
+        {
+            TaoMonHocKhoaHocDialog dialog = new TaoMonHocKhoaHocDialog();
+            if(dialog.ShowDialog()== DialogResult.OK)
+            {
+                try
+                {
+                    KHOAHOCMON data = new KHOAHOCMON();
+                    data.MaThu = dialog.GetThu();
+                    data.MaPhong = dialog.GetMaPhong();
+                    data.MaGiaoVien_day = dialog.GetMaGiaoVien();
+                    data.MaKhoaHoc = dialog.GetMaKhoaHoc();
+                    data.MaMonHoc = dialog.GetMaMonHoc();
+
+                    entities.KHOAHOCMONs.Add(data);
+
+                    int result = entities.SaveChanges();
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm dữ liêu thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Error " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+            }
         }
     }
 }

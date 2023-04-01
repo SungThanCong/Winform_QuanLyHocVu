@@ -28,6 +28,7 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void btnTaoKhoa_Click(object sender, EventArgs e)
         {
             TaoKhoaDialog taoKhoaDialog = new TaoKhoaDialog();
+            
             if(taoKhoaDialog.ShowDialog() == DialogResult.OK)
             {
                 var maKhoa = taoKhoaDialog.txtTaoMaKhoa.Text;
@@ -104,8 +105,7 @@ namespace Nhom1_QuanLyHocVu.Layout
             {
                 ListViewItem item = new ListViewItem(khoa.TenKhoa);
                 item.SubItems.Add(khoa.MaKhoa);
-                item.SubItems.Add("Sua");
-                item.SubItems.Add("Xoa");
+               
                 lsvKhoa.Items.Add(item);
             }
         }

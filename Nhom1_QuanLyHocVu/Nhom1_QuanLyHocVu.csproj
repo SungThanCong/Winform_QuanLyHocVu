@@ -97,6 +97,12 @@
     <Compile Include="Dialog\TaoKhoaHocDialog.Designer.cs">
       <DependentUpon>TaoKhoaHocDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\TaoMonHocKhoaHocDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoMonHocKhoaHocDialog.Designer.cs">
+      <DependentUpon>TaoMonHocKhoaHocDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\ChuongTrinhUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\TaoKhoaHocDialog.resx">
       <DependentUpon>TaoKhoaHocDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoMonHocKhoaHocDialog.resx">
+      <DependentUpon>TaoMonHocKhoaHocDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\ChuongTrinhUserControl.resx">
       <DependentUpon>ChuongTrinhUserControl.cs</DependentUpon>

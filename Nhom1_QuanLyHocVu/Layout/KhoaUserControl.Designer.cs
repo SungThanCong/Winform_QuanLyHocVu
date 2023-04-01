@@ -115,10 +115,11 @@
             // 
             // btnXoaKhoa
             // 
-            this.btnXoaKhoa.BackColor = System.Drawing.Color.IndianRed;
+            this.btnXoaKhoa.BackColor = System.Drawing.Color.Brown;
             this.btnXoaKhoa.FlatAppearance.BorderSize = 0;
             this.btnXoaKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaKhoa.ForeColor = System.Drawing.Color.White;
             this.btnXoaKhoa.Location = new System.Drawing.Point(415, 18);
             this.btnXoaKhoa.Name = "btnXoaKhoa";
             this.btnXoaKhoa.Size = new System.Drawing.Size(83, 29);
@@ -129,10 +130,11 @@
             // 
             // btnTaoKhoa
             // 
-            this.btnTaoKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnTaoKhoa.BackColor = System.Drawing.Color.Teal;
             this.btnTaoKhoa.FlatAppearance.BorderSize = 0;
             this.btnTaoKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaoKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoKhoa.ForeColor = System.Drawing.Color.White;
             this.btnTaoKhoa.Location = new System.Drawing.Point(299, 18);
             this.btnTaoKhoa.Name = "btnTaoKhoa";
             this.btnTaoKhoa.Size = new System.Drawing.Size(109, 29);
@@ -175,10 +177,11 @@
             // 
             // btnXoaGV
             // 
-            this.btnXoaGV.BackColor = System.Drawing.Color.IndianRed;
+            this.btnXoaGV.BackColor = System.Drawing.Color.Brown;
             this.btnXoaGV.FlatAppearance.BorderSize = 0;
             this.btnXoaGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaGV.ForeColor = System.Drawing.Color.White;
             this.btnXoaGV.Location = new System.Drawing.Point(444, 18);
             this.btnXoaGV.Name = "btnXoaGV";
             this.btnXoaGV.Size = new System.Drawing.Size(83, 29);
@@ -189,10 +192,11 @@
             // 
             // btnTaoGV
             // 
-            this.btnTaoGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnTaoGV.BackColor = System.Drawing.Color.Teal;
             this.btnTaoGV.FlatAppearance.BorderSize = 0;
             this.btnTaoGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaoGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoGV.ForeColor = System.Drawing.Color.White;
             this.btnTaoGV.Location = new System.Drawing.Point(329, 18);
             this.btnTaoGV.Name = "btnTaoGV";
             this.btnTaoGV.Size = new System.Drawing.Size(109, 29);

@@ -144,6 +144,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                         if (result > 0)
                         {
                             MessageBox.Show("Thêm chương trình thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadChuongTrinhListView(cbxKhoaMonHoc.SelectedValue.ToString());
                         }
                         else
                         {
@@ -231,6 +232,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                         if (result > 0)
                         {
                             MessageBox.Show("Thêm chương trình - môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadChuongTrinhMonHocListView(cbxTenChuongTrinh.SelectedValue.ToString(), int.Parse(cbxHocKy.SelectedValue.ToString()));
                         }
                         else
                         {

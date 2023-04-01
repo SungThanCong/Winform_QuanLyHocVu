@@ -60,5 +60,10 @@ namespace Nhom1_QuanLyHocVu
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(new KhoaHocUserControl());
         }
+
+        private void navToKhoa_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }
