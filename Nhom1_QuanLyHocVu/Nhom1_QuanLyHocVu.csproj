@@ -266,8 +266,8 @@
     <Content Include="Assets\Smiley 9.png" />
     <Content Include="Model\QuanLyHocVuDbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QuanLyHocVuDbContext.Context.cs</LastGenOutput>
       <DependentUpon>QuanLyHocVuDbContext.edmx</DependentUpon>
+      <LastGenOutput>QuanLyHocVuDbContext.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\QuanLyHocVuDbContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

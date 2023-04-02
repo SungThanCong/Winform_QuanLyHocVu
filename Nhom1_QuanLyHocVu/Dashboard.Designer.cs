@@ -127,7 +127,7 @@ namespace Nhom1_QuanLyHocVu
             // 
             // navToKhoa
             // 
-            this.navToKhoa.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.navToKhoa.BackColor = System.Drawing.Color.Teal;
             this.navToKhoa.Controls.Add(this.pictureBox1);
             this.navToKhoa.Controls.Add(this.label1);
             this.navToKhoa.Location = new System.Drawing.Point(27, 31);
@@ -159,7 +159,7 @@ namespace Nhom1_QuanLyHocVu
             // 
             // navToChuongTrinh
             // 
-            this.navToChuongTrinh.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.navToChuongTrinh.BackColor = System.Drawing.Color.Teal;
             this.navToChuongTrinh.Controls.Add(this.zz);
             this.navToChuongTrinh.Controls.Add(this.label2);
             this.navToChuongTrinh.Location = new System.Drawing.Point(27, 343);
@@ -182,7 +182,7 @@ namespace Nhom1_QuanLyHocVu
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(167, 139);
+            this.label2.Location = new System.Drawing.Point(180, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 29);
             this.label2.TabIndex = 0;
@@ -190,7 +190,7 @@ namespace Nhom1_QuanLyHocVu
             // 
             // navToMonHoc
             // 
-            this.navToMonHoc.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.navToMonHoc.BackColor = System.Drawing.Color.Teal;
             this.navToMonHoc.Controls.Add(this.pictureBox2);
             this.navToMonHoc.Controls.Add(this.label3);
             this.navToMonHoc.Location = new System.Drawing.Point(605, 31);
@@ -221,7 +221,7 @@ namespace Nhom1_QuanLyHocVu
             // 
             // navToKhoaHoc
             // 
-            this.navToKhoaHoc.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.navToKhoaHoc.BackColor = System.Drawing.Color.Teal;
             this.navToKhoaHoc.Controls.Add(this.pictureBox4);
             this.navToKhoaHoc.Controls.Add(this.label4);
             this.navToKhoaHoc.Location = new System.Drawing.Point(605, 343);
@@ -244,7 +244,7 @@ namespace Nhom1_QuanLyHocVu
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(218, 139);
+            this.label4.Location = new System.Drawing.Point(228, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 29);
             this.label4.TabIndex = 0;

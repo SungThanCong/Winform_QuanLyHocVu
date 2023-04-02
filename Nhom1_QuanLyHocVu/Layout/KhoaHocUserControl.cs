@@ -81,7 +81,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                 item.SubItems.Add(mhkh.MaPhong);
                 item.SubItems.Add(mhkh.MaThu);
 
-                lsvKhoaHoc.Items.Add(item);
+                lsvMonHocKhoaHoc.Items.Add(item);
             }
         }
 
@@ -111,6 +111,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                     if (result > 0)
                     {
                         MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ReloadKhoaHoc(cbxKhoaKhoaHoc.SelectedValue.ToString());
                     }
                     else
                     {
@@ -171,6 +172,52 @@ namespace Nhom1_QuanLyHocVu.Layout
                 }
                
             }
+        }
+
+        private void lsvKhoaHoc_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string maKH = lsvKhoaHoc.SelectedItems[0].SubItems[0].Text;
+            string tenKH = lsvKhoaHoc.SelectedItems[0].SubItems[1].Text;
+            string tenCT = lsvKhoaHoc.SelectedItems[0].SubItems[2].Text;
+            string namBD = lsvKhoaHoc.SelectedItems[0].SubItems[3].Text;
+            string namKT = lsvKhoaHoc.SelectedItems[0].SubItems[4].Text;
+
+            TaoKhoaHocDialog dialog = new TaoKhoaHocDialog(maKH,tenKH, tenCT, namBD, namKT);
+            dialog.SetMaKhoaHocEnable(false);
+
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                KHOAHOC khoaHoc = entities.KHOAHOCs.Find(maKH);
+
+                if(khoaHoc != null)
+                {
+                    try
+                    {
+                        khoaHoc.TenKhoaHoc = dialog.GetTenKhoaHoc();
+                        khoaHoc.MaChuongTrinh = dialog.GetMaChuongTrinh();
+                        khoaHoc.NamBatDau = int.Parse(dialog.GetNamBatDau());
+                        khoaHoc.NamKetThuc = int.Parse(dialog.GetNamKetThuc());
+
+                        int result = entities.SaveChanges();
+                        if(result > 0)
+                        {
+                            MessageBox.Show("Sửa khóa học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ReloadKhoaHoc(cbxKhoaKhoaHoc.SelectedValue.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa khóa học không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                   
+                }
+            }
+
         }
     }
 }

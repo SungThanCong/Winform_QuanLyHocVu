@@ -51,10 +51,14 @@
             this.cbxKhoaKhoaHoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXoaKhoaHoc = new System.Windows.Forms.PictureBox();
+            this.btnXoaMonHocKhoaHoc = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnThemMonHocKhoaHoc)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnThemKhoaHoc)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaKhoaHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHocKhoaHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // columnHeader11
@@ -84,7 +88,7 @@
             // 
             // lsvMonHocKhoaHoc
             // 
-            this.lsvMonHocKhoaHoc.BackColor = System.Drawing.Color.Lavender;
+            this.lsvMonHocKhoaHoc.BackColor = System.Drawing.Color.Gainsboro;
             this.lsvMonHocKhoaHoc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
             this.columnHeader7,
@@ -111,7 +115,7 @@
             // btnThemMonHocKhoaHoc
             // 
             this.btnThemMonHocKhoaHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnThemMonHocKhoaHoc.Location = new System.Drawing.Point(1026, 14);
+            this.btnThemMonHocKhoaHoc.Location = new System.Drawing.Point(985, 17);
             this.btnThemMonHocKhoaHoc.Name = "btnThemMonHocKhoaHoc";
             this.btnThemMonHocKhoaHoc.Size = new System.Drawing.Size(78, 36);
             this.btnThemMonHocKhoaHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -127,7 +131,7 @@
             "Môn"});
             this.cbxKhoaHoc.Location = new System.Drawing.Point(328, 17);
             this.cbxKhoaHoc.Name = "cbxKhoaHoc";
-            this.cbxKhoaHoc.Size = new System.Drawing.Size(202, 33);
+            this.cbxKhoaHoc.Size = new System.Drawing.Size(173, 33);
             this.cbxKhoaHoc.TabIndex = 1;
             this.cbxKhoaHoc.SelectedIndexChanged += new System.EventHandler(this.cbxKhoaHoc_SelectedIndexChanged);
             // 
@@ -144,6 +148,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnXoaMonHocKhoaHoc);
             this.panel2.Controls.Add(this.cbxGiaoVien);
             this.panel2.Controls.Add(this.cbxMonHoc);
             this.panel2.Controls.Add(this.btnThemMonHocKhoaHoc);
@@ -160,7 +165,7 @@
             this.cbxGiaoVien.FormattingEnabled = true;
             this.cbxGiaoVien.Items.AddRange(new object[] {
             "Môn"});
-            this.cbxGiaoVien.Location = new System.Drawing.Point(779, 17);
+            this.cbxGiaoVien.Location = new System.Drawing.Point(743, 17);
             this.cbxGiaoVien.Name = "cbxGiaoVien";
             this.cbxGiaoVien.Size = new System.Drawing.Size(202, 33);
             this.cbxGiaoVien.TabIndex = 6;
@@ -172,9 +177,9 @@
             this.cbxMonHoc.FormattingEnabled = true;
             this.cbxMonHoc.Items.AddRange(new object[] {
             "Môn"});
-            this.cbxMonHoc.Location = new System.Drawing.Point(549, 17);
+            this.cbxMonHoc.Location = new System.Drawing.Point(507, 17);
             this.cbxMonHoc.Name = "cbxMonHoc";
-            this.cbxMonHoc.Size = new System.Drawing.Size(202, 33);
+            this.cbxMonHoc.Size = new System.Drawing.Size(230, 33);
             this.cbxMonHoc.TabIndex = 5;
             this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxMonHoc_SelectedIndexChanged);
             // 
@@ -205,7 +210,7 @@
             // 
             // lsvKhoaHoc
             // 
-            this.lsvKhoaHoc.BackColor = System.Drawing.Color.Lavender;
+            this.lsvKhoaHoc.BackColor = System.Drawing.Color.Gainsboro;
             this.lsvKhoaHoc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -222,11 +227,12 @@
             this.lsvKhoaHoc.TabIndex = 6;
             this.lsvKhoaHoc.UseCompatibleStateImageBehavior = false;
             this.lsvKhoaHoc.View = System.Windows.Forms.View.Details;
+            this.lsvKhoaHoc.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvKhoaHoc_MouseDoubleClick);
             // 
             // btnThemKhoaHoc
             // 
             this.btnThemKhoaHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnThemKhoaHoc.Location = new System.Drawing.Point(869, 17);
+            this.btnThemKhoaHoc.Location = new System.Drawing.Point(984, 21);
             this.btnThemKhoaHoc.Name = "btnThemKhoaHoc";
             this.btnThemKhoaHoc.Size = new System.Drawing.Size(78, 36);
             this.btnThemKhoaHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -259,6 +265,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnXoaKhoaHoc);
             this.panel1.Controls.Add(this.btnThemKhoaHoc);
             this.panel1.Controls.Add(this.cbxKhoaKhoaHoc);
             this.panel1.Controls.Add(this.label1);
@@ -266,6 +273,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1148, 82);
             this.panel1.TabIndex = 5;
+            // 
+            // btnXoaKhoaHoc
+            // 
+            this.btnXoaKhoaHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaKhoaHoc.Location = new System.Drawing.Point(1084, 20);
+            this.btnXoaKhoaHoc.Name = "btnXoaKhoaHoc";
+            this.btnXoaKhoaHoc.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaKhoaHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaKhoaHoc.TabIndex = 4;
+            this.btnXoaKhoaHoc.TabStop = false;
+            // 
+            // btnXoaMonHocKhoaHoc
+            // 
+            this.btnXoaMonHocKhoaHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaMonHocKhoaHoc.Location = new System.Drawing.Point(1085, 17);
+            this.btnXoaMonHocKhoaHoc.Name = "btnXoaMonHocKhoaHoc";
+            this.btnXoaMonHocKhoaHoc.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaMonHocKhoaHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaMonHocKhoaHoc.TabIndex = 9;
+            this.btnXoaMonHocKhoaHoc.TabStop = false;
             // 
             // KhoaHocUserControl
             // 
@@ -283,6 +310,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnThemKhoaHoc)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaKhoaHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHocKhoaHoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,5 +341,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbxGiaoVien;
         private System.Windows.Forms.ComboBox cbxMonHoc;
+        private System.Windows.Forms.PictureBox btnXoaKhoaHoc;
+        private System.Windows.Forms.PictureBox btnXoaMonHocKhoaHoc;
     }
 }

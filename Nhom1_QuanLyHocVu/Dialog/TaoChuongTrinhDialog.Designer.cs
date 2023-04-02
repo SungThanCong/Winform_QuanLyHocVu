@@ -48,9 +48,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(68, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 46);
+            this.label1.Size = new System.Drawing.Size(260, 46);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm chương trình";
+            this.label1.Text = "Chương trình";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -74,7 +74,7 @@
             // 
             // txtTenChuongTrinh
             // 
-            this.txtTenChuongTrinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTenChuongTrinh.BackColor = System.Drawing.Color.White;
             this.txtTenChuongTrinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenChuongTrinh.Location = new System.Drawing.Point(77, 264);
             this.txtTenChuongTrinh.Name = "txtTenChuongTrinh";
@@ -95,7 +95,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(74, 319);
+            this.label4.Location = new System.Drawing.Point(75, 320);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(207, 25);
             this.label4.TabIndex = 5;
@@ -104,9 +104,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.pictureBox1.Location = new System.Drawing.Point(389, 412);
+            this.pictureBox1.Location = new System.Drawing.Point(417, 426);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 54);
+            this.pictureBox1.Size = new System.Drawing.Size(61, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -114,10 +114,10 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.pictureBox2.Location = new System.Drawing.Point(477, 412);
+            this.pictureBox2.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
+            this.pictureBox2.Location = new System.Drawing.Point(500, 426);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(89, 54);
+            this.pictureBox2.Size = new System.Drawing.Size(68, 44);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
@@ -125,10 +125,10 @@
             // 
             // cbxGiamDocChuongTrinh
             // 
-            this.cbxGiamDocChuongTrinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxGiamDocChuongTrinh.BackColor = System.Drawing.Color.White;
             this.cbxGiamDocChuongTrinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGiamDocChuongTrinh.FormattingEnabled = true;
-            this.cbxGiamDocChuongTrinh.Location = new System.Drawing.Point(76, 347);
+            this.cbxGiamDocChuongTrinh.Location = new System.Drawing.Point(77, 348);
             this.cbxGiamDocChuongTrinh.Name = "cbxGiamDocChuongTrinh";
             this.cbxGiamDocChuongTrinh.Size = new System.Drawing.Size(491, 33);
             this.cbxGiamDocChuongTrinh.TabIndex = 10;
@@ -148,7 +148,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(655, 505);
+            this.ClientSize = new System.Drawing.Size(655, 502);
             this.Controls.Add(this.txtTenKhoa);
             this.Controls.Add(this.cbxGiamDocChuongTrinh);
             this.Controls.Add(this.pictureBox2);

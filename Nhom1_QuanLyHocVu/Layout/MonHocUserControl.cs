@@ -159,5 +159,48 @@ namespace Nhom1_QuanLyHocVu.Layout
             }
             return true;
         }
+
+        private void lsvDamNhanMon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TaoDamNhiemMon dialog = new TaoDamNhiemMon(lsvDamNhanMon.SelectedItems[0].SubItems[0].Text,
+                    lsvDamNhanMon.SelectedItems[0].SubItems[1].Text, lsvDamNhanMon.SelectedItems[0].SubItems[2].Text
+                    , lsvDamNhanMon.SelectedItems[0].SubItems[3].Text);
+            dialog.SetMonHocEnable(false);
+            dialog.SetChuongTrinhEnable(false);
+            dialog.SetGiaoVienEnable(false);
+          
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    DAMNHIEMMON damNhiem = entities.DAMNHIEMMONs.Where(x=> x.MaGiaoVien == dialog.txtGiaoVien.SelectedValue.ToString() &&
+                    x.MaMonHoc == dialog.txtMonHoc.SelectedValue.ToString() && x.MaChuongTrinh == dialog.txtChuongTrinh.SelectedValue.ToString()).FirstOrDefault();
+
+                    if(damNhiem != null)
+                    {
+                        damNhiem.CoLaDamNhiemChinh = dialog.ckbDamNhiemChinh.Checked == true ? 1 : 0;
+                      
+
+                        int result = entities.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Sửa môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDamNhiemMonListView(damNhiem.MaMonHoc);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa môn học không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        }
+                    }
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

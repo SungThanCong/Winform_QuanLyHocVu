@@ -21,6 +21,18 @@ namespace Nhom1_QuanLyHocVu.Dialog
             RenderData();
         }
 
+        public TaoDamNhiemMon(string TenMonHoc, string TenChuongTrinh, string TenGiaoVien, string CoLaDamNhiemChinh)
+        {
+            InitializeComponent();
+
+            RenderData();
+
+            txtGiaoVien.Text = TenGiaoVien;
+            txtMonHoc.Text = TenMonHoc;
+            txtChuongTrinh.Text = TenChuongTrinh;
+            ckbDamNhiemChinh.Checked =  CoLaDamNhiemChinh == "1" ?  true : false;
+        }
+
         private void RenderData()
         {
             txtGiaoVien.DisplayMember = "HoTen";
@@ -44,6 +56,22 @@ namespace Nhom1_QuanLyHocVu.Dialog
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void SetMonHocEnable(bool value)
+        {
+            txtMonHoc.Enabled = value;
+
+        }
+        public void SetGiaoVienEnable(bool value)
+        {
+            txtGiaoVien.Enabled = value;
+
+        }
+        public void SetChuongTrinhEnable(bool value)
+        {
+            txtChuongTrinh.Enabled = value;
+
         }
 
         private void txtGiaoVien_SelectedIndexChanged(object sender, EventArgs e)

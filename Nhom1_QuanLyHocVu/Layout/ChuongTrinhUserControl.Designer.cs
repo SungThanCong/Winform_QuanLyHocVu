@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lsvChuongTrinhMonHoc = new System.Windows.Forms.ListView();
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnThemCTMonHoc = new System.Windows.Forms.PictureBox();
             this.cbxTenChuongTrinh = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbxHocKy = new System.Windows.Forms.ComboBox();
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,41 +54,35 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Sửa";
-            this.columnHeader11.Width = 80;
-            // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Học kỳ";
-            this.columnHeader9.Width = 150;
+            this.columnHeader9.Width = 100;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Môn học";
-            this.columnHeader8.Width = 300;
+            this.columnHeader8.Width = 250;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Tên chương trình";
-            this.columnHeader7.Width = 350;
+            this.columnHeader7.Width = 300;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Mã chương trình";
-            this.columnHeader6.Width = 150;
+            this.columnHeader6.Width = 100;
             // 
             // lsvChuongTrinhMonHoc
             // 
-            this.lsvChuongTrinhMonHoc.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.lsvChuongTrinhMonHoc.BackColor = System.Drawing.Color.Gainsboro;
             this.lsvChuongTrinhMonHoc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
             this.columnHeader7,
+            this.columnHeader5,
             this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11});
+            this.columnHeader9});
             this.lsvChuongTrinhMonHoc.FullRowSelect = true;
             this.lsvChuongTrinhMonHoc.GridLines = true;
             this.lsvChuongTrinhMonHoc.HideSelection = false;
@@ -103,16 +94,17 @@
             this.lsvChuongTrinhMonHoc.UseCompatibleStateImageBehavior = false;
             this.lsvChuongTrinhMonHoc.View = System.Windows.Forms.View.Details;
             this.lsvChuongTrinhMonHoc.SelectedIndexChanged += new System.EventHandler(this.lsvChuongTrinhMonHoc_SelectedIndexChanged);
+            this.lsvChuongTrinhMonHoc.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvChuongTrinhMonHoc_MouseDoubleClick);
             // 
-            // columnHeader10
+            // columnHeader5
             // 
-            this.columnHeader10.Text = "Xóa";
-            this.columnHeader10.Width = 80;
+            this.columnHeader5.Text = "Mã môn học";
+            this.columnHeader5.Width = 100;
             // 
             // btnThemCTMonHoc
             // 
             this.btnThemCTMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnThemCTMonHoc.Location = new System.Drawing.Point(1009, 13);
+            this.btnThemCTMonHoc.Location = new System.Drawing.Point(1009, 17);
             this.btnThemCTMonHoc.Name = "btnThemCTMonHoc";
             this.btnThemCTMonHoc.Size = new System.Drawing.Size(78, 36);
             this.btnThemCTMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -126,7 +118,7 @@
             this.cbxTenChuongTrinh.FormattingEnabled = true;
             this.cbxTenChuongTrinh.Items.AddRange(new object[] {
             "Môn"});
-            this.cbxTenChuongTrinh.Location = new System.Drawing.Point(391, 13);
+            this.cbxTenChuongTrinh.Location = new System.Drawing.Point(391, 20);
             this.cbxTenChuongTrinh.Name = "cbxTenChuongTrinh";
             this.cbxTenChuongTrinh.Size = new System.Drawing.Size(357, 33);
             this.cbxTenChuongTrinh.TabIndex = 1;
@@ -144,6 +136,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.cbxHocKy);
             this.panel2.Controls.Add(this.btnThemCTMonHoc);
@@ -160,21 +153,11 @@
             this.cbxHocKy.FormattingEnabled = true;
             this.cbxHocKy.Items.AddRange(new object[] {
             "Môn"});
-            this.cbxHocKy.Location = new System.Drawing.Point(754, 13);
+            this.cbxHocKy.Location = new System.Drawing.Point(754, 20);
             this.cbxHocKy.Name = "cbxHocKy";
             this.cbxHocKy.Size = new System.Drawing.Size(150, 33);
             this.cbxHocKy.TabIndex = 5;
             this.cbxHocKy.SelectedIndexChanged += new System.EventHandler(this.cbxHocKy_SelectedIndexChanged);
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Sửa";
-            this.columnHeader12.Width = 80;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Xóa";
-            this.columnHeader5.Width = 80;
             // 
             // columnHeader4
             // 
@@ -199,7 +182,7 @@
             // bthThemChuongTrinh
             // 
             this.bthThemChuongTrinh.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.bthThemChuongTrinh.Location = new System.Drawing.Point(1008, 17);
+            this.bthThemChuongTrinh.Location = new System.Drawing.Point(1008, 21);
             this.bthThemChuongTrinh.Name = "bthThemChuongTrinh";
             this.bthThemChuongTrinh.Size = new System.Drawing.Size(78, 36);
             this.bthThemChuongTrinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -223,7 +206,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 17);
+            this.label1.Location = new System.Drawing.Point(19, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 32);
             this.label1.TabIndex = 0;
@@ -231,6 +214,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.bthThemChuongTrinh);
             this.panel1.Controls.Add(this.cbxKhoaMonHoc);
@@ -242,14 +226,12 @@
             // 
             // lsvChuongTrinh
             // 
-            this.lsvChuongTrinh.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.lsvChuongTrinh.BackColor = System.Drawing.Color.Gainsboro;
             this.lsvChuongTrinh.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader12});
+            this.columnHeader4});
             this.lsvChuongTrinh.FullRowSelect = true;
             this.lsvChuongTrinh.GridLines = true;
             this.lsvChuongTrinh.HideSelection = false;
@@ -284,21 +266,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ListView lsvChuongTrinhMonHoc;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.PictureBox btnThemCTMonHoc;
         private System.Windows.Forms.ComboBox cbxTenChuongTrinh;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox cbxHocKy;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -308,5 +285,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView lsvChuongTrinh;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

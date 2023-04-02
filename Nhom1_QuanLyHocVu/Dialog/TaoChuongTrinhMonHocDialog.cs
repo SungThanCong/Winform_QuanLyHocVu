@@ -20,18 +20,20 @@ namespace Nhom1_QuanLyHocVu.Dialog
             RenderMaMonHoc();
         }
 
-        public TaoChuongTrinhMonHocDialog(string TenKhoa, string MaChuongTrinh, string TenChuongTrinh, string HocKi)
+        public TaoChuongTrinhMonHocDialog(string MaChuongTrinh, string HocKi)
         {
             InitializeComponent();
-            txtKhoa.Text = TenKhoa;
-            txtMaChuongTrinh.Text = MaChuongTrinh;
-            txtTenChuongTrinh.Text = TenChuongTrinh;
+            cbxMaChuongTrinh.Text = MaChuongTrinh;
             txtHocKi.Text = HocKi;
 
-            txtKhoa.ReadOnly = true;
-            txtMaChuongTrinh.ReadOnly = true;
-            txtTenChuongTrinh.ReadOnly = true;
-            txtHocKi.ReadOnly = true;
+            RenderMaMonHoc();
+        }
+        public TaoChuongTrinhMonHocDialog(string MaChuongTrinh,string MaMonHoc, string HocKi)
+        {
+            InitializeComponent();
+            cbxMaChuongTrinh.Text = MaChuongTrinh;
+            cbxMaMonHoc.Text = MaMonHoc;
+            txtHocKi.Text = HocKi;
 
             RenderMaMonHoc();
         }
@@ -56,6 +58,23 @@ namespace Nhom1_QuanLyHocVu.Dialog
             cbxMaMonHoc.ValueMember = "MaMonHoc";
             cbxMaMonHoc.DisplayMember = "TenMonHoc";
             cbxMaMonHoc.DataSource = entities.MONHOCs.Select(x => new {x.MaMonHoc, x.TenMonHoc}).ToList();
+
+            cbxMaChuongTrinh.DataSource = entities.CHUONGTRINHs.Select(x => x.MaChuongTrinh).ToList();
+        }
+
+        private void cbxMaChuongTrinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtTenChuongTrinh.Text = entities.CHUONGTRINHs.Find(cbxMaChuongTrinh.SelectedValue.ToString()).TenChuongTrinh;
+        }
+
+        public void SetChuongTrinhEnable(bool value)
+        {
+            cbxMaChuongTrinh.Enabled = value;
+        }
+
+        public void SetMonHocEnable(bool value)
+        {
+            cbxMaMonHoc.Enabled = value;
         }
     }
 }

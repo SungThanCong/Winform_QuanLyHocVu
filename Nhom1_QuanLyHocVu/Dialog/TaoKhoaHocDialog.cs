@@ -21,15 +21,20 @@ namespace Nhom1_QuanLyHocVu.Dialog
             RenderChuongTrinh();
         }
 
-        public TaoKhoaHocDialog(string TenKhoa, string MaKhoaHoc, string TenKhoaHoc)
+
+        public TaoKhoaHocDialog(string MaKhoaHoc, string TenKhoaHoc, string ChuongTrinh, string NamBatDau,string NamKetThuc)
         {
             InitializeComponent();
 
-            txtKhoa.Text = TenKhoa;
+            RenderChuongTrinh();
+
+
             txtMaKhoaHoc.Text = MaKhoaHoc;
             txtTenKhoaHoc.Text = TenKhoaHoc;
+            cbxChuongTrinh.Text = ChuongTrinh;
+            txtNamBatDau.Text = NamBatDau;
+            txtNamKetThuc.Text = NamKetThuc;
 
-            RenderChuongTrinh();
         }
 
         private void RenderChuongTrinh()
@@ -41,7 +46,14 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if(txtTenKhoaHoc.Text.Length >0 && txtMaKhoaHoc.Text.Length > 0 && txtNamBatDau.Text.Length >0 && txtNamKetThuc.Text.Length >0)
+            {
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Lỗi");
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -72,6 +84,22 @@ namespace Nhom1_QuanLyHocVu.Dialog
         public string GetMaChuongTrinh()
         {
             return cbxChuongTrinh.SelectedValue.ToString();
+        }
+
+        public void SetMaKhoaHocEnable(bool value)
+        {
+            txtMaKhoaHoc.ReadOnly = !value;
+            if(value == false)
+            {
+                txtMaKhoaHoc.BackColor = Color.LightGray;
+            }
+        }
+
+        private void cbxChuongTrinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CHUONGTRINH ct = entities.CHUONGTRINHs.Find(cbxChuongTrinh.SelectedValue.ToString());
+
+            txtKhoa.Text = ct.KHOA.TenKhoa;
         }
     }
 }

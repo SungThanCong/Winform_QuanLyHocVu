@@ -56,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(55, 95);
+            this.label2.Location = new System.Drawing.Point(56, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(55, 172);
+            this.label3.Location = new System.Drawing.Point(56, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 3;
@@ -77,7 +77,7 @@
             this.txtGiaoVien.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtGiaoVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaoVien.FormattingEnabled = true;
-            this.txtGiaoVien.Location = new System.Drawing.Point(58, 118);
+            this.txtGiaoVien.Location = new System.Drawing.Point(58, 195);
             this.txtGiaoVien.Name = "txtGiaoVien";
             this.txtGiaoVien.Size = new System.Drawing.Size(425, 28);
             this.txtGiaoVien.TabIndex = 4;
@@ -88,7 +88,7 @@
             this.txtMonHoc.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMonHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonHoc.FormattingEnabled = true;
-            this.txtMonHoc.Location = new System.Drawing.Point(58, 195);
+            this.txtMonHoc.Location = new System.Drawing.Point(58, 122);
             this.txtMonHoc.Name = "txtMonHoc";
             this.txtMonHoc.Size = new System.Drawing.Size(425, 28);
             this.txtMonHoc.TabIndex = 5;

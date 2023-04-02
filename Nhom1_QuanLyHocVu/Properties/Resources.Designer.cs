@@ -113,6 +113,16 @@ namespace Nhom1_QuanLyHocVu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap note_pencil {
+            get {
+                object obj = ResourceManager.GetObject("note-pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Smiley_11 {
             get {
                 object obj = ResourceManager.GetObject("Smiley 11", resourceCulture);

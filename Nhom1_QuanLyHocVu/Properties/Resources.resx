@@ -133,6 +133,9 @@
   <data name="button them" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\button them.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btn-huy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\btn-huy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Smiley 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Smiley 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,7 +145,7 @@
   <data name="Smiley 9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Smiley 9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn-huy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\btn-huy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="note-pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\note-pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
