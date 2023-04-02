@@ -38,6 +38,8 @@ namespace Nhom1_QuanLyHocVu.Dialog
             RenderMaMonHoc();
         }
 
+     
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
@@ -51,6 +53,11 @@ namespace Nhom1_QuanLyHocVu.Dialog
         public string GetMaMonHoc()
         {
             return cbxMaMonHoc.SelectedValue.ToString();
+        }
+
+        public string GetMaChuongTrinh()
+        {
+            return cbxMaChuongTrinh.SelectedValue.ToString();
         }
 
         private void RenderMaMonHoc()

@@ -219,5 +219,43 @@ namespace Nhom1_QuanLyHocVu.Layout
             }
 
         }
+
+        private void btnXoaKhoaHoc_Click(object sender, EventArgs e)
+        {
+            if (lsvKhoaHoc.SelectedItems.Count > 0) // kiểm tra xem có dòng được chọn hay không
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                {
+                    string maKhoaHoc = lsvKhoaHoc.SelectedItems[0].SubItems[0].Text;
+                    var khoaHoc = entities.KHOAHOCs.Find(maKhoaHoc);
+
+                    entities.KHOAHOCs.Remove(khoaHoc);
+                    try
+                    {
+                        int result = entities.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ReloadKhoaHoc(cbxKhoaKhoaHoc.SelectedValue.ToString());
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dữ liệu không đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Dữ liệu đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng dữ liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

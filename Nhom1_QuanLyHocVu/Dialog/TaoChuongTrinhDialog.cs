@@ -30,6 +30,7 @@ namespace Nhom1_QuanLyHocVu.Dialog
             txtTenKhoa.DataSource = entities.KHOAs.Select(x => new { x.TenKhoa, x.MaKhoa }).ToList();
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 

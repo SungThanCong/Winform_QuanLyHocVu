@@ -48,18 +48,20 @@
             this.cbxMaMonHoc.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbxMaMonHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMaMonHoc.FormattingEnabled = true;
-            this.cbxMaMonHoc.Location = new System.Drawing.Point(68, 202);
+            this.cbxMaMonHoc.Location = new System.Drawing.Point(51, 164);
+            this.cbxMaMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxMaMonHoc.Name = "cbxMaMonHoc";
-            this.cbxMaMonHoc.Size = new System.Drawing.Size(679, 33);
+            this.cbxMaMonHoc.Size = new System.Drawing.Size(510, 28);
             this.cbxMaMonHoc.TabIndex = 20;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(63, 174);
+            this.label4.Location = new System.Drawing.Point(47, 141);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 25);
+            this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 17;
             this.label4.Text = "Môn học";
             // 
@@ -67,19 +69,21 @@
             // 
             this.txtTenChuongTrinh.BackColor = System.Drawing.Color.Gainsboro;
             this.txtTenChuongTrinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenChuongTrinh.Location = new System.Drawing.Point(251, 124);
+            this.txtTenChuongTrinh.Location = new System.Drawing.Point(188, 101);
+            this.txtTenChuongTrinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTenChuongTrinh.Name = "txtTenChuongTrinh";
             this.txtTenChuongTrinh.ReadOnly = true;
-            this.txtTenChuongTrinh.Size = new System.Drawing.Size(496, 30);
+            this.txtTenChuongTrinh.Size = new System.Drawing.Size(373, 26);
             this.txtTenChuongTrinh.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(246, 96);
+            this.label3.Location = new System.Drawing.Point(184, 78);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 25);
+            this.label3.Size = new System.Drawing.Size(128, 20);
             this.label3.TabIndex = 15;
             this.label3.Text = "Tên chương trình";
             // 
@@ -87,9 +91,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 96);
+            this.label2.Location = new System.Drawing.Point(47, 78);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 25);
+            this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "Chương trình";
             // 
@@ -97,18 +102,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 22);
+            this.label1.Location = new System.Drawing.Point(44, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(434, 46);
+            this.label1.Size = new System.Drawing.Size(355, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "Chương trình môn học";
             // 
             // btnThem
             // 
             this.btnThem.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
-            this.btnThem.Location = new System.Drawing.Point(658, 323);
+            this.btnThem.Location = new System.Drawing.Point(494, 262);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 42);
+            this.btnThem.Size = new System.Drawing.Size(67, 34);
             this.btnThem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnThem.TabIndex = 19;
             this.btnThem.TabStop = false;
@@ -117,9 +124,10 @@
             // btnHuy
             // 
             this.btnHuy.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.btnHuy.Location = new System.Drawing.Point(570, 323);
+            this.btnHuy.Location = new System.Drawing.Point(428, 262);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(66, 42);
+            this.btnHuy.Size = new System.Drawing.Size(50, 34);
             this.btnHuy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHuy.TabIndex = 18;
             this.btnHuy.TabStop = false;
@@ -129,9 +137,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(63, 258);
+            this.label5.Location = new System.Drawing.Point(47, 210);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 25);
+            this.label5.Size = new System.Drawing.Size(53, 20);
             this.label5.TabIndex = 23;
             this.label5.Text = "Học kì";
             // 
@@ -139,9 +148,10 @@
             // 
             this.txtHocKi.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtHocKi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHocKi.Location = new System.Drawing.Point(67, 286);
+            this.txtHocKi.Location = new System.Drawing.Point(50, 232);
+            this.txtHocKi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHocKi.Name = "txtHocKi";
-            this.txtHocKi.Size = new System.Drawing.Size(148, 30);
+            this.txtHocKi.Size = new System.Drawing.Size(112, 26);
             this.txtHocKi.TabIndex = 24;
             // 
             // cbxMaChuongTrinh
@@ -149,17 +159,18 @@
             this.cbxMaChuongTrinh.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbxMaChuongTrinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMaChuongTrinh.FormattingEnabled = true;
-            this.cbxMaChuongTrinh.Location = new System.Drawing.Point(68, 121);
+            this.cbxMaChuongTrinh.Location = new System.Drawing.Point(51, 98);
+            this.cbxMaChuongTrinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxMaChuongTrinh.Name = "cbxMaChuongTrinh";
-            this.cbxMaChuongTrinh.Size = new System.Drawing.Size(147, 33);
+            this.cbxMaChuongTrinh.Size = new System.Drawing.Size(111, 28);
             this.cbxMaChuongTrinh.TabIndex = 25;
             this.cbxMaChuongTrinh.SelectedIndexChanged += new System.EventHandler(this.cbxMaChuongTrinh_SelectedIndexChanged);
             // 
             // TaoChuongTrinhMonHocDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 416);
+            this.ClientSize = new System.Drawing.Size(625, 338);
             this.Controls.Add(this.cbxMaChuongTrinh);
             this.Controls.Add(this.txtHocKi);
             this.Controls.Add(this.label5);
@@ -171,6 +182,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TaoChuongTrinhMonHocDialog";
             this.Text = "TaoChuongTrinhMonHocDialog";
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();

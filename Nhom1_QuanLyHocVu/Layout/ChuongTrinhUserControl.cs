@@ -90,17 +90,22 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void LoadChuongTrinhListView(string maKhoa)
         {
             lsvChuongTrinh.Items.Clear();
+         
             var chuongTrinhs = entities.CHUONGTRINHs.Where(x => x.MaKhoa == maKhoa).ToList();
             foreach (var chuongTrinh in chuongTrinhs)
             {
+
                 ListViewItem item = new ListViewItem(chuongTrinh.MaChuongTrinh);
                 item.SubItems.Add(chuongTrinh.TenChuongTrinh);
+                item.SubItems.Add(chuongTrinh.MaBacHoc);
+
                 item.SubItems.Add(chuongTrinh.KHOA.TenKhoa);
                 item.SubItems.Add(chuongTrinh.GIAOVIEN.HoTen);
-                item.SubItems.Add("Xóa");
-                item.SubItems.Add("Sửa");
+
                 lsvChuongTrinh.Items.Add(item);
             }
+        
+         
         }
 
         private void LoadChuongTrinhMonHocListView(string maChuongTrinh, int hocKy)
@@ -114,8 +119,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                 item.SubItems.Add(CTMonHoc.MONHOC.MaMonHoc);
                 item.SubItems.Add(CTMonHoc.MONHOC.TenMonHoc);
                 item.SubItems.Add(CTMonHoc.HocKy.Value +"");
-                item.SubItems.Add("Xóa");
-                item.SubItems.Add("Sửa");
+
                 lsvChuongTrinhMonHoc.Items.Add(item);
             }
         }
@@ -135,17 +139,17 @@ namespace Nhom1_QuanLyHocVu.Layout
                     {
                         CHUONGTRINH chuongTrinh = new CHUONGTRINH();
                         chuongTrinh.MaKhoa = cbxKhoaMonHoc.SelectedValue.ToString();
+                        chuongTrinh.MaGiaoVien_GiamDocCT = dialog.cbxGiamDocChuongTrinh.SelectedValue.ToString();
                         chuongTrinh.MaChuongTrinh = dialog.txtMaChuongTrinh.Text;
                         chuongTrinh.TenChuongTrinh = dialog.txtTenChuongTrinh.Text;
-                        chuongTrinh.MaBacHoc = "DH";
-                        chuongTrinh.MaGiaoVien_GiamDocCT = dialog.cbxGiamDocChuongTrinh.SelectedValue.ToString();
+                        chuongTrinh.MaBacHoc = dialog.txtBacHoc.Text;
 
                         entities.CHUONGTRINHs.Add(chuongTrinh);
                         int result = entities.SaveChanges();
                         if (result > 0)
                         {
                             MessageBox.Show("Thêm chương trình thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadChuongTrinhListView(cbxKhoaMonHoc.SelectedValue.ToString());
+                            LoadChuongTrinhListView(chuongTrinh.MaKhoa);
                         }
                         else
                         {
@@ -169,7 +173,8 @@ namespace Nhom1_QuanLyHocVu.Layout
             dialog.txtTenKhoa.Enabled = true;
             dialog.txtMaChuongTrinh.Text = lsvChuongTrinh.SelectedItems[0].SubItems[0].Text;
             dialog.txtTenChuongTrinh.Text = lsvChuongTrinh.SelectedItems[0].SubItems[1].Text;
-            dialog.cbxGiamDocChuongTrinh.Text = lsvChuongTrinh.SelectedItems[0].SubItems[3].Text;
+            dialog.cbxGiamDocChuongTrinh.Text = lsvChuongTrinh.SelectedItems[0].SubItems[4].Text;
+            dialog.txtBacHoc.Text = lsvChuongTrinh.SelectedItems[0].SubItems[2].Text;
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -179,7 +184,7 @@ namespace Nhom1_QuanLyHocVu.Layout
 
                     chuongTrinh.MaKhoa = dialog.txtTenKhoa.SelectedValue.ToString();
                     chuongTrinh.TenChuongTrinh = dialog.txtTenChuongTrinh.Text;
-                    chuongTrinh.MaBacHoc = "DH";
+                    chuongTrinh.MaBacHoc = dialog.txtBacHoc.Text;
                     chuongTrinh.MaGiaoVien_GiamDocCT = dialog.cbxGiamDocChuongTrinh.SelectedValue.ToString();
 
                     int result = entities.SaveChanges();
@@ -226,21 +231,27 @@ namespace Nhom1_QuanLyHocVu.Layout
                     {
                         CHUONGTRINHMONHOC CTMH = new CHUONGTRINHMONHOC();
                         CTMH.MaMonHoc = dialog.GetMaMonHoc();
-                        CTMH.MaChuongTrinh = chuongTrinh.MaChuongTrinh;
+                        CTMH.MaChuongTrinh = dialog.GetMaChuongTrinh();
                         CTMH.HocKy = int.Parse(cbxHocKy.SelectedValue.ToString());
                       
-                        entities.CHUONGTRINHMONHOCs.Add(CTMH);
-                        int result = entities.SaveChanges();
-                        if (result > 0)
+                      
+                        using(var db = new QuanLyHocVuEntities())
                         {
-                            MessageBox.Show("Thêm chương trình - môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadChuongTrinhMonHocListView(cbxTenChuongTrinh.SelectedValue.ToString(), int.Parse(cbxHocKy.SelectedValue.ToString()));
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm chương trình - môn học không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            db.CHUONGTRINHMONHOCs.Add(CTMH);
+                            int result = db.SaveChanges();
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Thêm chương trình - môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadChuongTrinhMonHocListView(maCT, CTMH.HocKy.Value);
 
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm chương trình - môn học không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                            }
                         }
+                       
                     }
                     catch (Exception ex)
                     {
@@ -291,6 +302,85 @@ namespace Nhom1_QuanLyHocVu.Layout
                     MessageBox.Show("Error: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+            }
+        }
+
+        private void btnXoaChuongTrinh_Click(object sender, EventArgs e)
+        {
+            if (lsvChuongTrinh.SelectedItems.Count > 0) // kiểm tra xem có dòng được chọn hay không
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                {
+                    string maCT = lsvChuongTrinh.SelectedItems[0].SubItems[0].Text;
+                    var chuongTrinh = entities.CHUONGTRINHs.Find(maCT);
+
+                    entities.CHUONGTRINHs.Remove(chuongTrinh);
+                    try
+                    {
+                        int result = entities.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadChuongTrinhListView(cbxKhoaMonHoc.SelectedValue.ToString());
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dữ liệu không đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Dữ liệu đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng dữ liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnXoaChuongTrinhMonHoc_Click(object sender, EventArgs e)
+        {
+            if (lsvChuongTrinhMonHoc.SelectedItems.Count > 0) // kiểm tra xem có dòng được chọn hay không
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                {
+                    string maCT = lsvChuongTrinhMonHoc.SelectedItems[0].SubItems[0].Text;
+                    string maMH = lsvChuongTrinhMonHoc.SelectedItems[0].SubItems[2].Text;
+
+                    var chuongTrinh = entities.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == maCT && x.MaMonHoc == maMH).FirstOrDefault();
+
+                    if(chuongTrinh != null)
+                        entities.CHUONGTRINHMONHOCs.Remove(chuongTrinh);
+                    try
+                    {
+                        int result = entities.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadChuongTrinhMonHocListView(cbxTenChuongTrinh.SelectedValue.ToString(),int.Parse(cbxHocKy.SelectedValue.ToString()));
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dữ liệu không đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Dữ liệu đang được sử dụng. Error:"+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng dữ liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
