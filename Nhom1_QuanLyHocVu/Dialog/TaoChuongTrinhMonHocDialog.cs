@@ -1,4 +1,5 @@
-﻿using Nhom1_QuanLyHocVu.Model;
+﻿using Nhom1_QuanLyHocVu.Common;
+using Nhom1_QuanLyHocVu.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,7 +65,8 @@ namespace Nhom1_QuanLyHocVu.Dialog
         {
             cbxMaMonHoc.ValueMember = "MaMonHoc";
             cbxMaMonHoc.DisplayMember = "TenMonHoc";
-            cbxMaMonHoc.DataSource = entities.MONHOCs.Select(x => new {x.MaMonHoc, x.TenMonHoc}).ToList();
+            cbxMaMonHoc.DataSource = entities.MONHOCs.Select(x => new {x.MaMonHoc, x.TenMonHoc}).ToList()
+                 .Where(x => RangBuocDuLieu.RangBuocMonHoc(x.MaMonHoc) == true).ToList();
 
             cbxMaChuongTrinh.DataSource = entities.CHUONGTRINHs.Select(x => x.MaChuongTrinh).ToList();
         }

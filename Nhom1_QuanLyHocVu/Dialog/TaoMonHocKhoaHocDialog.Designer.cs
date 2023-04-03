@@ -60,10 +60,10 @@
             // 
             // btnThem
             // 
-            this.btnThem.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnThem.Location = new System.Drawing.Point(459, 509);
+            this.btnThem.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
+            this.btnThem.Location = new System.Drawing.Point(461, 509);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 54);
+            this.btnThem.Size = new System.Drawing.Size(89, 40);
             this.btnThem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnThem.TabIndex = 46;
             this.btnThem.TabStop = false;
@@ -72,9 +72,9 @@
             // btnHuy
             // 
             this.btnHuy.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.btnHuy.Location = new System.Drawing.Point(371, 509);
+            this.btnHuy.Location = new System.Drawing.Point(393, 509);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(59, 54);
+            this.btnHuy.Size = new System.Drawing.Size(62, 40);
             this.btnHuy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHuy.TabIndex = 45;
             this.btnHuy.TabStop = false;

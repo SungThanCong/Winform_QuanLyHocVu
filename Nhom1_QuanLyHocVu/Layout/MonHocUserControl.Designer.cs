@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXoaMonHoc = new System.Windows.Forms.PictureBox();
+            this.bthThemMonHoc = new System.Windows.Forms.PictureBox();
             this.cbxKhoaMonHoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lsvMonHoc = new System.Windows.Forms.ListView();
@@ -39,6 +41,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnXoaDamNhanMon = new System.Windows.Forms.PictureBox();
+            this.btnDamNhanMon = new System.Windows.Forms.PictureBox();
             this.cbxMonDamNhanMon = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lsvDamNhanMon = new System.Windows.Forms.ListView();
@@ -49,16 +53,12 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnXoaDamNhanMon = new System.Windows.Forms.PictureBox();
-            this.btnDamNhanMon = new System.Windows.Forms.PictureBox();
-            this.btnXoaMonHoc = new System.Windows.Forms.PictureBox();
-            this.bthThemMonHoc = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaDamNhanMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDamNhanMon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +72,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1148, 82);
             this.panel1.TabIndex = 0;
+            // 
+            // btnXoaMonHoc
+            // 
+            this.btnXoaMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaMonHoc.Location = new System.Drawing.Point(1069, 20);
+            this.btnXoaMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaMonHoc.Name = "btnXoaMonHoc";
+            this.btnXoaMonHoc.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaMonHoc.TabIndex = 5;
+            this.btnXoaMonHoc.TabStop = false;
+            this.btnXoaMonHoc.Click += new System.EventHandler(this.btnXoaMonHoc_Click);
+            // 
+            // bthThemMonHoc
+            // 
+            this.bthThemMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
+            this.bthThemMonHoc.Location = new System.Drawing.Point(962, 20);
+            this.bthThemMonHoc.Name = "bthThemMonHoc";
+            this.bthThemMonHoc.Size = new System.Drawing.Size(78, 37);
+            this.bthThemMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bthThemMonHoc.TabIndex = 3;
+            this.bthThemMonHoc.TabStop = false;
+            this.bthThemMonHoc.Click += new System.EventHandler(this.bthThemMonHoc_Click);
             // 
             // cbxKhoaMonHoc
             // 
@@ -160,6 +183,29 @@
             this.panel2.Size = new System.Drawing.Size(1148, 74);
             this.panel2.TabIndex = 3;
             // 
+            // btnXoaDamNhanMon
+            // 
+            this.btnXoaDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaDamNhanMon.Location = new System.Drawing.Point(1070, 18);
+            this.btnXoaDamNhanMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaDamNhanMon.Name = "btnXoaDamNhanMon";
+            this.btnXoaDamNhanMon.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaDamNhanMon.TabIndex = 6;
+            this.btnXoaDamNhanMon.TabStop = false;
+            this.btnXoaDamNhanMon.Click += new System.EventHandler(this.btnXoaDamNhanMon_Click);
+            // 
+            // btnDamNhanMon
+            // 
+            this.btnDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
+            this.btnDamNhanMon.Location = new System.Drawing.Point(963, 17);
+            this.btnDamNhanMon.Name = "btnDamNhanMon";
+            this.btnDamNhanMon.Size = new System.Drawing.Size(78, 38);
+            this.btnDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnDamNhanMon.TabIndex = 4;
+            this.btnDamNhanMon.TabStop = false;
+            this.btnDamNhanMon.Click += new System.EventHandler(this.btnDamNhanMon_Click);
+            // 
             // cbxMonDamNhanMon
             // 
             this.cbxMonDamNhanMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,52 +283,6 @@
             // 
             this.columnHeader8.Width = 0;
             // 
-            // btnXoaDamNhanMon
-            // 
-            this.btnXoaDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
-            this.btnXoaDamNhanMon.Location = new System.Drawing.Point(1070, 18);
-            this.btnXoaDamNhanMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXoaDamNhanMon.Name = "btnXoaDamNhanMon";
-            this.btnXoaDamNhanMon.Size = new System.Drawing.Size(35, 37);
-            this.btnXoaDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnXoaDamNhanMon.TabIndex = 6;
-            this.btnXoaDamNhanMon.TabStop = false;
-            this.btnXoaDamNhanMon.Click += new System.EventHandler(this.btnXoaDamNhanMon_Click);
-            // 
-            // btnDamNhanMon
-            // 
-            this.btnDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnDamNhanMon.Location = new System.Drawing.Point(963, 18);
-            this.btnDamNhanMon.Name = "btnDamNhanMon";
-            this.btnDamNhanMon.Size = new System.Drawing.Size(78, 36);
-            this.btnDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnDamNhanMon.TabIndex = 4;
-            this.btnDamNhanMon.TabStop = false;
-            this.btnDamNhanMon.Click += new System.EventHandler(this.btnDamNhanMon_Click);
-            // 
-            // btnXoaMonHoc
-            // 
-            this.btnXoaMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
-            this.btnXoaMonHoc.Location = new System.Drawing.Point(1069, 20);
-            this.btnXoaMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXoaMonHoc.Name = "btnXoaMonHoc";
-            this.btnXoaMonHoc.Size = new System.Drawing.Size(35, 37);
-            this.btnXoaMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnXoaMonHoc.TabIndex = 5;
-            this.btnXoaMonHoc.TabStop = false;
-            this.btnXoaMonHoc.Click += new System.EventHandler(this.btnXoaMonHoc_Click);
-            // 
-            // bthThemMonHoc
-            // 
-            this.bthThemMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.bthThemMonHoc.Location = new System.Drawing.Point(962, 21);
-            this.bthThemMonHoc.Name = "bthThemMonHoc";
-            this.bthThemMonHoc.Size = new System.Drawing.Size(78, 36);
-            this.bthThemMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.bthThemMonHoc.TabIndex = 3;
-            this.bthThemMonHoc.TabStop = false;
-            this.bthThemMonHoc.Click += new System.EventHandler(this.bthThemMonHoc_Click);
-            // 
             // MonHocUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -295,12 +295,12 @@
             this.Size = new System.Drawing.Size(1204, 673);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaDamNhanMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDamNhanMon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).EndInit();
             this.ResumeLayout(false);
 
         }

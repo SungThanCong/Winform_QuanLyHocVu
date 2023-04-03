@@ -25,7 +25,7 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void LoadData()
         {
             var dsKhoa = entities.KHOAs.ToList();
-            var dsChuongTrinhMonHoc = entities.CHUONGTRINHMONHOCs.ToList();
+            var dsChuongTrinhMonHoc = entities.CHUONGTRINHs.ToList();
 
 
             // load data cho combobox
@@ -35,7 +35,7 @@ namespace Nhom1_QuanLyHocVu.Layout
 
             cbxTenChuongTrinh.ValueMember = "MaChuongTrinh";
             cbxTenChuongTrinh.DisplayMember = "TenChuongTrinh";
-            cbxTenChuongTrinh.DataSource = dsChuongTrinhMonHoc.Select(x => new {x.MaChuongTrinh, x.CHUONGTRINH.TenChuongTrinh}).Distinct().ToList();
+            cbxTenChuongTrinh.DataSource = dsChuongTrinhMonHoc.Select(x => new {x.MaChuongTrinh, x.TenChuongTrinh}).Distinct().ToList();
          
 
 

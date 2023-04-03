@@ -49,7 +49,9 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
             cbxTenMonHoc.ValueMember = "MaMonHoc";
             cbxTenMonHoc.DisplayMember = "TenMonHoc";
-            cbxTenMonHoc.DataSource = entities.MONHOCs.Select(x => new { x.MaMonHoc, x.TenMonHoc }).ToList();
+            cbxTenMonHoc.DataSource = entities.MONHOCs.
+                Select(x => new { x.MaMonHoc, x.TenMonHoc }).ToList().
+                Where(x => RangBuocDuLieu.RangBuocMonHoc(x.MaMonHoc) == true).ToList();
 
             cbxGiangVien.ValueMember = "MaGiaoVien";
             cbxGiangVien.DisplayMember = "HoTen";
