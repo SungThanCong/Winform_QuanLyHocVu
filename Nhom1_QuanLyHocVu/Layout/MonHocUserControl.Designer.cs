@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bthThemMonHoc = new System.Windows.Forms.PictureBox();
             this.cbxKhoaMonHoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lsvMonHoc = new System.Windows.Forms.ListView();
@@ -40,25 +39,32 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDamNhanMon = new System.Windows.Forms.PictureBox();
             this.cbxMonDamNhanMon = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lsvDamNhanMon = new System.Windows.Forms.ListView();
+            this.colMonHocDNM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colChuongTrinhDNM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colGiaoVienDNM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnXoaDamNhanMon = new System.Windows.Forms.PictureBox();
+            this.btnDamNhanMon = new System.Windows.Forms.PictureBox();
+            this.btnXoaMonHoc = new System.Windows.Forms.PictureBox();
+            this.bthThemMonHoc = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaDamNhanMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDamNhanMon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnXoaMonHoc);
             this.panel1.Controls.Add(this.bthThemMonHoc);
             this.panel1.Controls.Add(this.cbxKhoaMonHoc);
             this.panel1.Controls.Add(this.label1);
@@ -66,16 +72,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1148, 82);
             this.panel1.TabIndex = 0;
-            // 
-            // bthThemMonHoc
-            // 
-            this.bthThemMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.bthThemMonHoc.Location = new System.Drawing.Point(1017, 21);
-            this.bthThemMonHoc.Name = "bthThemMonHoc";
-            this.bthThemMonHoc.Size = new System.Drawing.Size(78, 36);
-            this.bthThemMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.bthThemMonHoc.TabIndex = 3;
-            this.bthThemMonHoc.TabStop = false;
             // 
             // cbxKhoaMonHoc
             // 
@@ -120,6 +116,7 @@
             this.lsvMonHoc.UseCompatibleStateImageBehavior = false;
             this.lsvMonHoc.View = System.Windows.Forms.View.Details;
             this.lsvMonHoc.SelectedIndexChanged += new System.EventHandler(this.lsvMonHoc_SelectedIndexChanged);
+            this.lsvMonHoc.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvMonHoc_MouseDoubleClick);
             // 
             // columnHeader1
             // 
@@ -154,6 +151,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnXoaDamNhanMon);
             this.panel2.Controls.Add(this.btnDamNhanMon);
             this.panel2.Controls.Add(this.cbxMonDamNhanMon);
             this.panel2.Controls.Add(this.label2);
@@ -161,17 +159,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1148, 74);
             this.panel2.TabIndex = 3;
-            // 
-            // btnDamNhanMon
-            // 
-            this.btnDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnDamNhanMon.Location = new System.Drawing.Point(1018, 17);
-            this.btnDamNhanMon.Name = "btnDamNhanMon";
-            this.btnDamNhanMon.Size = new System.Drawing.Size(78, 36);
-            this.btnDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnDamNhanMon.TabIndex = 4;
-            this.btnDamNhanMon.TabStop = false;
-            this.btnDamNhanMon.Click += new System.EventHandler(this.btnDamNhanMon_Click);
             // 
             // cbxMonDamNhanMon
             // 
@@ -199,12 +186,13 @@
             // 
             this.lsvDamNhanMon.BackColor = System.Drawing.Color.Gainsboro;
             this.lsvDamNhanMon.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colMonHocDNM,
+            this.colChuongTrinhDNM,
+            this.colGiaoVienDNM,
+            this.columnHeader9,
             this.columnHeader6,
             this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11});
+            this.columnHeader8});
             this.lsvDamNhanMon.FullRowSelect = true;
             this.lsvDamNhanMon.GridLines = true;
             this.lsvDamNhanMon.HideSelection = false;
@@ -217,35 +205,83 @@
             this.lsvDamNhanMon.View = System.Windows.Forms.View.Details;
             this.lsvDamNhanMon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvDamNhanMon_MouseDoubleClick);
             // 
-            // columnHeader6
+            // colMonHocDNM
             // 
-            this.columnHeader6.Text = "Môn học";
-            this.columnHeader6.Width = 150;
+            this.colMonHocDNM.Text = "Môn học";
+            this.colMonHocDNM.Width = 200;
             // 
-            // columnHeader7
+            // colChuongTrinhDNM
             // 
-            this.columnHeader7.Text = "Chương trình";
-            this.columnHeader7.Width = 300;
+            this.colChuongTrinhDNM.Text = "Chương trình";
+            this.colChuongTrinhDNM.Width = 300;
             // 
-            // columnHeader8
+            // colGiaoVienDNM
             // 
-            this.columnHeader8.Text = "Giáo viên";
-            this.columnHeader8.Width = 250;
+            this.colGiaoVienDNM.Text = "Giáo viên";
+            this.colGiaoVienDNM.Width = 250;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Đảm nhận chính";
             this.columnHeader9.Width = 150;
             // 
-            // columnHeader10
+            // columnHeader6
             // 
-            this.columnHeader10.Text = "Xóa";
-            this.columnHeader10.Width = 80;
+            this.columnHeader6.Width = 0;
             // 
-            // columnHeader11
+            // columnHeader7
             // 
-            this.columnHeader11.Text = "Sửa";
-            this.columnHeader11.Width = 80;
+            this.columnHeader7.Width = 0;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Width = 0;
+            // 
+            // btnXoaDamNhanMon
+            // 
+            this.btnXoaDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaDamNhanMon.Location = new System.Drawing.Point(1070, 18);
+            this.btnXoaDamNhanMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaDamNhanMon.Name = "btnXoaDamNhanMon";
+            this.btnXoaDamNhanMon.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaDamNhanMon.TabIndex = 6;
+            this.btnXoaDamNhanMon.TabStop = false;
+            this.btnXoaDamNhanMon.Click += new System.EventHandler(this.btnXoaDamNhanMon_Click);
+            // 
+            // btnDamNhanMon
+            // 
+            this.btnDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
+            this.btnDamNhanMon.Location = new System.Drawing.Point(963, 18);
+            this.btnDamNhanMon.Name = "btnDamNhanMon";
+            this.btnDamNhanMon.Size = new System.Drawing.Size(78, 36);
+            this.btnDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnDamNhanMon.TabIndex = 4;
+            this.btnDamNhanMon.TabStop = false;
+            this.btnDamNhanMon.Click += new System.EventHandler(this.btnDamNhanMon_Click);
+            // 
+            // btnXoaMonHoc
+            // 
+            this.btnXoaMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaMonHoc.Location = new System.Drawing.Point(1069, 20);
+            this.btnXoaMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaMonHoc.Name = "btnXoaMonHoc";
+            this.btnXoaMonHoc.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaMonHoc.TabIndex = 5;
+            this.btnXoaMonHoc.TabStop = false;
+            this.btnXoaMonHoc.Click += new System.EventHandler(this.btnXoaMonHoc_Click);
+            // 
+            // bthThemMonHoc
+            // 
+            this.bthThemMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
+            this.bthThemMonHoc.Location = new System.Drawing.Point(962, 21);
+            this.bthThemMonHoc.Name = "bthThemMonHoc";
+            this.bthThemMonHoc.Size = new System.Drawing.Size(78, 36);
+            this.bthThemMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.bthThemMonHoc.TabIndex = 3;
+            this.bthThemMonHoc.TabStop = false;
+            this.bthThemMonHoc.Click += new System.EventHandler(this.bthThemMonHoc_Click);
             // 
             // MonHocUserControl
             // 
@@ -259,10 +295,12 @@
             this.Size = new System.Drawing.Size(1204, 673);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaDamNhanMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDamNhanMon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bthThemMonHoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -284,12 +322,15 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.PictureBox bthThemMonHoc;
         private System.Windows.Forms.PictureBox btnDamNhanMon;
+        private System.Windows.Forms.ColumnHeader colMonHocDNM;
+        private System.Windows.Forms.ColumnHeader colChuongTrinhDNM;
+        private System.Windows.Forms.ColumnHeader colGiaoVienDNM;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.PictureBox btnXoaMonHoc;
+        private System.Windows.Forms.PictureBox btnXoaDamNhanMon;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
     }
 }

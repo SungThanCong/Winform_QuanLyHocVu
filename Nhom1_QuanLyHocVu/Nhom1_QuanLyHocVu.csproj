@@ -97,6 +97,12 @@
     <Compile Include="Dialog\TaoKhoaHocDialog.Designer.cs">
       <DependentUpon>TaoKhoaHocDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\TaoMonHocDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TaoMonHocDialog.Designer.cs">
+      <DependentUpon>TaoMonHocDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\TaoMonHocKhoaHocDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\TaoKhoaHocDialog.resx">
       <DependentUpon>TaoKhoaHocDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TaoMonHocDialog.resx">
+      <DependentUpon>TaoMonHocDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\TaoMonHocKhoaHocDialog.resx">
       <DependentUpon>TaoMonHocKhoaHocDialog.cs</DependentUpon>

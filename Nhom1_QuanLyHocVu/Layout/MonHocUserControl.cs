@@ -41,6 +41,8 @@ namespace Nhom1_QuanLyHocVu.Layout
             ////load data ban đầu cho 2 listview
             //var selectedKhoa = dsKhoa.Count > 0 ? dsKhoa.ElementAt(0) : null;
             //var selectedMon = dsMon.Count > 0 ? dsMon.ElementAt(0) : null;
+
+            
             
         }
 
@@ -74,22 +76,26 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void LoadMonHocListView(string maKhoa)
         {
             lsvMonHoc.Items.Clear();
-            var monhocs = entities.MONHOCs.Where(x => x.MaKhoa == maKhoa).ToList();
-            foreach (var monhoc in monhocs)
+            using (var db = new QuanLyHocVuEntities())
             {
-                ListViewItem item = new ListViewItem(monhoc.MaMonHoc);
-                item.SubItems.Add(monhoc.TenMonHoc);
-                item.SubItems.Add(monhoc.KHOA.TenKhoa);
-                item.SubItems.Add(monhoc.SoTinChi.Value + "");
-                item.SubItems.Add("Xóa");
-                item.SubItems.Add("Sửa");
-                lsvMonHoc.Items.Add(item);
+                var monhocs = db.MONHOCs.Where(x => x.MaKhoa == maKhoa).ToList();
+                foreach (var monhoc in monhocs)
+                {
+                    ListViewItem item = new ListViewItem(monhoc.MaMonHoc);
+                    item.SubItems.Add(monhoc.TenMonHoc);
+                    item.SubItems.Add(monhoc.KHOA.TenKhoa);
+                    item.SubItems.Add(monhoc.SoTinChi.Value + "");
+
+                    lsvMonHoc.Items.Add(item);
+                }
             }
+            
         }
 
         private void LoadDamNhiemMonListView(string maMonHoc)
         {
             lsvDamNhanMon.Items.Clear();
+         
             var damNhiemMons = entities.DAMNHIEMMONs.Where(x => x.MaMonHoc == maMonHoc).ToList();
             foreach (var damNhiemMon in damNhiemMons)
             {
@@ -97,8 +103,9 @@ namespace Nhom1_QuanLyHocVu.Layout
                 item.SubItems.Add(damNhiemMon.CHUONGTRINH.TenChuongTrinh);
                 item.SubItems.Add(damNhiemMon.GIAOVIEN.HoTen);
                 item.SubItems.Add(damNhiemMon.CoLaDamNhiemChinh.Value + "");
-                item.SubItems.Add("Xóa");
-                item.SubItems.Add("Sửa");
+                item.SubItems.Add(damNhiemMon.MaMonHoc);
+                item.SubItems.Add(damNhiemMon.MaChuongTrinh);
+                item.SubItems.Add(damNhiemMon.MaGiaoVien);
                 lsvDamNhanMon.Items.Add(item);
             }
         }
@@ -129,7 +136,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                         if (result > 0)
                         {
                             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                            LoadDamNhiemMonListView(maMonHoc);
                         }
                         else
                         {
@@ -200,6 +207,168 @@ namespace Nhom1_QuanLyHocVu.Layout
                 {
                     MessageBox.Show("Error: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btnXoaDamNhanMon_Click(object sender, EventArgs e)
+        {
+            if (lsvDamNhanMon.SelectedItems.Count > 0) // kiểm tra xem có dòng được chọn hay không
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                {
+                    string maMon = lsvDamNhanMon.SelectedItems[0].SubItems[4].Text;
+                    string maCT = lsvDamNhanMon.SelectedItems[0].SubItems[5].Text;
+                    string maGV = lsvDamNhanMon.SelectedItems[0].SubItems[6].Text;
+                    
+                    var damNhanMon = entities.DAMNHIEMMONs.Where(x => x.MaMonHoc == maMon && x.MaChuongTrinh == maCT && x.MaGiaoVien == maGV).FirstOrDefault();
+
+                    if(damNhanMon != null)
+                        entities.DAMNHIEMMONs.Remove(damNhanMon);
+                    try
+                    {
+                        int result = entities.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDamNhiemMonListView(maMon);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dữ liệu đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Dữ liệu đang được sử dụng\nError: "+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng dữ liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void bthThemMonHoc_Click(object sender, EventArgs e)
+        {
+            TaoMonHocDialog dialog = new TaoMonHocDialog();
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                try { 
+                    using(var db = new QuanLyHocVuEntities())
+                    {
+                        MONHOC data = new MONHOC();
+                        data.MaKhoa = dialog.GetMaKhoa();
+                        data.MaMonHoc = dialog.GetMaMon();
+                        data.TenMonHoc = dialog.GetTenMonHoc();
+                        data.SoTinChi = int.Parse(dialog.GetSoTinChi());
+
+                        db.MONHOCs.Add(data);
+
+                        int result = db.SaveChanges();
+                        if(result > 0)
+                        {
+                            MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadMonHocListView(cbxKhoaMonHoc.SelectedValue.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm môn học thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }                
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void lsvMonHoc_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string maMon = lsvMonHoc.SelectedItems[0].SubItems[0].Text;
+            string tenMon = lsvMonHoc.SelectedItems[0].SubItems[1].Text;
+            string tenKhoa = lsvMonHoc.SelectedItems[0].SubItems[2].Text;
+            string soTinChi = lsvMonHoc.SelectedItems[0].SubItems[3].Text;
+
+            TaoMonHocDialog dialog = new TaoMonHocDialog(maMon,tenMon,tenKhoa,soTinChi);
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (var db = new QuanLyHocVuEntities())
+                    {
+                        MONHOC data = db.MONHOCs.Find(maMon);
+                        data.MaKhoa = dialog.GetMaKhoa();
+                        data.TenMonHoc = dialog.GetTenMonHoc();
+                        data.SoTinChi = int.Parse(dialog.GetSoTinChi());
+
+
+                        int result = db.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Sửa môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadMonHocListView(cbxKhoaMonHoc.SelectedValue.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm môn học thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnXoaMonHoc_Click(object sender, EventArgs e)
+        {
+            if (lsvMonHoc.SelectedItems.Count > 0) // kiểm tra xem có dòng được chọn hay không
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                {
+                    using(var db = new QuanLyHocVuEntities())
+                    {
+                        string maMon = lsvMonHoc.SelectedItems[0].SubItems[0].Text;
+
+
+                        var monHoc = db.MONHOCs.Find(maMon);
+
+                        if (monHoc != null)
+                                db.MONHOCs.Remove(monHoc);
+                        try
+                        {
+                            int result = db.SaveChanges();
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadMonHocListView(maMon);
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Dữ liệu đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Dữ liệu đang được sử dụng\nError: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                   
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng dữ liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
