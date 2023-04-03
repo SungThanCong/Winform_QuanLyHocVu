@@ -39,6 +39,7 @@ namespace Nhom1_QuanLyHocVu.Layout
             cbxGiaoVien.ValueMember = "MaGiaoVien";
             cbxGiaoVien.DisplayMember = "HoTen";
             cbxGiaoVien.DataSource = entities.GIAOVIENs.Select(x => new { x.MaGiaoVien, x.HoTen }).ToList();
+           
 
         }
 
@@ -56,33 +57,44 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void ReloadKhoaHoc(string maKhoa)
         {
             lsvKhoaHoc.Items.Clear();
-            var data = entities.KHOAHOCs.Where(x => x.CHUONGTRINH.MaKhoa == maKhoa).ToList();
-            foreach (var khoahoc in data)
+            using (var db = new QuanLyHocVuEntities())
             {
-                ListViewItem item = new ListViewItem(khoahoc.MaKhoaHoc);
-                item.SubItems.Add(khoahoc.TenKhoaHoc);
-                item.SubItems.Add(khoahoc.CHUONGTRINH.TenChuongTrinh);
-                item.SubItems.Add(khoahoc.NamBatDau.ToString());
-                item.SubItems.Add(khoahoc.NamKetThuc.ToString());
-                lsvKhoaHoc.Items.Add(item);
+                var data = db.KHOAHOCs.Where(x => x.CHUONGTRINH.MaKhoa == maKhoa).ToList();
+                foreach (var khoahoc in data)
+                {
+                    ListViewItem item = new ListViewItem(khoahoc.MaKhoaHoc);
+                    item.SubItems.Add(khoahoc.TenKhoaHoc);
+                    item.SubItems.Add(khoahoc.CHUONGTRINH.TenChuongTrinh);
+                    item.SubItems.Add(khoahoc.NamBatDau.ToString());
+                    item.SubItems.Add(khoahoc.NamKetThuc.ToString());
+                    lsvKhoaHoc.Items.Add(item);
+                }
             }
+           
         }
 
         private void ReloadMonHocKhoaHoc(string maKhoaHoc, string maMon, string maGV)
         {
             lsvMonHocKhoaHoc.Items.Clear();
-            var data = entities.KHOAHOCMONs.Where(x => x.MaKhoaHoc == maKhoaHoc && x.MaMonHoc == maMon && x.MaGiaoVien_day == maGV).ToList();
-            foreach (var mhkh in data)
+            using(var db = new QuanLyHocVuEntities())
             {
-                ListViewItem item = new ListViewItem(mhkh.MaMonHoc);
-                item.SubItems.Add(mhkh.MONHOC.TenMonHoc);
-                item.SubItems.Add(mhkh.KHOAHOC.TenKhoaHoc);
-                item.SubItems.Add(mhkh.GIAOVIEN.HoTen);
-                item.SubItems.Add(mhkh.MaPhong);
-                item.SubItems.Add(mhkh.MaThu);
+                var data = db.KHOAHOCMONs.Where(x => x.MaKhoaHoc == maKhoaHoc && x.MaMonHoc == maMon && x.MaGiaoVien_day == maGV).ToList();
+                foreach (var mhkh in data)
+                {
+                    ListViewItem item = new ListViewItem(mhkh.MaMonHoc);
+                    item.SubItems.Add(mhkh.MONHOC.TenMonHoc);
+                    item.SubItems.Add(mhkh.KHOAHOC.TenKhoaHoc);
+                    item.SubItems.Add(mhkh.GIAOVIEN.HoTen);
+                    item.SubItems.Add(mhkh.MaPhong);
+                    item.SubItems.Add(mhkh.MaThu);
+                    item.SubItems.Add(mhkh.MaKhoaHoc);
+                    item.SubItems.Add(mhkh.MaGiaoVien_day);
 
-                lsvMonHocKhoaHoc.Items.Add(item);
+
+                    lsvMonHocKhoaHoc.Items.Add(item);
+                }
             }
+           
         }
 
         private void cbxKhoaHoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,6 +173,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                     if (result > 0)
                     {
                         MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ReloadMonHocKhoaHoc(data.MaKhoaHoc, data.MaMonHoc, data.MaGiaoVien_day);
                     }
                     else
                     {
@@ -239,6 +252,100 @@ namespace Nhom1_QuanLyHocVu.Layout
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ReloadKhoaHoc(cbxKhoaKhoaHoc.SelectedValue.ToString());
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dữ liệu không đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Dữ liệu đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng dữ liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void lsvMonHocKhoaHoc_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string maMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[0].Text;
+            string tenMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[1].Text;
+            string khoaHoc = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[6].Text;
+            string giaoVien = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[7].Text;
+            string phong = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[4].Text;
+            string thu = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[5].Text;
+
+
+            TaoMonHocKhoaHocDialog dialog = new TaoMonHocKhoaHocDialog(khoaHoc, tenMH, giaoVien, phong, thu);
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                KHOAHOCMON khm = entities.KHOAHOCMONs.Where(x => x.MaKhoaHoc == khoaHoc && x.MaPhong == phong && x.MaMonHoc == maMH 
+                && x.MaGiaoVien_day == giaoVien && x.MaThu == thu).FirstOrDefault();
+
+                if (khm != null)
+                {
+                    try
+                    {
+                        khm.MaThu = dialog.GetThu();
+                        khm.MaPhong = dialog.GetMaPhong();
+                    
+                        int result = entities.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Sửa khóa học - môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
+                   cbxGiaoVien.SelectedValue.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa khóa học - môn học không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+        }
+
+        private void btnXoaMonHocKhoaHoc_Click(object sender, EventArgs e)
+        {
+            if (lsvMonHocKhoaHoc.SelectedItems.Count > 0) // kiểm tra xem có dòng được chọn hay không
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                {
+                    string maMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[0].Text;
+                    string tenMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[1].Text;
+                    string khoaHoc = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[6].Text;
+                    string giaoVien = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[7].Text;
+                    string phong = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[4].Text;
+                    string thu = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[5].Text;
+
+
+                    KHOAHOCMON khm = entities.KHOAHOCMONs.Where(x => x.MaKhoaHoc == khoaHoc && x.MaPhong == phong && x.MaMonHoc == maMH
+                && x.MaGiaoVien_day == giaoVien && x.MaThu == thu).FirstOrDefault();
+
+
+                    entities.KHOAHOCMONs.Remove(khm);
+
+                    try
+                    {
+                        int result = entities.SaveChanges();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
+                                              cbxGiaoVien.SelectedValue.ToString());
                         }
                         else
                         {

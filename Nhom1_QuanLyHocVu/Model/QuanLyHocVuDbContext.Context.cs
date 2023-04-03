@@ -31,7 +31,7 @@ namespace Nhom1_QuanLyHocVu.Model
         public virtual DbSet<GIAOVIEN> GIAOVIENs { get; set; }
         public virtual DbSet<KHOA> KHOAs { get; set; }
         public virtual DbSet<KHOAHOC> KHOAHOCs { get; set; }
-        public virtual DbSet<MONHOC> MONHOCs { get; set; }
         public virtual DbSet<KHOAHOCMON> KHOAHOCMONs { get; set; }
+        public virtual DbSet<MONHOC> MONHOCs { get; set; }
     }
 }

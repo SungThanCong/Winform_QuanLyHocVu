@@ -19,6 +19,7 @@ namespace Nhom1_QuanLyHocVu.Model
         public string MaGiaoVien_day { get; set; }
         public string MaPhong { get; set; }
         public string MaThu { get; set; }
+        public int ID { get; set; }
     
         public virtual GIAOVIEN GIAOVIEN { get; set; }
         public virtual KHOAHOC KHOAHOC { get; set; }

@@ -60,19 +60,16 @@
           <Property Name="NamKetThuc" Type="int" />
           <Property Name="MaChuongTrinh" Type="nvarchar" MaxLength="5" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="KHOAHOCMON">
           <Key>
-            <PropertyRef Name="MaKhoaHoc" />
-            <PropertyRef Name="MaMonHoc" />
-            <PropertyRef Name="MaGiaoVien_day" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="MaKhoaHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="MaMonHoc" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="MaGiaoVien_day" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaPhong" Type="varchar" MaxLength="10" />
           <Property Name="MaThu" Type="char" MaxLength="2" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="MONHOC">
           <Key>
@@ -246,16 +243,8 @@ warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primar
           <EntitySet Name="GIAOVIEN" EntityType="Self.GIAOVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOAHOC" EntityType="Self.KHOAHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOAHOCMON" EntityType="Self.KHOAHOCMON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MONHOC" EntityType="Self.MONHOC" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KHOAHOCMON" EntityType="Self.KHOAHOCMON" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [KHOAHOCMON].[MaKhoaHoc] AS [MaKhoaHoc], 
-    [KHOAHOCMON].[MaMonHoc] AS [MaMonHoc], 
-    [KHOAHOCMON].[MaGiaoVien_day] AS [MaGiaoVien_day], 
-    [KHOAHOCMON].[MaPhong] AS [MaPhong], 
-    [KHOAHOCMON].[MaThu] AS [MaThu]
-    FROM [dbo].[KHOAHOCMON] AS [KHOAHOCMON]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__CHUONGTRI__MaChu__300424B4" Association="Self.FK__CHUONGTRI__MaChu__300424B4">
             <End Role="CHUONGTRINH" EntitySet="CHUONGTRINH" />
             <End Role="CHUONGTRINHMONHOC" EntitySet="CHUONGTRINHMONHOC" />
@@ -388,6 +377,20 @@ warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primar
           <NavigationProperty Name="CHUONGTRINH" Relationship="Self.FK__KHOAHOC__MaChuon__398D8EEE" FromRole="KHOAHOC" ToRole="CHUONGTRINH" />
           <NavigationProperty Name="KHOAHOCMONs" Relationship="Self.FK__KHOAHOCMO__MaKho__3B75D760" FromRole="KHOAHOC" ToRole="KHOAHOCMON" />
         </EntityType>
+        <EntityType Name="KHOAHOCMON">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MaKhoaHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaGiaoVien_day" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaThu" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK__KHOAHOCMO__MaGia__3D5E1FD2" FromRole="KHOAHOCMON" ToRole="GIAOVIEN" />
+          <NavigationProperty Name="KHOAHOC" Relationship="Self.FK__KHOAHOCMO__MaKho__3B75D760" FromRole="KHOAHOCMON" ToRole="KHOAHOC" />
+          <NavigationProperty Name="MONHOC" Relationship="Self.FK__KHOAHOCMO__MaMon__3C69FB99" FromRole="KHOAHOCMON" ToRole="MONHOC" />
+        </EntityType>
         <EntityType Name="MONHOC">
           <Key>
             <PropertyRef Name="MaMonHoc" />
@@ -400,21 +403,6 @@ warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primar
           <NavigationProperty Name="DAMNHIEMMONs" Relationship="Self.FK__DAMNHIEMM__MaMon__34C8D9D1" FromRole="MONHOC" ToRole="DAMNHIEMMON" />
           <NavigationProperty Name="KHOA" Relationship="Self.FK__MONHOC__MaKhoa__2D27B809" FromRole="MONHOC" ToRole="KHOA" />
           <NavigationProperty Name="KHOAHOCMONs" Relationship="Self.FK__KHOAHOCMO__MaMon__3C69FB99" FromRole="MONHOC" ToRole="KHOAHOCMON" />
-        </EntityType>
-        <EntityType Name="KHOAHOCMON">
-          <Key>
-            <PropertyRef Name="MaKhoaHoc" />
-            <PropertyRef Name="MaMonHoc" />
-            <PropertyRef Name="MaGiaoVien_day" />
-          </Key>
-          <Property Name="MaKhoaHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaGiaoVien_day" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MaThu" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK__KHOAHOCMO__MaGia__3D5E1FD2" FromRole="KHOAHOCMON" ToRole="GIAOVIEN" />
-          <NavigationProperty Name="KHOAHOC" Relationship="Self.FK__KHOAHOCMO__MaKho__3B75D760" FromRole="KHOAHOCMON" ToRole="KHOAHOC" />
-          <NavigationProperty Name="MONHOC" Relationship="Self.FK__KHOAHOCMO__MaMon__3C69FB99" FromRole="KHOAHOCMON" ToRole="MONHOC" />
         </EntityType>
         <Association Name="FK__CHUONGTRI__MaChu__300424B4">
           <End Role="CHUONGTRINH" Type="Self.CHUONGTRINH" Multiplicity="1" />
@@ -579,8 +567,8 @@ warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primar
           <EntitySet Name="GIAOVIENs" EntityType="Self.GIAOVIEN" />
           <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
           <EntitySet Name="KHOAHOCs" EntityType="Self.KHOAHOC" />
-          <EntitySet Name="MONHOCs" EntityType="Self.MONHOC" />
           <EntitySet Name="KHOAHOCMONs" EntityType="Self.KHOAHOCMON" />
+          <EntitySet Name="MONHOCs" EntityType="Self.MONHOC" />
           <AssociationSet Name="FK__CHUONGTRI__MaChu__300424B4" Association="Self.FK__CHUONGTRI__MaChu__300424B4">
             <End Role="CHUONGTRINH" EntitySet="CHUONGTRINHs" />
             <End Role="CHUONGTRINHMONHOC" EntitySet="CHUONGTRINHMONHOCs" />
@@ -698,16 +686,6 @@ warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MONHOCs">
-            <EntityTypeMapping TypeName="QuanLyHocVuModel.MONHOC">
-              <MappingFragment StoreEntitySet="MONHOC">
-                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-                <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
-                <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
-                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="KHOAHOCMONs">
             <EntityTypeMapping TypeName="QuanLyHocVuModel.KHOAHOCMON">
               <MappingFragment StoreEntitySet="KHOAHOCMON">
@@ -716,6 +694,17 @@ warning 6002: The table/view 'QuanLyHocVu.dbo.KHOAHOCMON' does not have a primar
                 <ScalarProperty Name="MaGiaoVien_day" ColumnName="MaGiaoVien_day" />
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaThu" ColumnName="MaThu" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONHOCs">
+            <EntityTypeMapping TypeName="QuanLyHocVuModel.MONHOC">
+              <MappingFragment StoreEntitySet="MONHOC">
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
+                <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

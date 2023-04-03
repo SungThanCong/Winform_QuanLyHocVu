@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="75c74b51d7b84607b7a5951fce219634" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyHocVuModel.CHUONGTRINH" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+      <Diagram DiagramId="0d62a9d437034194b3a398b0abe8cf6d" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyHocVuModel.CHUONGTRINH" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyHocVuModel.CHUONGTRINHMONHOC" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyHocVuModel.DAMNHIEMMON" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyHocVuModel.GIAOVIEN" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyHocVuModel.KHOA" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyHocVuModel.KHOAHOC" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyHocVuModel.MONHOC" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHocVuModel.DAMNHIEMMON" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHocVuModel.GIAOVIEN" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHocVuModel.KHOA" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHocVuModel.KHOAHOC" Width="1.5" PointX="7.5" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyHocVuModel.KHOAHOCMON" Width="1.5" PointX="9.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHocVuModel.MONHOC" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
         <AssociationConnector Association="QuanLyHocVuModel.FK__CHUONGTRI__MaChu__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyHocVuModel.FK__CHUONGTRI__MaGia__2A4B4B5E" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyHocVuModel.FK__CHUONGTRI__MaKho__29572725" ManuallyRouted="false" />
