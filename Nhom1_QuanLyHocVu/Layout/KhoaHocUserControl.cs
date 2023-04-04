@@ -176,6 +176,10 @@ namespace Nhom1_QuanLyHocVu.Layout
                     {
                         MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ReloadMonHocKhoaHoc(data.MaKhoaHoc, data.MaMonHoc, data.MaGiaoVien_day);
+
+                        cbxMonHoc.SelectedValue = data.MaMonHoc;
+                        cbxKhoaHoc.SelectedValue = data.MaKhoaHoc;
+                        cbxGiaoVien.SelectedValue = data.MaGiaoVien_day;
                     }
                     else
                     {

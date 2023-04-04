@@ -95,19 +95,22 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void LoadDamNhiemMonListView(string maMonHoc)
         {
             lsvDamNhanMon.Items.Clear();
-         
-            var damNhiemMons = entities.DAMNHIEMMONs.Where(x => x.MaMonHoc == maMonHoc).ToList();
-            foreach (var damNhiemMon in damNhiemMons)
+            using(var db = new QuanLyHocVuEntities())
             {
-                ListViewItem item = new ListViewItem(damNhiemMon.MONHOC.TenMonHoc);
-                item.SubItems.Add(damNhiemMon.CHUONGTRINH.TenChuongTrinh);
-                item.SubItems.Add(damNhiemMon.GIAOVIEN.HoTen);
-                item.SubItems.Add(damNhiemMon.CoLaDamNhiemChinh.Value + "");
-                item.SubItems.Add(damNhiemMon.MaMonHoc);
-                item.SubItems.Add(damNhiemMon.MaChuongTrinh);
-                item.SubItems.Add(damNhiemMon.MaGiaoVien);
-                lsvDamNhanMon.Items.Add(item);
+                var damNhiemMons = db.DAMNHIEMMONs.Where(x => x.MaMonHoc == maMonHoc).ToList();
+                foreach (var damNhiemMon in damNhiemMons)
+                {
+                    ListViewItem item = new ListViewItem(damNhiemMon.MONHOC.TenMonHoc);
+                    item.SubItems.Add(damNhiemMon.CHUONGTRINH.TenChuongTrinh);
+                    item.SubItems.Add(damNhiemMon.GIAOVIEN.HoTen);
+                    item.SubItems.Add(damNhiemMon.CoLaDamNhiemChinh.Value + "");
+                    item.SubItems.Add(damNhiemMon.MaMonHoc);
+                    item.SubItems.Add(damNhiemMon.MaChuongTrinh);
+                    item.SubItems.Add(damNhiemMon.MaGiaoVien);
+                    lsvDamNhanMon.Items.Add(item);
+                }
             }
+            
         }
 
         private void btnDamNhanMon_Click(object sender, EventArgs e)

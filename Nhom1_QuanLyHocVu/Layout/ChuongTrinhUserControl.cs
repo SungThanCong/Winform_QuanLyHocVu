@@ -96,20 +96,23 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void LoadChuongTrinhListView(string maKhoa)
         {
             lsvChuongTrinh.Items.Clear();
-         
-            var chuongTrinhs = entities.CHUONGTRINHs.Where(x => x.MaKhoa == maKhoa).ToList();
-            foreach (var chuongTrinh in chuongTrinhs)
+            using(var db = new QuanLyHocVuEntities())
             {
+                var chuongTrinhs = db.CHUONGTRINHs.Where(x => x.MaKhoa == maKhoa).ToList();
+                foreach (var chuongTrinh in chuongTrinhs)
+                {
 
-                ListViewItem item = new ListViewItem(chuongTrinh.MaChuongTrinh);
-                item.SubItems.Add(chuongTrinh.TenChuongTrinh);
-                item.SubItems.Add(chuongTrinh.MaBacHoc);
+                    ListViewItem item = new ListViewItem(chuongTrinh.MaChuongTrinh);
+                    item.SubItems.Add(chuongTrinh.TenChuongTrinh);
+                    item.SubItems.Add(chuongTrinh.MaBacHoc);
 
-                item.SubItems.Add(chuongTrinh.KHOA.TenKhoa);
-                item.SubItems.Add(chuongTrinh.GIAOVIEN.HoTen);
+                    item.SubItems.Add(chuongTrinh.KHOA.TenKhoa);
+                    item.SubItems.Add(chuongTrinh.GIAOVIEN.HoTen);
 
-                lsvChuongTrinh.Items.Add(item);
+                    lsvChuongTrinh.Items.Add(item);
+                }
             }
+            
         
          
         }
@@ -117,17 +120,19 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void LoadChuongTrinhMonHocListView(string maChuongTrinh, int hocKy)
         {
             lsvChuongTrinhMonHoc.Items.Clear();
-
-            var chuongTrinhMonHocs = entities.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == maChuongTrinh && x.HocKy.Value == hocKy).ToList();
-            foreach (var CTMonHoc in chuongTrinhMonHocs)
+            using (var db = new QuanLyHocVuEntities())
             {
-                ListViewItem item = new ListViewItem(CTMonHoc.MaChuongTrinh);
-                item.SubItems.Add(CTMonHoc.CHUONGTRINH.TenChuongTrinh);
-                item.SubItems.Add(CTMonHoc.MONHOC.MaMonHoc);
-                item.SubItems.Add(CTMonHoc.MONHOC.TenMonHoc);
-                item.SubItems.Add(CTMonHoc.HocKy.Value +"");
+                var chuongTrinhMonHocs = db.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == maChuongTrinh && x.HocKy.Value == hocKy).ToList();
+                foreach (var CTMonHoc in chuongTrinhMonHocs)
+                {
+                    ListViewItem item = new ListViewItem(CTMonHoc.MaChuongTrinh);
+                    item.SubItems.Add(CTMonHoc.CHUONGTRINH.TenChuongTrinh);
+                    item.SubItems.Add(CTMonHoc.MONHOC.MaMonHoc);
+                    item.SubItems.Add(CTMonHoc.MONHOC.TenMonHoc);
+                    item.SubItems.Add(CTMonHoc.HocKy.Value + "");
 
-                lsvChuongTrinhMonHoc.Items.Add(item);
+                    lsvChuongTrinhMonHoc.Items.Add(item);
+                }
             }
         }
 
