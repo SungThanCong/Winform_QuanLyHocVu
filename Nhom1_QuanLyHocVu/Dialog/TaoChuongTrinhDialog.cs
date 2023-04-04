@@ -24,10 +24,14 @@ namespace Nhom1_QuanLyHocVu.Dialog
             cbxGiamDocChuongTrinh.ValueMember = "MaGiaoVien";
             cbxGiamDocChuongTrinh.DisplayMember = "HoTen";
             cbxGiamDocChuongTrinh.DataSource = entities.GIAOVIENs.Select(x=> new {x.MaGiaoVien, x.HoTen}).ToList();
+            cbxGiamDocChuongTrinh.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxGiamDocChuongTrinh.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             txtTenKhoa.ValueMember = "MaKhoa";
             txtTenKhoa.DisplayMember = "TenKhoa";
             txtTenKhoa.DataSource = entities.KHOAs.Select(x => new { x.TenKhoa, x.MaKhoa }).ToList();
+            txtTenKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
+            txtTenKhoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
 

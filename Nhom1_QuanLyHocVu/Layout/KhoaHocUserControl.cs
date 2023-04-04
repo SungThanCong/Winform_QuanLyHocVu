@@ -28,20 +28,29 @@ namespace Nhom1_QuanLyHocVu.Layout
             cbxKhoaKhoaHoc.DisplayMember = "TenKhoa";
             cbxKhoaKhoaHoc.ValueMember = "MaKhoa";
             cbxKhoaKhoaHoc.DataSource = entities.KHOAs.Select(x => new { x.MaKhoa, x.TenKhoa}).ToList();
+            cbxKhoaKhoaHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxKhoaKhoaHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
 
             cbxKhoaHoc.ValueMember = "MaKhoaHoc";
             cbxKhoaHoc.DisplayMember = "TenKhoaHoc";
             cbxKhoaHoc.DataSource = entities.KHOAHOCs.Select(x => new { x.MaKhoaHoc, x.TenKhoaHoc }).ToList();
+            cbxKhoaHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxKhoaHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             cbxMonHoc.ValueMember = "MaMonHoc";
             cbxMonHoc.DisplayMember = "TenMonHoc";
             cbxMonHoc.DataSource = entities.MONHOCs.Select(x => new { x.MaMonHoc, x.TenMonHoc }).ToList()
                 .Where(x => RangBuocDuLieu.RangBuocMonHoc(x.MaMonHoc) == true).ToList();
+            cbxMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             cbxGiaoVien.ValueMember = "MaGiaoVien";
             cbxGiaoVien.DisplayMember = "HoTen";
             cbxGiaoVien.DataSource = entities.GIAOVIENs.Select(x => new { x.MaGiaoVien, x.HoTen }).ToList();
-           
+            cbxGiaoVien.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxGiaoVien.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
 
         }
 

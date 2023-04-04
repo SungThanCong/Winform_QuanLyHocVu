@@ -32,17 +32,21 @@ namespace Nhom1_QuanLyHocVu.Layout
             cbxKhoaMonHoc.DisplayMember = "TenKhoa";
             cbxKhoaMonHoc.ValueMember = "MaKhoa";
             cbxKhoaMonHoc.DataSource = dsKhoa.Select(x => new {x.TenKhoa, x.MaKhoa}).ToList();
+            cbxKhoaMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxKhoaMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             cbxTenChuongTrinh.ValueMember = "MaChuongTrinh";
             cbxTenChuongTrinh.DisplayMember = "TenChuongTrinh";
             cbxTenChuongTrinh.DataSource = dsChuongTrinhMonHoc.Select(x => new {x.MaChuongTrinh, x.TenChuongTrinh}).Distinct().ToList();
-         
+            cbxTenChuongTrinh.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxTenChuongTrinh.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
 
 
             ////load data ban đầu cho 2 listview
             //var selectedKhoa = dsKhoa.Count > 0 ? dsKhoa.ElementAt(0) : null;
             //var selectedChuongTrinhMonHoc = dsChuongTrinhMonHoc.Count > 0 ? dsChuongTrinhMonHoc.ElementAt(0) : null;
-           
+
 
         }
 

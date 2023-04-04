@@ -46,12 +46,15 @@ namespace Nhom1_QuanLyHocVu.Dialog
             cbxKhoaHoc.DisplayMember = "TenKhoaHoc";
             cbxKhoaHoc.ValueMember = "MaKhoaHoc";
             cbxKhoaHoc.DataSource = entities.KHOAHOCs.Select(x => new { x.MaKhoaHoc, x.TenKhoaHoc }).ToList();
+            cbxKhoaHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxKhoaHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             cbxTenMonHoc.ValueMember = "MaMonHoc";
             cbxTenMonHoc.DisplayMember = "TenMonHoc";
-          
+            cbxTenMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxTenMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
-           
+
 
         }
 
@@ -63,6 +66,9 @@ namespace Nhom1_QuanLyHocVu.Dialog
             cbxGiangVien.DisplayMember = "HoTen";
             cbxGiangVien.DataSource = entities.GIAOVIENs.Join(entities.DAMNHIEMMONs, x1 => x1.MaGiaoVien, x2 => x2.MaGiaoVien, (x1,x2)=> new {x1.MaGiaoVien, x1.HoTen, x2.MaMonHoc})
                 .Where(x => x.MaMonHoc == txtMaMonHoc.Text).Select(x => new { x.MaGiaoVien, x.HoTen }).ToList();
+            cbxGiangVien.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxGiangVien.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)

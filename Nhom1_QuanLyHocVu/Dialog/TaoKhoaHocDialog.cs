@@ -42,6 +42,8 @@ namespace Nhom1_QuanLyHocVu.Dialog
             cbxChuongTrinh.ValueMember = "MaChuongTrinh";
             cbxChuongTrinh.DisplayMember = "TenChuongTrinh";
             cbxChuongTrinh.DataSource = entities.CHUONGTRINHs.Select(x => new { x.MaChuongTrinh, x.TenChuongTrinh }).ToList();
+            cbxChuongTrinh.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxChuongTrinh.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void btnThem_Click(object sender, EventArgs e)

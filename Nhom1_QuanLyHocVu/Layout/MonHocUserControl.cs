@@ -33,17 +33,22 @@ namespace Nhom1_QuanLyHocVu.Layout
             cbxKhoaMonHoc.ValueMember = "MaKhoa";
             cbxKhoaMonHoc.DisplayMember = "TenKhoa";
             cbxKhoaMonHoc.DataSource = dsKhoa.Select(x => new {x.TenKhoa, x.MaKhoa}).ToList();
+            cbxKhoaMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxKhoaMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
 
             cbxMonDamNhanMon.ValueMember = "MaMonHoc";
             cbxMonDamNhanMon.DisplayMember = "TenMonHoc";
             cbxMonDamNhanMon.DataSource = dsMon.Select(x => new {x.TenMonHoc, x.MaMonHoc}).ToList();
+            cbxMonDamNhanMon.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxMonDamNhanMon.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             ////load data ban đầu cho 2 listview
             //var selectedKhoa = dsKhoa.Count > 0 ? dsKhoa.ElementAt(0) : null;
             //var selectedMon = dsMon.Count > 0 ? dsMon.ElementAt(0) : null;
 
-            
-            
+
+
         }
 
         private void lsvMonHoc_SelectedIndexChanged(object sender, EventArgs e)

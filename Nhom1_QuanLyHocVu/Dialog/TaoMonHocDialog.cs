@@ -41,6 +41,8 @@ namespace Nhom1_QuanLyHocVu.Dialog
                 cbxKhoa.DisplayMember = "TenKhoa";
                 cbxKhoa.ValueMember = "MaKhoa";
                 cbxKhoa.DataSource = db.KHOAs.Select(x => new { x.MaKhoa, x.TenKhoa }).ToList();
+                cbxKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
+                cbxKhoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             }
         }
 

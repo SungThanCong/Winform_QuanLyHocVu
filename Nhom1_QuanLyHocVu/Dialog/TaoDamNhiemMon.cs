@@ -38,14 +38,20 @@ namespace Nhom1_QuanLyHocVu.Dialog
             txtGiaoVien.DisplayMember = "HoTen";
             txtGiaoVien.ValueMember = "MaGiaoVien";
             txtGiaoVien.DataSource = entities.GIAOVIENs.Select(x => new {x.HoTen, x.MaGiaoVien}).ToList();
+            txtGiaoVien.AutoCompleteSource = AutoCompleteSource.ListItems;
+            txtGiaoVien.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             txtChuongTrinh.DisplayMember = "TenChuongTrinh";
             txtChuongTrinh.ValueMember = "MaChuongTrinh";
             txtChuongTrinh.DataSource = entities.CHUONGTRINHs.Select(x=>new { x.MaChuongTrinh, x.TenChuongTrinh}).ToList();
+            txtChuongTrinh.AutoCompleteSource = AutoCompleteSource.ListItems;
+            txtChuongTrinh.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             txtMonHoc.DisplayMember = "TenMonHoc";
             txtMonHoc.ValueMember = "MaMonHoc";
             txtMonHoc.DataSource = entities.MONHOCs.Select(x=>new {x.TenMonHoc, x.MaMonHoc}).ToList();
+            txtMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            txtMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

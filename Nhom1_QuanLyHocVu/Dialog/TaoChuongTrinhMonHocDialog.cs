@@ -67,8 +67,13 @@ namespace Nhom1_QuanLyHocVu.Dialog
             cbxMaMonHoc.DisplayMember = "TenMonHoc";
             cbxMaMonHoc.DataSource = entities.MONHOCs.Select(x => new {x.MaMonHoc, x.TenMonHoc}).ToList()
                  .Where(x => RangBuocDuLieu.RangBuocMonHoc(x.MaMonHoc) == true).ToList();
+            cbxMaMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxMaMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             cbxMaChuongTrinh.DataSource = entities.CHUONGTRINHs.Select(x => x.MaChuongTrinh).ToList();
+            cbxMaChuongTrinh.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxMaChuongTrinh.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
         }
 
         private void cbxMaChuongTrinh_SelectedIndexChanged(object sender, EventArgs e)

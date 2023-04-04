@@ -26,6 +26,8 @@ namespace Nhom1_QuanLyHocVu.Dialog
         {
             var dsMaKhoa = QuanLyHocVuEntities.KHOAs.Select(x => x.MaKhoa).ToList();
             cboMaKhoaTaoGV.DataSource = dsMaKhoa;
+            cboMaKhoaTaoGV.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboMaKhoaTaoGV.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void btnXacNhanTaoGV_Click(object sender, EventArgs e)
