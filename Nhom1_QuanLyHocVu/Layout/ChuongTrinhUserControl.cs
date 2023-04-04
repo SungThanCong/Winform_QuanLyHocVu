@@ -50,8 +50,14 @@ namespace Nhom1_QuanLyHocVu.Layout
         {
             if(cbxTenChuongTrinh.SelectedIndex >= 0)
             {
+                cbxHocKy.Text = "";
                 var chuongTrinhMonHoc = entities.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == cbxTenChuongTrinh.SelectedValue).ToList();
                 cbxHocKy.DataSource = chuongTrinhMonHoc.Select(x => x.HocKy).Distinct().OrderBy(x => x.Value).ToList();
+
+                if(cbxHocKy.Items.Count < 1)
+                {
+                    lsvChuongTrinhMonHoc.Items.Clear();
+                }
             }
         }
 
@@ -111,6 +117,7 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void LoadChuongTrinhMonHocListView(string maChuongTrinh, int hocKy)
         {
             lsvChuongTrinhMonHoc.Items.Clear();
+
             var chuongTrinhMonHocs = entities.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == maChuongTrinh && x.HocKy.Value == hocKy).ToList();
             foreach (var CTMonHoc in chuongTrinhMonHocs)
             {

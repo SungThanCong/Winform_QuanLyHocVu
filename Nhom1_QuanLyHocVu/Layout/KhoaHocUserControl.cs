@@ -277,7 +277,7 @@ namespace Nhom1_QuanLyHocVu.Layout
         {
             string maMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[0].Text;
             string tenMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[1].Text;
-            string khoaHoc = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[6].Text;
+            string khoaHoc = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[2].Text;
             string giaoVien = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[7].Text;
             string phong = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[4].Text;
             string thu = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[5].Text;

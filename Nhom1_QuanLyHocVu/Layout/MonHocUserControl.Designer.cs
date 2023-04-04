@@ -88,7 +88,7 @@
             // bthThemMonHoc
             // 
             this.bthThemMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.bthThemMonHoc.Location = new System.Drawing.Point(962, 20);
+            this.bthThemMonHoc.Location = new System.Drawing.Point(985, 20);
             this.bthThemMonHoc.Name = "bthThemMonHoc";
             this.bthThemMonHoc.Size = new System.Drawing.Size(78, 37);
             this.bthThemMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -189,7 +189,7 @@
             this.btnXoaDamNhanMon.Location = new System.Drawing.Point(1070, 18);
             this.btnXoaDamNhanMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaDamNhanMon.Name = "btnXoaDamNhanMon";
-            this.btnXoaDamNhanMon.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaDamNhanMon.Size = new System.Drawing.Size(35, 38);
             this.btnXoaDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnXoaDamNhanMon.TabIndex = 6;
             this.btnXoaDamNhanMon.TabStop = false;
@@ -198,7 +198,7 @@
             // btnDamNhanMon
             // 
             this.btnDamNhanMon.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnDamNhanMon.Location = new System.Drawing.Point(963, 17);
+            this.btnDamNhanMon.Location = new System.Drawing.Point(986, 18);
             this.btnDamNhanMon.Name = "btnDamNhanMon";
             this.btnDamNhanMon.Size = new System.Drawing.Size(78, 38);
             this.btnDamNhanMon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -224,9 +224,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(218, 32);
+            this.label2.Size = new System.Drawing.Size(233, 32);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Đảm nhận môn";
+            this.label2.Text = "Đảm nhiệm môn";
             // 
             // lsvDamNhanMon
             // 
@@ -268,7 +268,7 @@
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "Đảm nhận chính";
+            this.columnHeader9.Text = "Đảm nhiệm chính";
             this.columnHeader9.Width = 150;
             // 
             // columnHeader6

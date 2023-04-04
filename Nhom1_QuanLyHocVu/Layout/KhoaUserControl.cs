@@ -63,6 +63,8 @@ namespace Nhom1_QuanLyHocVu.Layout
         private void btnTaoGV_Click(object sender, EventArgs e)
         {
             TaoGiaoVienDialog taoGiaoVienDialog = new TaoGiaoVienDialog();
+            taoGiaoVienDialog.cboMaKhoaTaoGV.Text = lastedMK;
+
             if (taoGiaoVienDialog.ShowDialog() == DialogResult.OK)
             {
                 var maGV = taoGiaoVienDialog.txtTaoMaGV.Text;

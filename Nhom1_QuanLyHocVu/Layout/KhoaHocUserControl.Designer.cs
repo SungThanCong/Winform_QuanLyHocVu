@@ -117,7 +117,7 @@
             // btnThemMonHocKhoaHoc
             // 
             this.btnThemMonHocKhoaHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnThemMonHocKhoaHoc.Location = new System.Drawing.Point(960, 17);
+            this.btnThemMonHocKhoaHoc.Location = new System.Drawing.Point(975, 17);
             this.btnThemMonHocKhoaHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemMonHocKhoaHoc.Name = "btnThemMonHocKhoaHoc";
             this.btnThemMonHocKhoaHoc.Size = new System.Drawing.Size(104, 37);
@@ -252,7 +252,7 @@
             // btnThemKhoaHoc
             // 
             this.btnThemKhoaHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnThemKhoaHoc.Location = new System.Drawing.Point(959, 21);
+            this.btnThemKhoaHoc.Location = new System.Drawing.Point(974, 21);
             this.btnThemKhoaHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemKhoaHoc.Name = "btnThemKhoaHoc";
             this.btnThemKhoaHoc.Size = new System.Drawing.Size(104, 36);

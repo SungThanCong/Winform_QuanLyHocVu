@@ -49,12 +49,9 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
             cbxTenMonHoc.ValueMember = "MaMonHoc";
             cbxTenMonHoc.DisplayMember = "TenMonHoc";
-            cbxTenMonHoc.DataSource = entities.MONHOCs.
-                Select(x => new { x.MaMonHoc, x.TenMonHoc }).ToList().
-                Where(x => RangBuocDuLieu.RangBuocMonHoc(x.MaMonHoc) == true).ToList();
+          
 
-            cbxGiangVien.ValueMember = "MaGiaoVien";
-            cbxGiangVien.DisplayMember = "HoTen";
+           
 
         }
 
@@ -62,7 +59,8 @@ namespace Nhom1_QuanLyHocVu.Dialog
         {
             txtMaMonHoc.Text = cbxTenMonHoc.SelectedValue.ToString();
 
-          
+            cbxGiangVien.ValueMember = "MaGiaoVien";
+            cbxGiangVien.DisplayMember = "HoTen";
             cbxGiangVien.DataSource = entities.GIAOVIENs.Join(entities.DAMNHIEMMONs, x1 => x1.MaGiaoVien, x2 => x2.MaGiaoVien, (x1,x2)=> new {x1.MaGiaoVien, x1.HoTen, x2.MaMonHoc})
                 .Where(x => x.MaMonHoc == txtMaMonHoc.Text).Select(x => new { x.MaGiaoVien, x.HoTen }).ToList();
         }
@@ -72,14 +70,14 @@ namespace Nhom1_QuanLyHocVu.Dialog
             if(cbxGiangVien.Text.Length >0 && cbxKhoaHoc.Text.Length > 0 && cbxTenMonHoc.Text.Length >0 
                 && txtMaPhong.Text.Length > 0 && txtThu.Text.Length > 0)
             {
-                if (RangBuocDuLieu.RangBuocDamBaoGioDay(GetMaGiaoVien(), GetThu()))
+                if (RangBuocDuLieu.RangBuocDamBaoGioDay(GetMaGiaoVien(), GetThu(), GetMaKhoaHoc(), GetMaMonHoc(),GetMaPhong()))
                 {
                     DialogResult = DialogResult.OK;
 
                 }
                 else
                 {
-                    MessageBox.Show("Giáo viên đã bị trùng giờ dạy của bản thân", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Giáo viên đã bị trùng lịch dạy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
             }
@@ -117,6 +115,24 @@ namespace Nhom1_QuanLyHocVu.Dialog
         public string GetThu()
         {
             return txtThu.Text;
+        }
+
+        private void cbxKhoaHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cbxTenMonHoc.Text = "";
+            cbxGiangVien.Text = "";
+            txtMaMonHoc.Text = "";
+            cbxGiangVien.DataSource = null;
+
+            var maKH = cbxKhoaHoc.SelectedValue.ToString();
+
+            var maChuongTrinh = entities.KHOAHOCs.Find(maKH).CHUONGTRINH.MaChuongTrinh;
+
+            var MonHoc = entities.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == maChuongTrinh)
+                .Select(x => new { x.MONHOC.MaMonHoc, x.MONHOC.TenMonHoc }).ToList();
+            
+            cbxTenMonHoc.DataSource = MonHoc.Where(x => RangBuocDuLieu.RangBuocMonHoc(x.MaMonHoc) == true).ToList();
         }
     }
 }

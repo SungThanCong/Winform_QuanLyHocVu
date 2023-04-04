@@ -38,6 +38,7 @@
             this.cbxTenChuongTrinh = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnXoaChuongTrinhMonHoc = new System.Windows.Forms.PictureBox();
             this.cbxHocKy = new System.Windows.Forms.ComboBox();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,16 +48,15 @@
             this.cbxKhoaMonHoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lsvChuongTrinh = new System.Windows.Forms.ListView();
             this.btnXoaChuongTrinh = new System.Windows.Forms.PictureBox();
-            this.btnXoaChuongTrinhMonHoc = new System.Windows.Forms.PictureBox();
+            this.lsvChuongTrinh = new System.Windows.Forms.ListView();
             this.Bzz = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.btnThemCTMonHoc)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaChuongTrinhMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bthThemChuongTrinh)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaChuongTrinh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnXoaChuongTrinhMonHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // columnHeader9
@@ -91,11 +91,11 @@
             this.lsvChuongTrinhMonHoc.FullRowSelect = true;
             this.lsvChuongTrinhMonHoc.GridLines = true;
             this.lsvChuongTrinhMonHoc.HideSelection = false;
-            this.lsvChuongTrinhMonHoc.Location = new System.Drawing.Point(21, 329);
-            this.lsvChuongTrinhMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsvChuongTrinhMonHoc.Location = new System.Drawing.Point(28, 405);
+            this.lsvChuongTrinhMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvChuongTrinhMonHoc.MultiSelect = false;
             this.lsvChuongTrinhMonHoc.Name = "lsvChuongTrinhMonHoc";
-            this.lsvChuongTrinhMonHoc.Size = new System.Drawing.Size(863, 202);
+            this.lsvChuongTrinhMonHoc.Size = new System.Drawing.Size(1149, 248);
             this.lsvChuongTrinhMonHoc.TabIndex = 8;
             this.lsvChuongTrinhMonHoc.UseCompatibleStateImageBehavior = false;
             this.lsvChuongTrinhMonHoc.View = System.Windows.Forms.View.Details;
@@ -110,10 +110,10 @@
             // btnThemCTMonHoc
             // 
             this.btnThemCTMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.btnThemCTMonHoc.Location = new System.Drawing.Point(720, 14);
-            this.btnThemCTMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThemCTMonHoc.Location = new System.Drawing.Point(976, 17);
+            this.btnThemCTMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemCTMonHoc.Name = "btnThemCTMonHoc";
-            this.btnThemCTMonHoc.Size = new System.Drawing.Size(78, 30);
+            this.btnThemCTMonHoc.Size = new System.Drawing.Size(104, 37);
             this.btnThemCTMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnThemCTMonHoc.TabIndex = 4;
             this.btnThemCTMonHoc.TabStop = false;
@@ -125,10 +125,10 @@
             this.cbxTenChuongTrinh.FormattingEnabled = true;
             this.cbxTenChuongTrinh.Items.AddRange(new object[] {
             "Môn"});
-            this.cbxTenChuongTrinh.Location = new System.Drawing.Point(293, 16);
-            this.cbxTenChuongTrinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTenChuongTrinh.Location = new System.Drawing.Point(391, 20);
+            this.cbxTenChuongTrinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxTenChuongTrinh.Name = "cbxTenChuongTrinh";
-            this.cbxTenChuongTrinh.Size = new System.Drawing.Size(269, 28);
+            this.cbxTenChuongTrinh.Size = new System.Drawing.Size(357, 33);
             this.cbxTenChuongTrinh.TabIndex = 1;
             this.cbxTenChuongTrinh.SelectedIndexChanged += new System.EventHandler(this.cbxTenChuongTrinh_SelectedIndexChanged);
             // 
@@ -136,10 +136,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 14);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(20, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(246, 26);
+            this.label2.Size = new System.Drawing.Size(312, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "Chương trình môn học";
             // 
@@ -152,11 +151,23 @@
             this.panel2.Controls.Add(this.btnThemCTMonHoc);
             this.panel2.Controls.Add(this.cbxTenChuongTrinh);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(21, 264);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(28, 325);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(862, 60);
+            this.panel2.Size = new System.Drawing.Size(1149, 73);
             this.panel2.TabIndex = 7;
+            // 
+            // btnXoaChuongTrinhMonHoc
+            // 
+            this.btnXoaChuongTrinhMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaChuongTrinhMonHoc.Location = new System.Drawing.Point(1086, 17);
+            this.btnXoaChuongTrinhMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaChuongTrinhMonHoc.Name = "btnXoaChuongTrinhMonHoc";
+            this.btnXoaChuongTrinhMonHoc.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaChuongTrinhMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaChuongTrinhMonHoc.TabIndex = 9;
+            this.btnXoaChuongTrinhMonHoc.TabStop = false;
+            this.btnXoaChuongTrinhMonHoc.Click += new System.EventHandler(this.btnXoaChuongTrinhMonHoc_Click);
             // 
             // cbxHocKy
             // 
@@ -164,10 +175,10 @@
             this.cbxHocKy.FormattingEnabled = true;
             this.cbxHocKy.Items.AddRange(new object[] {
             "Môn"});
-            this.cbxHocKy.Location = new System.Drawing.Point(566, 16);
-            this.cbxHocKy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxHocKy.Location = new System.Drawing.Point(755, 20);
+            this.cbxHocKy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxHocKy.Name = "cbxHocKy";
-            this.cbxHocKy.Size = new System.Drawing.Size(114, 28);
+            this.cbxHocKy.Size = new System.Drawing.Size(151, 33);
             this.cbxHocKy.TabIndex = 5;
             this.cbxHocKy.SelectedIndexChanged += new System.EventHandler(this.cbxHocKy_SelectedIndexChanged);
             // 
@@ -194,10 +205,10 @@
             // bthThemChuongTrinh
             // 
             this.bthThemChuongTrinh.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.button_them;
-            this.bthThemChuongTrinh.Location = new System.Drawing.Point(719, 16);
-            this.bthThemChuongTrinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bthThemChuongTrinh.Location = new System.Drawing.Point(975, 21);
+            this.bthThemChuongTrinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bthThemChuongTrinh.Name = "bthThemChuongTrinh";
-            this.bthThemChuongTrinh.Size = new System.Drawing.Size(78, 30);
+            this.bthThemChuongTrinh.Size = new System.Drawing.Size(104, 37);
             this.bthThemChuongTrinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bthThemChuongTrinh.TabIndex = 3;
             this.bthThemChuongTrinh.TabStop = false;
@@ -209,10 +220,10 @@
             this.cbxKhoaMonHoc.FormattingEnabled = true;
             this.cbxKhoaMonHoc.Items.AddRange(new object[] {
             "Khoa"});
-            this.cbxKhoaMonHoc.Location = new System.Drawing.Point(292, 16);
-            this.cbxKhoaMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxKhoaMonHoc.Location = new System.Drawing.Point(389, 20);
+            this.cbxKhoaMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxKhoaMonHoc.Name = "cbxKhoaMonHoc";
-            this.cbxKhoaMonHoc.Size = new System.Drawing.Size(284, 28);
+            this.cbxKhoaMonHoc.Size = new System.Drawing.Size(377, 33);
             this.cbxKhoaMonHoc.TabIndex = 1;
             this.cbxKhoaMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxKhoaMonHoc_SelectedIndexChanged);
             // 
@@ -220,10 +231,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(19, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 26);
+            this.label1.Size = new System.Drawing.Size(189, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chương trình";
             // 
@@ -235,11 +245,23 @@
             this.panel1.Controls.Add(this.bthThemChuongTrinh);
             this.panel1.Controls.Add(this.cbxKhoaMonHoc);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(22, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(29, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(862, 67);
+            this.panel1.Size = new System.Drawing.Size(1149, 82);
             this.panel1.TabIndex = 5;
+            // 
+            // btnXoaChuongTrinh
+            // 
+            this.btnXoaChuongTrinh.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
+            this.btnXoaChuongTrinh.Location = new System.Drawing.Point(1085, 20);
+            this.btnXoaChuongTrinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaChuongTrinh.Name = "btnXoaChuongTrinh";
+            this.btnXoaChuongTrinh.Size = new System.Drawing.Size(35, 37);
+            this.btnXoaChuongTrinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnXoaChuongTrinh.TabIndex = 5;
+            this.btnXoaChuongTrinh.TabStop = false;
+            this.btnXoaChuongTrinh.Click += new System.EventHandler(this.btnXoaChuongTrinh_Click);
             // 
             // lsvChuongTrinh
             // 
@@ -253,40 +275,16 @@
             this.lsvChuongTrinh.FullRowSelect = true;
             this.lsvChuongTrinh.GridLines = true;
             this.lsvChuongTrinh.HideSelection = false;
-            this.lsvChuongTrinh.Location = new System.Drawing.Point(21, 74);
-            this.lsvChuongTrinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsvChuongTrinh.Location = new System.Drawing.Point(28, 91);
+            this.lsvChuongTrinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvChuongTrinh.MultiSelect = false;
             this.lsvChuongTrinh.Name = "lsvChuongTrinh";
-            this.lsvChuongTrinh.Size = new System.Drawing.Size(863, 186);
+            this.lsvChuongTrinh.Size = new System.Drawing.Size(1149, 228);
             this.lsvChuongTrinh.TabIndex = 6;
             this.lsvChuongTrinh.UseCompatibleStateImageBehavior = false;
             this.lsvChuongTrinh.View = System.Windows.Forms.View.Details;
             this.lsvChuongTrinh.SelectedIndexChanged += new System.EventHandler(this.lsvChuongTrinh_SelectedIndexChanged);
             this.lsvChuongTrinh.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvChuongTrinh_MouseDoubleClick);
-            // 
-            // btnXoaChuongTrinh
-            // 
-            this.btnXoaChuongTrinh.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
-            this.btnXoaChuongTrinh.Location = new System.Drawing.Point(814, 16);
-            this.btnXoaChuongTrinh.Margin = new System.Windows.Forms.Padding(2);
-            this.btnXoaChuongTrinh.Name = "btnXoaChuongTrinh";
-            this.btnXoaChuongTrinh.Size = new System.Drawing.Size(26, 30);
-            this.btnXoaChuongTrinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnXoaChuongTrinh.TabIndex = 5;
-            this.btnXoaChuongTrinh.TabStop = false;
-            this.btnXoaChuongTrinh.Click += new System.EventHandler(this.btnXoaChuongTrinh_Click);
-            // 
-            // btnXoaChuongTrinhMonHoc
-            // 
-            this.btnXoaChuongTrinhMonHoc.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.note_pencil;
-            this.btnXoaChuongTrinhMonHoc.Location = new System.Drawing.Point(815, 14);
-            this.btnXoaChuongTrinhMonHoc.Margin = new System.Windows.Forms.Padding(2);
-            this.btnXoaChuongTrinhMonHoc.Name = "btnXoaChuongTrinhMonHoc";
-            this.btnXoaChuongTrinhMonHoc.Size = new System.Drawing.Size(26, 30);
-            this.btnXoaChuongTrinhMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnXoaChuongTrinhMonHoc.TabIndex = 9;
-            this.btnXoaChuongTrinhMonHoc.TabStop = false;
-            this.btnXoaChuongTrinhMonHoc.Click += new System.EventHandler(this.btnXoaChuongTrinhMonHoc_Click);
             // 
             // Bzz
             // 
@@ -295,23 +293,23 @@
             // 
             // ChuongTrinhUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lsvChuongTrinhMonHoc);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lsvChuongTrinh);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ChuongTrinhUserControl";
-            this.Size = new System.Drawing.Size(903, 547);
+            this.Size = new System.Drawing.Size(1204, 673);
             ((System.ComponentModel.ISupportInitialize)(this.btnThemCTMonHoc)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaChuongTrinhMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bthThemChuongTrinh)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaChuongTrinh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnXoaChuongTrinhMonHoc)).EndInit();
             this.ResumeLayout(false);
 
         }

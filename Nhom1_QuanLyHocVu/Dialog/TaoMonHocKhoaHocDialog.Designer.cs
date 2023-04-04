@@ -119,6 +119,7 @@
             this.cbxKhoaHoc.Name = "cbxKhoaHoc";
             this.cbxKhoaHoc.Size = new System.Drawing.Size(491, 33);
             this.cbxKhoaHoc.TabIndex = 53;
+            this.cbxKhoaHoc.SelectedIndexChanged += new System.EventHandler(this.cbxKhoaHoc_SelectedIndexChanged);
             // 
             // label3
             // 
