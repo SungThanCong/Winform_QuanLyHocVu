@@ -90,5 +90,27 @@ namespace Nhom1_QuanLyHocVu.Dialog
         {
             cbxMaMonHoc.Enabled = value;
         }
+
+        private void txtHocKi_TextChanged(object sender, EventArgs e)
+        {
+           
+                var textbox = (System.Windows.Forms.TextBox)sender;
+                int minValue = 1; // giá trị tối thiểu
+                int maxValue = 99; // giá trị tối đa
+
+                if (!int.TryParse(textbox.Text, out int value))
+                {
+                    textbox.Text = minValue.ToString();
+                }
+                else if (value < minValue)
+                {
+                    textbox.Text = minValue.ToString();
+                }
+                else if (value > maxValue)
+                {
+                    textbox.Text = maxValue.ToString();
+                }
+           
+        }
     }
 }

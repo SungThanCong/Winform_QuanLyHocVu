@@ -56,11 +56,11 @@
             this.lsvGV.FullRowSelect = true;
             this.lsvGV.GridLines = true;
             this.lsvGV.HideSelection = false;
-            this.lsvGV.Location = new System.Drawing.Point(541, 98);
-            this.lsvGV.Margin = new System.Windows.Forms.Padding(2);
+            this.lsvGV.Location = new System.Drawing.Point(721, 121);
+            this.lsvGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvGV.Name = "lsvGV";
             this.lsvGV.OwnerDraw = true;
-            this.lsvGV.Size = new System.Drawing.Size(502, 556);
+            this.lsvGV.Size = new System.Drawing.Size(668, 683);
             this.lsvGV.TabIndex = 10;
             this.lsvGV.UseCompatibleStateImageBehavior = false;
             this.lsvGV.View = System.Windows.Forms.View.Details;
@@ -88,11 +88,11 @@
             this.lsvKhoa.FullRowSelect = true;
             this.lsvKhoa.GridLines = true;
             this.lsvKhoa.HideSelection = false;
-            this.lsvKhoa.Location = new System.Drawing.Point(26, 98);
-            this.lsvKhoa.Margin = new System.Windows.Forms.Padding(2);
+            this.lsvKhoa.Location = new System.Drawing.Point(35, 121);
+            this.lsvKhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvKhoa.Name = "lsvKhoa";
             this.lsvKhoa.OwnerDraw = true;
-            this.lsvKhoa.Size = new System.Drawing.Size(482, 556);
+            this.lsvKhoa.Size = new System.Drawing.Size(641, 683);
             this.lsvKhoa.TabIndex = 9;
             this.lsvKhoa.UseCompatibleStateImageBehavior = false;
             this.lsvKhoa.View = System.Windows.Forms.View.Details;
@@ -118,10 +118,10 @@
             this.panel1.Controls.Add(this.btnXoaKhoa);
             this.panel1.Controls.Add(this.btnTaoKhoa);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(26, 16);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(35, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(481, 56);
+            this.panel1.Size = new System.Drawing.Size(641, 68);
             this.panel1.TabIndex = 7;
             // 
             // btnXoaKhoa
@@ -131,10 +131,10 @@
             this.btnXoaKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaKhoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoaKhoa.Location = new System.Drawing.Point(378, 15);
-            this.btnXoaKhoa.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoaKhoa.Location = new System.Drawing.Point(504, 18);
+            this.btnXoaKhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaKhoa.Name = "btnXoaKhoa";
-            this.btnXoaKhoa.Size = new System.Drawing.Size(62, 24);
+            this.btnXoaKhoa.Size = new System.Drawing.Size(83, 30);
             this.btnXoaKhoa.TabIndex = 6;
             this.btnXoaKhoa.Text = "- Xóa";
             this.btnXoaKhoa.UseVisualStyleBackColor = false;
@@ -147,10 +147,10 @@
             this.btnTaoKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaoKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoKhoa.ForeColor = System.Drawing.Color.White;
-            this.btnTaoKhoa.Location = new System.Drawing.Point(291, 15);
-            this.btnTaoKhoa.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTaoKhoa.Location = new System.Drawing.Point(388, 18);
+            this.btnTaoKhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTaoKhoa.Name = "btnTaoKhoa";
-            this.btnTaoKhoa.Size = new System.Drawing.Size(82, 24);
+            this.btnTaoKhoa.Size = new System.Drawing.Size(109, 30);
             this.btnTaoKhoa.TabIndex = 5;
             this.btnTaoKhoa.Text = "+ Tạo mới";
             this.btnTaoKhoa.UseVisualStyleBackColor = false;
@@ -160,10 +160,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(27, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 24);
+            this.label1.Size = new System.Drawing.Size(73, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Khoa";
             // 
@@ -171,10 +170,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(21, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 24);
+            this.label2.Size = new System.Drawing.Size(123, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Giáo viên";
             // 
@@ -185,10 +183,10 @@
             this.panel2.Controls.Add(this.btnXoaGV);
             this.panel2.Controls.Add(this.btnTaoGV);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(541, 16);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(721, 20);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(502, 56);
+            this.panel2.Size = new System.Drawing.Size(669, 68);
             this.panel2.TabIndex = 8;
             // 
             // btnXoaGV
@@ -198,10 +196,10 @@
             this.btnXoaGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaGV.ForeColor = System.Drawing.Color.White;
-            this.btnXoaGV.Location = new System.Drawing.Point(396, 15);
-            this.btnXoaGV.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoaGV.Location = new System.Drawing.Point(528, 18);
+            this.btnXoaGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaGV.Name = "btnXoaGV";
-            this.btnXoaGV.Size = new System.Drawing.Size(62, 24);
+            this.btnXoaGV.Size = new System.Drawing.Size(83, 30);
             this.btnXoaGV.TabIndex = 7;
             this.btnXoaGV.Text = "- Xóa";
             this.btnXoaGV.UseVisualStyleBackColor = false;
@@ -214,10 +212,10 @@
             this.btnTaoGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaoGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoGV.ForeColor = System.Drawing.Color.White;
-            this.btnTaoGV.Location = new System.Drawing.Point(310, 15);
-            this.btnTaoGV.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTaoGV.Location = new System.Drawing.Point(413, 18);
+            this.btnTaoGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTaoGV.Name = "btnTaoGV";
-            this.btnTaoGV.Size = new System.Drawing.Size(82, 24);
+            this.btnTaoGV.Size = new System.Drawing.Size(109, 30);
             this.btnTaoGV.TabIndex = 6;
             this.btnTaoGV.Text = "+ Tạo mới";
             this.btnTaoGV.UseVisualStyleBackColor = false;
@@ -225,16 +223,16 @@
             // 
             // KhoaUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.lsvGV);
             this.Controls.Add(this.lsvKhoa);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KhoaUserControl";
-            this.Size = new System.Drawing.Size(1072, 681);
+            this.Size = new System.Drawing.Size(1429, 838);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

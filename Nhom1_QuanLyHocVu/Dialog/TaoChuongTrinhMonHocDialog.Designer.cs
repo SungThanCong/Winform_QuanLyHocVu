@@ -141,13 +141,14 @@
             // 
             // txtHocKi
             // 
-            this.txtHocKi.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtHocKi.BackColor = System.Drawing.Color.White;
             this.txtHocKi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHocKi.Location = new System.Drawing.Point(67, 286);
             this.txtHocKi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHocKi.Name = "txtHocKi";
             this.txtHocKi.Size = new System.Drawing.Size(148, 30);
             this.txtHocKi.TabIndex = 24;
+            this.txtHocKi.TextChanged += new System.EventHandler(this.txtHocKi_TextChanged);
             // 
             // cbxMaChuongTrinh
             // 

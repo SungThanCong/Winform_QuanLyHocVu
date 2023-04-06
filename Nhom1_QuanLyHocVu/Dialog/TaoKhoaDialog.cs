@@ -22,7 +22,7 @@ namespace Nhom1_QuanLyHocVu.Dialog
             if(txtTaoMaKhoa.Text.Length>0 && txtTaoTenKhoa.Text.Length > 0)
             {
                 DialogResult = DialogResult.OK;
-                this.Close();
+              
             }
             else
             {

@@ -18,21 +18,6 @@ namespace Nhom1_QuanLyHocVu
             InitializeComponent();
         }
 
-        private void menu1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void profileBar1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-
-        }
-
        
 
 

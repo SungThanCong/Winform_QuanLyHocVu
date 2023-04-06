@@ -67,7 +67,7 @@
             // 
             // txtMaChuongTrinh
             // 
-            this.txtMaChuongTrinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaChuongTrinh.BackColor = System.Drawing.Color.White;
             this.txtMaChuongTrinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaChuongTrinh.Location = new System.Drawing.Point(76, 186);
             this.txtMaChuongTrinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -142,6 +142,7 @@
             // 
             // txtTenKhoa
             // 
+            this.txtTenKhoa.BackColor = System.Drawing.Color.White;
             this.txtTenKhoa.Enabled = false;
             this.txtTenKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenKhoa.FormattingEnabled = true;
@@ -153,7 +154,7 @@
             // 
             // txtBacHoc
             // 
-            this.txtBacHoc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBacHoc.BackColor = System.Drawing.Color.White;
             this.txtBacHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBacHoc.Location = new System.Drawing.Point(76, 430);
             this.txtBacHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

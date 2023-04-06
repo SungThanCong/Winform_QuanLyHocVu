@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Nhom1_QuanLyHocVu.Dialog
 {
@@ -50,7 +51,12 @@ namespace Nhom1_QuanLyHocVu.Dialog
         {
             if(txtTenKhoaHoc.Text.Length >0 && txtMaKhoaHoc.Text.Length > 0 && txtNamBatDau.Text.Length >0 && txtNamKetThuc.Text.Length >0)
             {
-                DialogResult = DialogResult.OK;
+                if(int.Parse(txtNamKetThuc.Text) - int.Parse(txtNamBatDau.Text) <= 7 && int.Parse(txtNamKetThuc.Text) - int.Parse(txtNamBatDau.Text) > 0)
+                    DialogResult = DialogResult.OK;
+                else
+                {
+                    MessageBox.Show("Khoảng thời gian của một khóa học không thể lớn hơn 7", "Lỗi");
+                }
             }
             else
             {
@@ -102,6 +108,26 @@ namespace Nhom1_QuanLyHocVu.Dialog
             CHUONGTRINH ct = entities.CHUONGTRINHs.Find(cbxChuongTrinh.SelectedValue.ToString());
 
             txtKhoa.Text = ct.KHOA.TenKhoa;
+        }
+
+        private void textbox_TextChanged(object sender, EventArgs e)
+        {
+            var textbox = (System.Windows.Forms.TextBox)sender;
+            int minValue = 1; // giá trị tối thiểu
+            int maxValue = 9999; // giá trị tối đa
+
+            if (!int.TryParse(textbox.Text, out int value))
+            {
+                textbox.Text = minValue.ToString();
+            }
+            else if (value < minValue)
+            {
+                textbox.Text = minValue.ToString();
+            }
+            else if (value > maxValue)
+            {
+                textbox.Text = maxValue.ToString();
+            }
         }
     }
 }

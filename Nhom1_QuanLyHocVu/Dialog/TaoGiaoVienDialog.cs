@@ -33,7 +33,7 @@ namespace Nhom1_QuanLyHocVu.Dialog
         private void btnXacNhanTaoGV_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            this.Close();
+       
         }
 
         private void btnHuyTaoGV_Click(object sender, EventArgs e)

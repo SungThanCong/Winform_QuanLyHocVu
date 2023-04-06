@@ -250,58 +250,45 @@ namespace Nhom1_QuanLyHocVu.Layout
 
         private void btnThemCTMonHoc_Click(object sender, EventArgs e)
         {
-            if (cbxTenChuongTrinh.SelectedIndex < 0)
-            {
-                MessageBox.Show("Bạn phải chọn chương trình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if(cbxHocKy.SelectedIndex < 0)
-            {
-                MessageBox.Show("Bạn phải chọn học kì", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-            else
-            {
-          
                 string maCT = cbxTenChuongTrinh.SelectedValue.ToString();
                 var chuongTrinh = entities.CHUONGTRINHs.Find(maCT);
 
                 TaoChuongTrinhMonHocDialog dialog = new TaoChuongTrinhMonHocDialog(chuongTrinh.MaChuongTrinh,
                      cbxHocKy.SelectedValue.ToString());
-                if (dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
                 {
-                    try
+                    CHUONGTRINHMONHOC CTMH = new CHUONGTRINHMONHOC();
+                    CTMH.MaMonHoc = dialog.GetMaMonHoc();
+                    CTMH.MaChuongTrinh = dialog.GetMaChuongTrinh();
+                    CTMH.HocKy = int.Parse(cbxHocKy.SelectedValue.ToString());
+
+
+                    using (var db = new QuanLyHocVuEntities())
                     {
-                        CHUONGTRINHMONHOC CTMH = new CHUONGTRINHMONHOC();
-                        CTMH.MaMonHoc = dialog.GetMaMonHoc();
-                        CTMH.MaChuongTrinh = dialog.GetMaChuongTrinh();
-                        CTMH.HocKy = int.Parse(cbxHocKy.SelectedValue.ToString());
-                      
-                      
-                        using(var db = new QuanLyHocVuEntities())
+                        db.CHUONGTRINHMONHOCs.Add(CTMH);
+                        int result = db.SaveChanges();
+                        if (result > 0)
                         {
-                            db.CHUONGTRINHMONHOCs.Add(CTMH);
-                            int result = db.SaveChanges();
-                            if (result > 0)
-                            {
-                                MessageBox.Show("Thêm chương trình - môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                LoadChuongTrinhMonHocListView(maCT, CTMH.HocKy.Value);
+                            MessageBox.Show("Thêm chương trình - môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadChuongTrinhMonHocListView(maCT, CTMH.HocKy.Value);
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("Thêm chương trình - môn học không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                            }
                         }
-                       
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            MessageBox.Show("Thêm chương trình - môn học không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        }
                     }
 
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+          
         }
 
         private void lsvChuongTrinhMonHoc_MouseDoubleClick(object sender, MouseEventArgs e)

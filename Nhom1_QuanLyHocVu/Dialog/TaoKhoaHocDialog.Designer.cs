@@ -54,6 +54,7 @@
             this.txtNamBatDau.Name = "txtNamBatDau";
             this.txtNamBatDau.Size = new System.Drawing.Size(174, 30);
             this.txtNamBatDau.TabIndex = 36;
+            this.txtNamBatDau.TextChanged += new System.EventHandler(this.textbox_TextChanged);
             // 
             // label5
             // 
@@ -174,6 +175,7 @@
             this.txtNamKetThuc.Name = "txtNamKetThuc";
             this.txtNamKetThuc.Size = new System.Drawing.Size(174, 30);
             this.txtNamKetThuc.TabIndex = 38;
+            this.txtNamKetThuc.TextChanged += new System.EventHandler(this.textbox_TextChanged);
             // 
             // label6
             // 

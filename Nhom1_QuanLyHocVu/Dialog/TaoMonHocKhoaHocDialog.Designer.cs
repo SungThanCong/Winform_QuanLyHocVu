@@ -49,7 +49,7 @@
             // 
             // cbxTenMonHoc
             // 
-            this.cbxTenMonHoc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxTenMonHoc.BackColor = System.Drawing.Color.White;
             this.cbxTenMonHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTenMonHoc.FormattingEnabled = true;
             this.cbxTenMonHoc.Location = new System.Drawing.Point(59, 208);
@@ -112,7 +112,7 @@
             // 
             // cbxKhoaHoc
             // 
-            this.cbxKhoaHoc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxKhoaHoc.BackColor = System.Drawing.Color.White;
             this.cbxKhoaHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxKhoaHoc.FormattingEnabled = true;
             this.cbxKhoaHoc.Location = new System.Drawing.Point(58, 130);
@@ -133,7 +133,7 @@
             // 
             // txtMaMonHoc
             // 
-            this.txtMaMonHoc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaMonHoc.BackColor = System.Drawing.Color.White;
             this.txtMaMonHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaMonHoc.Location = new System.Drawing.Point(60, 285);
             this.txtMaMonHoc.Name = "txtMaMonHoc";
@@ -143,7 +143,7 @@
             // 
             // cbxGiangVien
             // 
-            this.cbxGiangVien.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxGiangVien.BackColor = System.Drawing.Color.White;
             this.cbxGiangVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGiangVien.FormattingEnabled = true;
             this.cbxGiangVien.Location = new System.Drawing.Point(57, 361);
@@ -163,7 +163,7 @@
             // 
             // txtMaPhong
             // 
-            this.txtMaPhong.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaPhong.BackColor = System.Drawing.Color.White;
             this.txtMaPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaPhong.Location = new System.Drawing.Point(60, 443);
             this.txtMaPhong.Name = "txtMaPhong";
@@ -182,7 +182,7 @@
             // 
             // txtThu
             // 
-            this.txtThu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtThu.BackColor = System.Drawing.Color.White;
             this.txtThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThu.Location = new System.Drawing.Point(309, 443);
             this.txtThu.Name = "txtThu";

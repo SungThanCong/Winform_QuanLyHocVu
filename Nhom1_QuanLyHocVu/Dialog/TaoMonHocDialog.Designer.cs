@@ -45,13 +45,14 @@
             // 
             // txtSoTinChi
             // 
-            this.txtSoTinChi.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSoTinChi.BackColor = System.Drawing.Color.White;
             this.txtSoTinChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoTinChi.Location = new System.Drawing.Point(62, 394);
             this.txtSoTinChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSoTinChi.Name = "txtSoTinChi";
             this.txtSoTinChi.Size = new System.Drawing.Size(180, 30);
             this.txtSoTinChi.TabIndex = 41;
+            this.txtSoTinChi.TextChanged += new System.EventHandler(this.txtSoTinChi_TextChanged);
             // 
             // label6
             // 
@@ -130,7 +131,7 @@
             // 
             // txtMaMonHoc
             // 
-            this.txtMaMonHoc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaMonHoc.BackColor = System.Drawing.Color.White;
             this.txtMaMonHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaMonHoc.Location = new System.Drawing.Point(62, 150);
             this.txtMaMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -18,6 +18,7 @@ namespace Nhom1_QuanLyHocVu.Layout
     public partial class KhoaUserControl : UserControl
     {
         private string lastedMK = "";
+        private int lastedIndex = -1;
         public KhoaUserControl()
         {
             InitializeComponent();
@@ -89,6 +90,13 @@ namespace Nhom1_QuanLyHocVu.Layout
                         {
                             MessageBox.Show("Thêm giáo viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RenderKhoa();
+                            foreach (ListViewItem item in lsvKhoa.Items)
+                            {
+                                if (item.SubItems[1].Text == newGV.MaKhoa)
+                                {
+                                    item.Selected = true;
+                                }
+                            }
                         }
                         else
                         {

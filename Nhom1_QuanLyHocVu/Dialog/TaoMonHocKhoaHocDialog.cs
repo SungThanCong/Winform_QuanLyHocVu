@@ -15,6 +15,7 @@ namespace Nhom1_QuanLyHocVu.Dialog
     public partial class TaoMonHocKhoaHocDialog : Form
     {
         QuanLyHocVuEntities entities = new QuanLyHocVuEntities();
+        string maChuongTrinh = "";
         public TaoMonHocKhoaHocDialog()
         {
             InitializeComponent();
@@ -64,8 +65,11 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
             cbxGiangVien.ValueMember = "MaGiaoVien";
             cbxGiangVien.DisplayMember = "HoTen";
-            cbxGiangVien.DataSource = entities.GIAOVIENs.Join(entities.DAMNHIEMMONs, x1 => x1.MaGiaoVien, x2 => x2.MaGiaoVien, (x1,x2)=> new {x1.MaGiaoVien, x1.HoTen, x2.MaMonHoc})
-                .Where(x => x.MaMonHoc == txtMaMonHoc.Text).Select(x => new { x.MaGiaoVien, x.HoTen }).ToList();
+            cbxGiangVien.DataSource = entities.GIAOVIENs
+                .Join(entities.DAMNHIEMMONs, x1 => x1.MaGiaoVien, x2 => x2.MaGiaoVien, (x1,x2)=> new {x1.MaGiaoVien, x1.HoTen, x2.MaMonHoc, x2.MaChuongTrinh})
+                .Where(x => x.MaMonHoc == txtMaMonHoc.Text && x.MaChuongTrinh == maChuongTrinh )
+                .Select(x => new { x.MaGiaoVien, x.HoTen })
+                .ToList();
             cbxGiangVien.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbxGiangVien.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
@@ -133,9 +137,12 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
             var maKH = cbxKhoaHoc.SelectedValue.ToString();
 
-            var maChuongTrinh = entities.KHOAHOCs.Find(maKH).CHUONGTRINH.MaChuongTrinh;
+            maChuongTrinh = entities.KHOAHOCs.Find(maKH).CHUONGTRINH.MaChuongTrinh;
+            
 
-            var MonHoc = entities.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == maChuongTrinh)
+
+            var MonHoc = entities.CHUONGTRINHMONHOCs
+                .Where(x => x.MaChuongTrinh == maChuongTrinh)
                 .Select(x => new { x.MONHOC.MaMonHoc, x.MONHOC.TenMonHoc }).ToList();
             
             cbxTenMonHoc.DataSource = MonHoc.Where(x => RangBuocDuLieu.RangBuocMonHoc(x.MaMonHoc) == true).ToList();
