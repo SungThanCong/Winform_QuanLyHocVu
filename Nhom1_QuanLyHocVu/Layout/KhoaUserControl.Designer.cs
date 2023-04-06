@@ -48,6 +48,7 @@
             // 
             // lsvGV
             // 
+            this.lsvGV.BackColor = System.Drawing.Color.Gainsboro;
             this.lsvGV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colTenGv,
             this.colMaGv});
@@ -57,10 +58,13 @@
             this.lsvGV.HideSelection = false;
             this.lsvGV.Location = new System.Drawing.Point(612, 121);
             this.lsvGV.Name = "lsvGV";
+            this.lsvGV.OwnerDraw = true;
             this.lsvGV.Size = new System.Drawing.Size(556, 501);
             this.lsvGV.TabIndex = 10;
             this.lsvGV.UseCompatibleStateImageBehavior = false;
             this.lsvGV.View = System.Windows.Forms.View.Details;
+            this.lsvGV.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.lsvGV_DrawColumnHeader);
+            this.lsvGV.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lsvGV_DrawItem);
             this.lsvGV.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvGV_MouseDoubleClick);
             // 
             // colTenGv
@@ -75,6 +79,7 @@
             // 
             // lsvKhoa
             // 
+            this.lsvKhoa.BackColor = System.Drawing.Color.Gainsboro;
             this.lsvKhoa.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colKhoa,
             this.colMaKhoa});
@@ -84,10 +89,13 @@
             this.lsvKhoa.HideSelection = false;
             this.lsvKhoa.Location = new System.Drawing.Point(34, 121);
             this.lsvKhoa.Name = "lsvKhoa";
+            this.lsvKhoa.OwnerDraw = true;
             this.lsvKhoa.Size = new System.Drawing.Size(529, 501);
             this.lsvKhoa.TabIndex = 9;
             this.lsvKhoa.UseCompatibleStateImageBehavior = false;
             this.lsvKhoa.View = System.Windows.Forms.View.Details;
+            this.lsvKhoa.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.lsvKhoa_DrawColumnHeader);
+            this.lsvKhoa.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lsvKhoa_DrawItem);
             this.lsvKhoa.SelectedIndexChanged += new System.EventHandler(this.lsvKhoa_SelectedIndexChanged);
             this.lsvKhoa.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvKhoa_MouseDoubleClick);
             // 
@@ -209,6 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.lsvGV);
             this.Controls.Add(this.lsvKhoa);
             this.Controls.Add(this.panel1);

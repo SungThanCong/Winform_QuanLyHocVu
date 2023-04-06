@@ -175,6 +175,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TaoMonHocDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TaoMonHocDialog";
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();

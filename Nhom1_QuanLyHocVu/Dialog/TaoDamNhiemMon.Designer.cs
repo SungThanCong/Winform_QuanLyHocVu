@@ -163,6 +163,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TaoDamNhiemMon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TaoDamNhiemMon";
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();

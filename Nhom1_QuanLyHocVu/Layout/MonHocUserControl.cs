@@ -1,4 +1,5 @@
-﻿using Nhom1_QuanLyHocVu.Dialog;
+﻿using Nhom1_QuanLyHocVu.Common;
+using Nhom1_QuanLyHocVu.Dialog;
 using Nhom1_QuanLyHocVu.Model;
 using System;
 using System.Collections.Generic;
@@ -132,25 +133,29 @@ namespace Nhom1_QuanLyHocVu.Layout
 
                     if (KTDKDamNhiemMon(maGV))
                     {
-                        DAMNHIEMMON data = new DAMNHIEMMON();
-                        data.MaGiaoVien = maGV;
-                        data.MaMonHoc = maMonHoc;
-                        data.MaChuongTrinh = maChuongTrinh;
-                        data.CoLaDamNhiemChinh =  damNhiemChinh ? 1 : 0;
-
-                        entities.DAMNHIEMMONs.Add(data);
-                        int result = entities.SaveChanges();
-
-                        if (result > 0)
+                        using(var db = new QuanLyHocVuEntities())
                         {
-                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadDamNhiemMonListView(maMonHoc);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            DAMNHIEMMON data = new DAMNHIEMMON();
+                            data.MaGiaoVien = maGV;
+                            data.MaMonHoc = maMonHoc;
+                            data.MaChuongTrinh = maChuongTrinh;
+                            data.CoLaDamNhiemChinh = damNhiemChinh ? 1 : 0;
 
+                            db.DAMNHIEMMONs.Add(data);
+                            int result = db.SaveChanges();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadDamNhiemMonListView(maMonHoc);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                            }
                         }
+                        
                     }
                     else
                     {
@@ -187,34 +192,38 @@ namespace Nhom1_QuanLyHocVu.Layout
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                try
+                using(var db = new QuanLyHocVuEntities())
                 {
-                    DAMNHIEMMON damNhiem = entities.DAMNHIEMMONs.Where(x=> x.MaGiaoVien == dialog.txtGiaoVien.SelectedValue.ToString() &&
-                    x.MaMonHoc == dialog.txtMonHoc.SelectedValue.ToString() && x.MaChuongTrinh == dialog.txtChuongTrinh.SelectedValue.ToString()).FirstOrDefault();
-
-                    if(damNhiem != null)
+                    try
                     {
-                        damNhiem.CoLaDamNhiemChinh = dialog.ckbDamNhiemChinh.Checked == true ? 1 : 0;
-                      
+                        DAMNHIEMMON damNhiem = db.DAMNHIEMMONs.Where(x => x.MaGiaoVien == dialog.txtGiaoVien.SelectedValue.ToString() &&
+                        x.MaMonHoc == dialog.txtMonHoc.SelectedValue.ToString() && x.MaChuongTrinh == dialog.txtChuongTrinh.SelectedValue.ToString()).FirstOrDefault();
 
-                        int result = entities.SaveChanges();
-                        if (result > 0)
+                        if (damNhiem != null)
                         {
-                            MessageBox.Show("Sửa môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadDamNhiemMonListView(damNhiem.MaMonHoc);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Sửa môn học không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            damNhiem.CoLaDamNhiemChinh = dialog.ckbDamNhiemChinh.Checked == true ? 1 : 0;
 
+
+                            int result = db.SaveChanges();
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Sửa môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadDamNhiemMonListView(damNhiem.MaMonHoc);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sửa môn học không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                            }
                         }
+
                     }
-                   
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
         }
 
@@ -228,30 +237,33 @@ namespace Nhom1_QuanLyHocVu.Layout
                     string maMon = lsvDamNhanMon.SelectedItems[0].SubItems[4].Text;
                     string maCT = lsvDamNhanMon.SelectedItems[0].SubItems[5].Text;
                     string maGV = lsvDamNhanMon.SelectedItems[0].SubItems[6].Text;
-                    
-                    var damNhanMon = entities.DAMNHIEMMONs.Where(x => x.MaMonHoc == maMon && x.MaChuongTrinh == maCT && x.MaGiaoVien == maGV).FirstOrDefault();
-
-                    if(damNhanMon != null)
-                        entities.DAMNHIEMMONs.Remove(damNhanMon);
-                    try
+                    using(var db = new QuanLyHocVuEntities())
                     {
-                        int result = entities.SaveChanges();
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadDamNhiemMonListView(maMon);
+                        var damNhanMon = db.DAMNHIEMMONs.Where(x => x.MaMonHoc == maMon && x.MaChuongTrinh == maCT && x.MaGiaoVien == maGV).FirstOrDefault();
 
+                        if (damNhanMon != null)
+                            db.DAMNHIEMMONs.Remove(damNhanMon);
+                        try
+                        {
+                            int result = db.SaveChanges();
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadDamNhiemMonListView(maMon);
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Dữ liệu đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Dữ liệu đang được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                            MessageBox.Show("Dữ liệu đang được sử dụng\nError: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Dữ liệu đang được sử dụng\nError: "+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                 
                 }
             }
             else
@@ -378,6 +390,17 @@ namespace Nhom1_QuanLyHocVu.Layout
             {
                 MessageBox.Show("Bạn phải chọn dòng dữ liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void lsvDamNhanMon_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            ListViewStyle.HeaderStyle(e);
+        }
+
+        private void lsvDamNhanMon_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            ListViewStyle.ItemStyle(e);
+
         }
     }
 }
