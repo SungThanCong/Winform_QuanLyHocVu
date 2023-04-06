@@ -16,7 +16,8 @@ namespace Nhom1_QuanLyHocVu.Layout
     public partial class MonHocUserControl : UserControl
     {
         QuanLyHocVuEntities entities = new QuanLyHocVuEntities();
-        
+
+
         public MonHocUserControl()
         {
             InitializeComponent();
@@ -44,9 +45,7 @@ namespace Nhom1_QuanLyHocVu.Layout
             cbxMonDamNhanMon.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbxMonDamNhanMon.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
-            ////load data ban đầu cho 2 listview
-            //var selectedKhoa = dsKhoa.Count > 0 ? dsKhoa.ElementAt(0) : null;
-            //var selectedMon = dsMon.Count > 0 ? dsMon.ElementAt(0) : null;
+     
 
 
 
@@ -293,6 +292,10 @@ namespace Nhom1_QuanLyHocVu.Layout
                         {
                             MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadMonHocListView(cbxKhoaMonHoc.SelectedValue.ToString());
+                            cbxMonDamNhanMon.DataSource = db.MONHOCs.Select(x => new { x.TenMonHoc, x.MaMonHoc }).ToList();
+
+
+
                         }
                         else
                         {

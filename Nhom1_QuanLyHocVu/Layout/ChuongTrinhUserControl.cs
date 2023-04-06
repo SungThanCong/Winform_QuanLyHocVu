@@ -83,14 +83,13 @@ namespace Nhom1_QuanLyHocVu.Layout
 
         private void cbxHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var cbx = (ComboBox)sender;
-            var value = cbx.SelectedValue;
+         
             using (var db = new QuanLyHocVuEntities())
             {
                 var chuongTrinh = db.CHUONGTRINHs.Find(cbxTenChuongTrinh.SelectedValue);
                 if (chuongTrinh != null)
                 {
-                    LoadChuongTrinhMonHocListView(cbxTenChuongTrinh.SelectedValue.ToString(), int.Parse(value + ""));
+                    LoadChuongTrinhMonHocListView(cbxTenChuongTrinh.SelectedValue.ToString(), int.Parse(cbxHocKy.SelectedValue.ToString()));
                 }
             }
 
@@ -99,8 +98,8 @@ namespace Nhom1_QuanLyHocVu.Layout
 
         private void cbxKhoaMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var cbx = (ComboBox)sender;
-            var value = cbx.SelectedValue;
+           
+            var value = cbxKhoaMonHoc.SelectedValue;
             using (var db = new QuanLyHocVuEntities())
             {
                 var khoa = db.KHOAs.Find(value);
@@ -184,6 +183,9 @@ namespace Nhom1_QuanLyHocVu.Layout
                             {
                                 MessageBox.Show("Thêm chương trình thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadChuongTrinhListView(chuongTrinh.MaKhoa);
+
+                                cbxTenChuongTrinh.DataSource = db.CHUONGTRINHs.Select(x => new { x.MaChuongTrinh, x.TenChuongTrinh }).Distinct().ToList();
+
                             }
                             else
                             {
@@ -250,11 +252,10 @@ namespace Nhom1_QuanLyHocVu.Layout
 
         private void btnThemCTMonHoc_Click(object sender, EventArgs e)
         {
-                string maCT = cbxTenChuongTrinh.SelectedValue.ToString();
-                var chuongTrinh = entities.CHUONGTRINHs.Find(maCT);
+            string maCT = cbxTenChuongTrinh.SelectedValue.ToString();
+            var chuongTrinh = entities.CHUONGTRINHs.Find(maCT);
 
-                TaoChuongTrinhMonHocDialog dialog = new TaoChuongTrinhMonHocDialog(chuongTrinh.MaChuongTrinh,
-                     cbxHocKy.SelectedValue.ToString());
+            TaoChuongTrinhMonHocDialog dialog = new TaoChuongTrinhMonHocDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -293,19 +294,20 @@ namespace Nhom1_QuanLyHocVu.Layout
 
         private void lsvChuongTrinhMonHoc_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            
             string maCT = lsvChuongTrinhMonHoc.SelectedItems[0].SubItems[0].Text;
             string maMH = lsvChuongTrinhMonHoc.SelectedItems[0].SubItems[2].Text;
             using(var db = new QuanLyHocVuEntities())
             {
                 CHUONGTRINHMONHOC chuongTrinh = db.CHUONGTRINHMONHOCs.Where(x =>
-               x.MaChuongTrinh == maCT &&
+                x.MaChuongTrinh == maCT &&
                 x.MaMonHoc == maMH).FirstOrDefault();
 
-                TaoChuongTrinhMonHocDialog dialog = new TaoChuongTrinhMonHocDialog(chuongTrinh.CHUONGTRINH.TenChuongTrinh,
+                TaoChuongTrinhMonHocDialog dialog = new TaoChuongTrinhMonHocDialog(chuongTrinh.CHUONGTRINH.MaChuongTrinh,
                    chuongTrinh.MONHOC.TenMonHoc, chuongTrinh.HocKy.Value.ToString());
 
-                //dialog.SetChuongTrinhEnable(false);
-                //dialog.SetMonHocEnable(false);
+                dialog.SetChuongTrinhEnable(false);
+                dialog.SetMonHocEnable(false);
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {

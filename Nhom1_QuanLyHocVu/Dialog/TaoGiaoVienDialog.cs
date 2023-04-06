@@ -32,7 +32,15 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
         private void btnXacNhanTaoGV_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (txtTaoMaGV.Text.Length > 0 && txtTaoTenGV.Text.Length > 0)
+            {
+                DialogResult = DialogResult.OK;
+
+            }
+            else
+            {
+                MessageBox.Show("Mã giáo viên và tên giáo viên không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
        
         }
 

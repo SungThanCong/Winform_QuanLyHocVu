@@ -139,6 +139,9 @@ namespace Nhom1_QuanLyHocVu.Layout
                         {
                             MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ReloadKhoaHoc(cbxKhoaKhoaHoc.SelectedValue.ToString());
+
+                            cbxKhoaHoc.DataSource = entities.KHOAHOCs.Select(x => new { x.MaKhoaHoc, x.TenKhoaHoc }).ToList();
+
                         }
                         else
                         {
@@ -367,6 +370,8 @@ namespace Nhom1_QuanLyHocVu.Layout
 
                     using(var db = new QuanLyHocVuEntities())
                     {
+                     
+
                         KHOAHOCMON khm = db.KHOAHOCMONs.Where(x => x.MaKhoaHoc == khoaHoc && x.MaPhong == phong && x.MaMonHoc == maMH
                 && x.MaGiaoVien_day == giaoVien && x.MaThu == thu).FirstOrDefault();
 

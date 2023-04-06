@@ -24,19 +24,22 @@ namespace Nhom1_QuanLyHocVu.Dialog
         public TaoChuongTrinhMonHocDialog(string MaChuongTrinh, string HocKi)
         {
             InitializeComponent();
+            RenderMaMonHoc();
+
             cbxMaChuongTrinh.Text = MaChuongTrinh;
             txtHocKi.Text = HocKi;
 
-            RenderMaMonHoc();
         }
         public TaoChuongTrinhMonHocDialog(string MaChuongTrinh,string MaMonHoc, string HocKi)
         {
             InitializeComponent();
+
+            RenderMaMonHoc();
+
             cbxMaChuongTrinh.Text = MaChuongTrinh;
             cbxMaMonHoc.Text = MaMonHoc;
             txtHocKi.Text = HocKi;
 
-            RenderMaMonHoc();
         }
 
      

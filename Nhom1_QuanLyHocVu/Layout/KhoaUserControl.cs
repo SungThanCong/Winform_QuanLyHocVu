@@ -122,7 +122,6 @@ namespace Nhom1_QuanLyHocVu.Layout
                 {
                     ListViewItem item = new ListViewItem(khoa.TenKhoa);
                     item.SubItems.Add(khoa.MaKhoa);
-
                     lsvKhoa.Items.Add(item);
                 }
             }

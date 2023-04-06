@@ -31,6 +31,7 @@ namespace Nhom1_QuanLyHocVu
         /// </summary>
         private void InitializeComponent()
         {
+            this.menu1 = new Layout.Menu(this);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -69,7 +70,7 @@ namespace Nhom1_QuanLyHocVu
             this.menu1.Location = new System.Drawing.Point(0, 0);
             this.menu1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menu1.Name = "menu1";
-            this.menu1.Size = new System.Drawing.Size(149, 897);
+            this.menu1.Size = new System.Drawing.Size(149, 892);
             this.menu1.TabIndex = 0;
             // 
             // panel1
@@ -80,7 +81,7 @@ namespace Nhom1_QuanLyHocVu
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(149, 897);
+            this.panel1.Size = new System.Drawing.Size(149, 892);
             this.panel1.TabIndex = 0;
             // 
             // panel4
@@ -90,7 +91,7 @@ namespace Nhom1_QuanLyHocVu
             this.panel4.Location = new System.Drawing.Point(148, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1, 897);
+            this.panel4.Size = new System.Drawing.Size(1, 892);
             this.panel4.TabIndex = 1;
             // 
             // panel3
@@ -100,7 +101,7 @@ namespace Nhom1_QuanLyHocVu
             this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1430, 1);
+            this.panel3.Size = new System.Drawing.Size(1432, 1);
             this.panel3.TabIndex = 7;
             // 
             // panel2
@@ -112,7 +113,7 @@ namespace Nhom1_QuanLyHocVu
             this.panel2.Location = new System.Drawing.Point(149, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1430, 59);
+            this.panel2.Size = new System.Drawing.Size(1432, 59);
             this.panel2.TabIndex = 1;
             // 
             // panel7
@@ -129,7 +130,7 @@ namespace Nhom1_QuanLyHocVu
             this.profileBar1.Location = new System.Drawing.Point(0, 0);
             this.profileBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profileBar1.Name = "profileBar1";
-            this.profileBar1.Size = new System.Drawing.Size(1430, 59);
+            this.profileBar1.Size = new System.Drawing.Size(1432, 59);
             this.profileBar1.TabIndex = 0;
             // 
             // navToKhoa
@@ -280,15 +281,16 @@ namespace Nhom1_QuanLyHocVu
             this.mainPanel.Location = new System.Drawing.Point(149, 59);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1430, 838);
+            this.mainPanel.Size = new System.Drawing.Size(1432, 833);
             this.mainPanel.TabIndex = 6;
+            this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1579, 897);
+            this.ClientSize = new System.Drawing.Size(1581, 892);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
