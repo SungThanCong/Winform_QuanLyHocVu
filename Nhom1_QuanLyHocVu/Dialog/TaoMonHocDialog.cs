@@ -84,7 +84,7 @@ namespace Nhom1_QuanLyHocVu.Dialog
         private void txtSoTinChi_TextChanged(object sender, EventArgs e)
         {
              var textbox = (System.Windows.Forms.TextBox)sender;
-                int minValue = 1; // giá trị tối thiểu
+                int minValue = 0; // giá trị tối thiểu
                 int maxValue = 50; // giá trị tối đa
 
                 if (!int.TryParse(textbox.Text, out int value))

@@ -32,15 +32,14 @@ namespace Nhom1_QuanLyHocVu.Common
             {
                 //var khoaHoc = db.MONHOCs.Find(MaMonHoc);
                 //var hocKi = MaMonHoc.W
-                var maChuongTrinh = db.KHOAHOCs.Find(MaKhoaHoc).CHUONGTRINH.MaChuongTrinh;
+                var khoaHoc = db.KHOAHOCs.Find(MaKhoaHoc);
+                var maChuongTrinh = khoaHoc.CHUONGTRINH.MaChuongTrinh;
 
                 var ctmh = db.CHUONGTRINHMONHOCs.Where(x => x.MaChuongTrinh == maChuongTrinh && x.MaMonHoc == MaMonHoc).FirstOrDefault();
-                var hocki = ctmh.HocKy;
-
+                var hocki = (double)(ctmh.HocKy/2) +  khoaHoc.NamBatDau;
                 
                 var khmDaCoGV = db.KHOAHOCMONs.Where(x => x.MaThu == MaThu && x.MaGiaoVien_day == MaGiaoVien).ToList();
                 var khmDaCoPhong = db.KHOAHOCMONs.Where(x => x.MaThu == MaThu && x.MaPhong == MaPhong).ToList();
-
 
                 foreach ( var khm in khmDaCoGV)
                 {
@@ -48,8 +47,8 @@ namespace Nhom1_QuanLyHocVu.Common
                     var ctmhDaCo = khm.KHOAHOC.CHUONGTRINH.CHUONGTRINHMONHOCs.Where(x => x.MaMonHoc == maMon).FirstOrDefault();
                     if(ctmhDaCo != null)
                     {
-                        var hocKiDaCo = ctmhDaCo.HocKy;
-                        if ((hocKiDaCo % 2) == (hocki % 2))
+                        var hocKiDaCo = (double)(ctmhDaCo.HocKy /2) + khm.KHOAHOC.NamBatDau;
+                        if(hocki == hocKiDaCo)
                             return false;
                     }
                   
@@ -61,8 +60,8 @@ namespace Nhom1_QuanLyHocVu.Common
                     var ctmhDaCo = khm.KHOAHOC.CHUONGTRINH.CHUONGTRINHMONHOCs.Where(x => x.MaMonHoc == maMon).FirstOrDefault();
                     if (ctmhDaCo != null)
                     {
-                        var hocKiDaCo = ctmhDaCo.HocKy;
-                        if ((hocKiDaCo % 2) == (hocki % 2))
+                        var hocKiDaCo = (double)(ctmhDaCo.HocKy / 2) + khm.KHOAHOC.NamBatDau;
+                        if (hocki == hocKiDaCo)
                             return false;
                     }
 

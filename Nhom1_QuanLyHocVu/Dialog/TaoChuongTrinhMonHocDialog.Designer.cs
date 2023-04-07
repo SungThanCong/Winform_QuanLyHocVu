@@ -37,8 +37,8 @@
             this.btnThem = new System.Windows.Forms.PictureBox();
             this.btnHuy = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtHocKi = new System.Windows.Forms.TextBox();
             this.cbxMaChuongTrinh = new System.Windows.Forms.ComboBox();
+            this.txtHocKi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
             this.SuspendLayout();
@@ -139,17 +139,6 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "Học kì";
             // 
-            // txtHocKi
-            // 
-            this.txtHocKi.BackColor = System.Drawing.Color.White;
-            this.txtHocKi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHocKi.Location = new System.Drawing.Point(67, 286);
-            this.txtHocKi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtHocKi.Name = "txtHocKi";
-            this.txtHocKi.Size = new System.Drawing.Size(148, 30);
-            this.txtHocKi.TabIndex = 24;
-            this.txtHocKi.TextChanged += new System.EventHandler(this.txtHocKi_TextChanged);
-            // 
             // cbxMaChuongTrinh
             // 
             this.cbxMaChuongTrinh.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -162,13 +151,30 @@
             this.cbxMaChuongTrinh.TabIndex = 25;
             this.cbxMaChuongTrinh.SelectedIndexChanged += new System.EventHandler(this.cbxMaChuongTrinh_SelectedIndexChanged);
             // 
+            // txtHocKi
+            // 
+            this.txtHocKi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHocKi.FormattingEnabled = true;
+            this.txtHocKi.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.txtHocKi.Location = new System.Drawing.Point(66, 286);
+            this.txtHocKi.Name = "txtHocKi";
+            this.txtHocKi.Size = new System.Drawing.Size(149, 33);
+            this.txtHocKi.TabIndex = 26;
+            // 
             // TaoChuongTrinhMonHocDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 416);
-            this.Controls.Add(this.cbxMaChuongTrinh);
             this.Controls.Add(this.txtHocKi);
+            this.Controls.Add(this.cbxMaChuongTrinh);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbxMaMonHoc);
             this.Controls.Add(this.btnThem);
@@ -199,7 +205,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox txtHocKi;
         public System.Windows.Forms.ComboBox cbxMaChuongTrinh;
+        public System.Windows.Forms.ComboBox txtHocKi;
     }
 }
