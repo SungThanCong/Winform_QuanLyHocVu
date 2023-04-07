@@ -32,9 +32,9 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
             cbxTenMonHoc.Text = monHoc;
             txtMaPhong.Text = maPhong;
-            cbxGiangVien.Text = giangVien;
+            cbxGiangVien.SelectedValue = giangVien;
             txtThu.Text = thu;
-            cbxKhoaHoc.Text = khoaHoc;
+            cbxKhoaHoc.SelectedValue = khoaHoc;
 
             cbxKhoaHoc.Enabled = false;
             cbxTenMonHoc.Enabled = false;

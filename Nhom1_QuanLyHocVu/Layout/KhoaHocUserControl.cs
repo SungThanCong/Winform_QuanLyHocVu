@@ -46,11 +46,11 @@ namespace Nhom1_QuanLyHocVu.Layout
             cbxMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbxMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
-            cbxGiaoVien.ValueMember = "MaGiaoVien";
-            cbxGiaoVien.DisplayMember = "HoTen";
-            cbxGiaoVien.DataSource = entities.GIAOVIENs.Select(x => new { x.MaGiaoVien, x.HoTen }).ToList();
-            cbxGiaoVien.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbxGiaoVien.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cbxGiaoVien.ValueMember = "MaGiaoVien";
+            //cbxGiaoVien.DisplayMember = "HoTen";
+            //cbxGiaoVien.DataSource = entities.GIAOVIENs.Select(x => new { x.MaGiaoVien, x.HoTen }).ToList();
+            //cbxGiaoVien.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //cbxGiaoVien.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
 
         }
@@ -85,12 +85,12 @@ namespace Nhom1_QuanLyHocVu.Layout
            
         }
 
-        private void ReloadMonHocKhoaHoc(string maKhoaHoc, string maMon, string maGV)
+        private void ReloadMonHocKhoaHoc(string maKhoaHoc, string maMon)
         {
             lsvMonHocKhoaHoc.Items.Clear();
             using(var db = new QuanLyHocVuEntities())
             {
-                var data = db.KHOAHOCMONs.Where(x => x.MaKhoaHoc == maKhoaHoc && x.MaMonHoc == maMon && x.MaGiaoVien_day == maGV).ToList();
+                var data = db.KHOAHOCMONs.Where(x => x.MaKhoaHoc == maKhoaHoc && x.MaMonHoc == maMon).ToList();
                 foreach (var mhkh in data)
                 {
                     ListViewItem item = new ListViewItem(mhkh.MaMonHoc);
@@ -111,9 +111,8 @@ namespace Nhom1_QuanLyHocVu.Layout
 
         private void cbxKhoaHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null && cbxGiaoVien.SelectedItem != null)
-                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(),cbxMonHoc.SelectedValue.ToString(), 
-                    cbxGiaoVien.SelectedValue.ToString());
+            if(cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null)
+                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(),cbxMonHoc.SelectedValue.ToString());
         }
 
         private void btnThemKhoaHoc_Click(object sender, EventArgs e)
@@ -157,20 +156,13 @@ namespace Nhom1_QuanLyHocVu.Layout
             }    
         }
 
-        private void cbxGiaoVien_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null && cbxGiaoVien.SelectedItem != null)
 
-                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
-                cbxGiaoVien.SelectedValue.ToString());
-        }
 
         private void cbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null && cbxGiaoVien.SelectedItem != null)
+            if (cbxKhoaHoc.SelectedItem != null && cbxMonHoc.SelectedItem != null)
 
-                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
-                cbxGiaoVien.SelectedValue.ToString());
+                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString());
         }
 
         private void btnThemMonHocKhoaHoc_Click(object sender, EventArgs e)
@@ -194,11 +186,11 @@ namespace Nhom1_QuanLyHocVu.Layout
                     if (result > 0)
                     {
                         MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ReloadMonHocKhoaHoc(data.MaKhoaHoc, data.MaMonHoc, data.MaGiaoVien_day);
+                        ReloadMonHocKhoaHoc(data.MaKhoaHoc, data.MaMonHoc);
 
                         cbxMonHoc.SelectedValue = data.MaMonHoc;
                         cbxKhoaHoc.SelectedValue = data.MaKhoaHoc;
-                        cbxGiaoVien.SelectedValue = data.MaGiaoVien_day;
+                        
                     }
                     else
                     {
@@ -308,7 +300,7 @@ namespace Nhom1_QuanLyHocVu.Layout
         {
             string maMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[0].Text;
             string tenMH = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[1].Text;
-            string khoaHoc = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[2].Text;
+            string khoaHoc = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[6].Text;
             string giaoVien = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[7].Text;
             string phong = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[4].Text;
             string thu = lsvMonHocKhoaHoc.SelectedItems[0].SubItems[5].Text;
@@ -334,8 +326,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                             if (result > 0)
                             {
                                 MessageBox.Show("Sửa khóa học - môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
-                       cbxGiaoVien.SelectedValue.ToString());
+                                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString());
                             }
                             else
                             {
@@ -384,8 +375,7 @@ namespace Nhom1_QuanLyHocVu.Layout
                             if (result > 0)
                             {
                                 MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString(),
-                                                  cbxGiaoVien.SelectedValue.ToString());
+                                ReloadMonHocKhoaHoc(cbxKhoaHoc.SelectedValue.ToString(), cbxMonHoc.SelectedValue.ToString());
                             }
                             else
                             {
