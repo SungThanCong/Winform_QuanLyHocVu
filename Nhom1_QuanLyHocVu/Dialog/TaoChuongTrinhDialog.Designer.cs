@@ -34,14 +34,12 @@
             this.txtTenChuongTrinh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cbxGiamDocChuongTrinh = new System.Windows.Forms.ComboBox();
             this.txtTenKhoa = new System.Windows.Forms.ComboBox();
             this.txtBacHoc = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnXacNhan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,30 +103,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Giám đốc chương trình";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.pictureBox1.Location = new System.Drawing.Point(419, 473);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 44);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
-            this.pictureBox2.Location = new System.Drawing.Point(501, 473);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 44);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // cbxGiamDocChuongTrinh
             // 
             this.cbxGiamDocChuongTrinh.BackColor = System.Drawing.Color.White;
@@ -137,7 +111,7 @@
             this.cbxGiamDocChuongTrinh.Location = new System.Drawing.Point(77, 348);
             this.cbxGiamDocChuongTrinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxGiamDocChuongTrinh.Name = "cbxGiamDocChuongTrinh";
-            this.cbxGiamDocChuongTrinh.Size = new System.Drawing.Size(491, 33);
+            this.cbxGiamDocChuongTrinh.Size = new System.Drawing.Size(488, 33);
             this.cbxGiamDocChuongTrinh.TabIndex = 10;
             // 
             // txtTenKhoa
@@ -172,18 +146,42 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "Bậc học";
             // 
+            // btnHuy
+            // 
+            this.btnHuy.BackColor = System.Drawing.Color.Tomato;
+            this.btnHuy.ForeColor = System.Drawing.Color.White;
+            this.btnHuy.Location = new System.Drawing.Point(358, 480);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(83, 41);
+            this.btnHuy.TabIndex = 31;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnXacNhan
+            // 
+            this.btnXacNhan.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnXacNhan.ForeColor = System.Drawing.Color.White;
+            this.btnXacNhan.Location = new System.Drawing.Point(447, 480);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(118, 41);
+            this.btnXacNhan.TabIndex = 30;
+            this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // TaoChuongTrinhDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(655, 544);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.txtBacHoc);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTenKhoa);
             this.Controls.Add(this.cbxGiamDocChuongTrinh);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTenChuongTrinh);
             this.Controls.Add(this.label3);
@@ -193,10 +191,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TaoChuongTrinhDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaoChuongTrinhDialog";
+            this.Text = "Chương trình ";
             this.Load += new System.EventHandler(this.TaoChuongTrinhDialog_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,11 +206,11 @@
         public System.Windows.Forms.TextBox txtTenChuongTrinh;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.ComboBox cbxGiamDocChuongTrinh;
         public System.Windows.Forms.ComboBox txtTenKhoa;
         public System.Windows.Forms.TextBox txtBacHoc;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnXacNhan;
     }
 }

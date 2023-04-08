@@ -116,6 +116,14 @@
             this.columnHeader10.Text = "Phòng";
             this.columnHeader10.Width = 80;
             // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Width = 0;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Width = 0;
+            // 
             // cbxKhoaHoc
             // 
             this.cbxKhoaHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

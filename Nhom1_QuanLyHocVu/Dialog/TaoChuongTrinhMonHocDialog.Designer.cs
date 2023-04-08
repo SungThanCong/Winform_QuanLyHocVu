@@ -34,13 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnThem = new System.Windows.Forms.PictureBox();
-            this.btnHuy = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbxMaChuongTrinh = new System.Windows.Forms.ComboBox();
             this.txtHocKi = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbxMaMonHoc
@@ -105,30 +103,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Chương trình môn học";
             // 
-            // btnThem
-            // 
-            this.btnThem.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
-            this.btnThem.Location = new System.Drawing.Point(659, 322);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 42);
-            this.btnThem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnThem.TabIndex = 19;
-            this.btnThem.TabStop = false;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.btnHuy.Location = new System.Drawing.Point(571, 322);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(67, 42);
-            this.btnHuy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHuy.TabIndex = 18;
-            this.btnHuy.TabStop = false;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -168,17 +142,41 @@
             this.txtHocKi.Size = new System.Drawing.Size(149, 33);
             this.txtHocKi.TabIndex = 26;
             // 
+            // btnHuy
+            // 
+            this.btnHuy.BackColor = System.Drawing.Color.Tomato;
+            this.btnHuy.ForeColor = System.Drawing.Color.White;
+            this.btnHuy.Location = new System.Drawing.Point(540, 341);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(83, 41);
+            this.btnHuy.TabIndex = 28;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(629, 341);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(118, 41);
+            this.btnThem.TabIndex = 27;
+            this.btnThem.Text = "Xác nhận";
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // TaoChuongTrinhMonHocDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 416);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtHocKi);
             this.Controls.Add(this.cbxMaChuongTrinh);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbxMaMonHoc);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTenChuongTrinh);
             this.Controls.Add(this.label3);
@@ -187,9 +185,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TaoChuongTrinhMonHocDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaoChuongTrinhMonHocDialog";
-            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
+            this.Text = "Chương trình - môn học";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,8 +193,6 @@
 
         #endregion
         public System.Windows.Forms.ComboBox cbxMaMonHoc;
-        private System.Windows.Forms.PictureBox btnThem;
-        private System.Windows.Forms.PictureBox btnHuy;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txtTenChuongTrinh;
         private System.Windows.Forms.Label label3;
@@ -207,5 +201,7 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.ComboBox cbxMaChuongTrinh;
         public System.Windows.Forms.ComboBox txtHocKi;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnThem;
     }
 }

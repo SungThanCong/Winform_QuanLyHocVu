@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.cbxTenMonHoc = new System.Windows.Forms.ComboBox();
-            this.btnThem = new System.Windows.Forms.PictureBox();
-            this.btnHuy = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,8 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtThu = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbxTenMonHoc
@@ -57,28 +55,6 @@
             this.cbxTenMonHoc.Size = new System.Drawing.Size(491, 33);
             this.cbxTenMonHoc.TabIndex = 47;
             this.cbxTenMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxTenMonHoc_SelectedIndexChanged);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
-            this.btnThem.Location = new System.Drawing.Point(461, 509);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 40);
-            this.btnThem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnThem.TabIndex = 46;
-            this.btnThem.TabStop = false;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.btnHuy.Location = new System.Drawing.Point(393, 509);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(62, 40);
-            this.btnHuy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHuy.TabIndex = 45;
-            this.btnHuy.TabStop = false;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // label4
             // 
@@ -106,9 +82,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(50, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(483, 46);
+            this.label1.Size = new System.Drawing.Size(366, 46);
             this.label1.TabIndex = 39;
-            this.label1.Text = "Thêm môn học khóa học";
+            this.label1.Text = "Môn học khóa học";
             // 
             // cbxKhoaHoc
             // 
@@ -199,11 +175,37 @@
             this.label6.TabIndex = 60;
             this.label6.Text = "Thứ";
             // 
+            // btnHuy
+            // 
+            this.btnHuy.BackColor = System.Drawing.Color.Tomato;
+            this.btnHuy.ForeColor = System.Drawing.Color.White;
+            this.btnHuy.Location = new System.Drawing.Point(341, 519);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(83, 50);
+            this.btnHuy.TabIndex = 63;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(430, 519);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(120, 50);
+            this.btnLuu.TabIndex = 62;
+            this.btnLuu.Text = "Xác nhận";
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // TaoMonHocKhoaHocDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 608);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtThu);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtMaPhong);
@@ -214,16 +216,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbxKhoaHoc);
             this.Controls.Add(this.cbxTenMonHoc);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TaoMonHocKhoaHocDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaoMonHocKhoaHocDialog";
-            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
+            this.Text = "Môn học - khóa học";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,8 +229,6 @@
 
         #endregion
         public System.Windows.Forms.ComboBox cbxTenMonHoc;
-        private System.Windows.Forms.PictureBox btnThem;
-        private System.Windows.Forms.PictureBox btnHuy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -245,5 +241,7 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtThu;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnLuu;
     }
 }

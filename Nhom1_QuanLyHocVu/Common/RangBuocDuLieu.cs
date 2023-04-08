@@ -9,10 +9,7 @@ namespace Nhom1_QuanLyHocVu.Common
 {
     public static class RangBuocDuLieu
     {
-        enum Ki
-        {
-
-        }
+     
         public static bool RangBuocMonHoc(string MaMon)
         {
             using(var db = new QuanLyHocVuEntities())
@@ -26,7 +23,7 @@ namespace Nhom1_QuanLyHocVu.Common
             return true;
         }
 
-        public static bool RangBuocDamBaoGioDay(string MaGiaoVien, string MaThu, string MaKhoaHoc, string MaMonHoc, string MaPhong)
+        public static int RangBuocDamBaoGioDay(string MaGiaoVien, string MaThu, string MaKhoaHoc, string MaMonHoc, string MaPhong)
         {
             using (var db = new QuanLyHocVuEntities())
             {
@@ -49,7 +46,7 @@ namespace Nhom1_QuanLyHocVu.Common
                     {
                         var hocKiDaCo = (double)(ctmhDaCo.HocKy /2) + khm.KHOAHOC.NamBatDau;
                         if(hocki == hocKiDaCo)
-                            return false;
+                            return -1;
                     }
                   
                 }
@@ -62,13 +59,13 @@ namespace Nhom1_QuanLyHocVu.Common
                     {
                         var hocKiDaCo = (double)(ctmhDaCo.HocKy / 2) + khm.KHOAHOC.NamBatDau;
                         if (hocki == hocKiDaCo)
-                            return false;
+                            return -2;
                     }
 
                 }
 
             }
-            return true;
+            return 1;
         }
     }
 }

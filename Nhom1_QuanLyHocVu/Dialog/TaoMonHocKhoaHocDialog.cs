@@ -29,12 +29,12 @@ namespace Nhom1_QuanLyHocVu.Dialog
 
             //txtKhoa.Text = maKhoa;
             RenderData();
-
-            cbxTenMonHoc.Text = monHoc;
-            txtMaPhong.Text = maPhong;
-            cbxGiangVien.SelectedValue = giangVien;
-            txtThu.Text = thu;
             cbxKhoaHoc.SelectedValue = khoaHoc;
+            cbxTenMonHoc.Text = monHoc;
+            cbxGiangVien.SelectedValue = giangVien;
+
+            txtMaPhong.Text = maPhong;
+            txtThu.Text = thu;
 
             cbxKhoaHoc.Enabled = false;
             cbxTenMonHoc.Enabled = false;
@@ -54,8 +54,6 @@ namespace Nhom1_QuanLyHocVu.Dialog
             cbxTenMonHoc.DisplayMember = "TenMonHoc";
             cbxTenMonHoc.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbxTenMonHoc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-
-
 
         }
 
@@ -80,15 +78,20 @@ namespace Nhom1_QuanLyHocVu.Dialog
             if(cbxGiangVien.Text.Length >0 && cbxKhoaHoc.Text.Length > 0 && cbxTenMonHoc.Text.Length >0 
                 && txtMaPhong.Text.Length > 0 && txtThu.Text.Length > 0)
             {
-                if (RangBuocDuLieu.RangBuocDamBaoGioDay(GetMaGiaoVien(), GetThu(), GetMaKhoaHoc(), GetMaMonHoc(),GetMaPhong()))
+                if (RangBuocDuLieu.RangBuocDamBaoGioDay(GetMaGiaoVien(), GetThu(), GetMaKhoaHoc(), GetMaMonHoc(), GetMaPhong()) == -1)
                 {
-                    DialogResult = DialogResult.OK;
+                    MessageBox.Show("Giáo viên đã bị trùng lịch dạy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+                else if (RangBuocDuLieu.RangBuocDamBaoGioDay(GetMaGiaoVien(), GetThu(), GetMaKhoaHoc(), GetMaMonHoc(), GetMaPhong()) == -2)
+                {
+
+                    MessageBox.Show("Phòng học đã bị trùng giờ dạy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
                 else
                 {
-                    MessageBox.Show("Giáo viên đã bị trùng lịch dạy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                    DialogResult = DialogResult.OK;
                 }
             }
             else

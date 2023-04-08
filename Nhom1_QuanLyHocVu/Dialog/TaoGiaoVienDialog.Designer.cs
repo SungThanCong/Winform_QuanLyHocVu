@@ -41,22 +41,26 @@
             // 
             // btnHuyTaoGV
             // 
-            this.btnHuyTaoGV.Location = new System.Drawing.Point(316, 261);
+            this.btnHuyTaoGV.BackColor = System.Drawing.Color.Tomato;
+            this.btnHuyTaoGV.ForeColor = System.Drawing.Color.White;
+            this.btnHuyTaoGV.Location = new System.Drawing.Point(201, 261);
             this.btnHuyTaoGV.Name = "btnHuyTaoGV";
-            this.btnHuyTaoGV.Size = new System.Drawing.Size(83, 33);
+            this.btnHuyTaoGV.Size = new System.Drawing.Size(83, 38);
             this.btnHuyTaoGV.TabIndex = 13;
             this.btnHuyTaoGV.Text = "Hủy";
-            this.btnHuyTaoGV.UseVisualStyleBackColor = true;
+            this.btnHuyTaoGV.UseVisualStyleBackColor = false;
             this.btnHuyTaoGV.Click += new System.EventHandler(this.btnHuyTaoGV_Click);
             // 
             // btnXacNhanTaoGV
             // 
-            this.btnXacNhanTaoGV.Location = new System.Drawing.Point(186, 261);
+            this.btnXacNhanTaoGV.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnXacNhanTaoGV.ForeColor = System.Drawing.Color.White;
+            this.btnXacNhanTaoGV.Location = new System.Drawing.Point(290, 261);
             this.btnXacNhanTaoGV.Name = "btnXacNhanTaoGV";
-            this.btnXacNhanTaoGV.Size = new System.Drawing.Size(118, 33);
+            this.btnXacNhanTaoGV.Size = new System.Drawing.Size(118, 38);
             this.btnXacNhanTaoGV.TabIndex = 12;
             this.btnXacNhanTaoGV.Text = "Xác nhận";
-            this.btnXacNhanTaoGV.UseVisualStyleBackColor = true;
+            this.btnXacNhanTaoGV.UseVisualStyleBackColor = false;
             this.btnXacNhanTaoGV.Click += new System.EventHandler(this.btnXacNhanTaoGV_Click);
             // 
             // txtTaoTenGV
@@ -98,10 +102,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(211, 51);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(210, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 29);
+            this.label1.Size = new System.Drawing.Size(229, 36);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nhập giáo viên";
             // 
@@ -139,7 +143,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TaoGiaoVienDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaoGiaoVienDialog";
+            this.Text = "Giáo viên";
             this.ResumeLayout(false);
             this.PerformLayout();
 

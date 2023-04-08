@@ -31,16 +31,14 @@
             this.txtSoTinChi = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbxKhoa = new System.Windows.Forms.ComboBox();
-            this.btnLuu = new System.Windows.Forms.PictureBox();
-            this.btnHuy = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTenMonHoc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaMonHoc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtSoTinChi
@@ -74,30 +72,6 @@
             this.cbxKhoa.Name = "cbxKhoa";
             this.cbxKhoa.Size = new System.Drawing.Size(520, 33);
             this.cbxKhoa.TabIndex = 38;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
-            this.btnLuu.Location = new System.Drawing.Point(515, 461);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(68, 44);
-            this.btnLuu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnLuu.TabIndex = 37;
-            this.btnLuu.TabStop = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.btnHuy.Location = new System.Drawing.Point(433, 461);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(61, 44);
-            this.btnHuy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHuy.TabIndex = 36;
-            this.btnHuy.TabStop = false;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // label4
             // 
@@ -159,16 +133,40 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Môn học";
             // 
+            // btnHuy
+            // 
+            this.btnHuy.BackColor = System.Drawing.Color.Tomato;
+            this.btnHuy.ForeColor = System.Drawing.Color.White;
+            this.btnHuy.Location = new System.Drawing.Point(376, 456);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(83, 46);
+            this.btnHuy.TabIndex = 43;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(465, 456);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(118, 46);
+            this.btnLuu.TabIndex = 42;
+            this.btnLuu.Text = "Xác nhận";
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // TaoMonHocDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 571);
+            this.ClientSize = new System.Drawing.Size(646, 542);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtSoTinChi);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbxKhoa);
-            this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTenMonHoc);
             this.Controls.Add(this.label3);
@@ -177,9 +175,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TaoMonHocDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaoMonHocDialog";
-            ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
+            this.Text = "Môn học";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,13 +186,13 @@
         public System.Windows.Forms.TextBox txtSoTinChi;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ComboBox cbxKhoa;
-        private System.Windows.Forms.PictureBox btnLuu;
-        private System.Windows.Forms.PictureBox btnHuy;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txtTenMonHoc;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtMaMonHoc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnLuu;
     }
 }

@@ -85,22 +85,26 @@
             // 
             // btnXacNhanTaoKhoa
             // 
-            this.btnXacNhanTaoKhoa.Location = new System.Drawing.Point(141, 175);
+            this.btnXacNhanTaoKhoa.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnXacNhanTaoKhoa.ForeColor = System.Drawing.Color.White;
+            this.btnXacNhanTaoKhoa.Location = new System.Drawing.Point(225, 178);
             this.btnXacNhanTaoKhoa.Name = "btnXacNhanTaoKhoa";
-            this.btnXacNhanTaoKhoa.Size = new System.Drawing.Size(118, 33);
+            this.btnXacNhanTaoKhoa.Size = new System.Drawing.Size(118, 41);
             this.btnXacNhanTaoKhoa.TabIndex = 5;
             this.btnXacNhanTaoKhoa.Text = "Xác nhận";
-            this.btnXacNhanTaoKhoa.UseVisualStyleBackColor = true;
+            this.btnXacNhanTaoKhoa.UseVisualStyleBackColor = false;
             this.btnXacNhanTaoKhoa.Click += new System.EventHandler(this.btnXacNhanTaoKhoa_Click);
             // 
             // btnHuyTaoKhoa
             // 
-            this.btnHuyTaoKhoa.Location = new System.Drawing.Point(265, 175);
+            this.btnHuyTaoKhoa.BackColor = System.Drawing.Color.Tomato;
+            this.btnHuyTaoKhoa.ForeColor = System.Drawing.Color.White;
+            this.btnHuyTaoKhoa.Location = new System.Drawing.Point(136, 178);
             this.btnHuyTaoKhoa.Name = "btnHuyTaoKhoa";
-            this.btnHuyTaoKhoa.Size = new System.Drawing.Size(83, 33);
+            this.btnHuyTaoKhoa.Size = new System.Drawing.Size(83, 41);
             this.btnHuyTaoKhoa.TabIndex = 6;
             this.btnHuyTaoKhoa.Text = "Hủy";
-            this.btnHuyTaoKhoa.UseVisualStyleBackColor = true;
+            this.btnHuyTaoKhoa.UseVisualStyleBackColor = false;
             this.btnHuyTaoKhoa.Click += new System.EventHandler(this.btnHuyTaoKhoa_Click);
             // 
             // TaoKhoaDialog
@@ -117,7 +121,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TaoKhoaDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaoKhoaDialog";
+            this.Text = "Khoa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

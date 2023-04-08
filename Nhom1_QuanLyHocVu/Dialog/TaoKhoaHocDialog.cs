@@ -51,12 +51,18 @@ namespace Nhom1_QuanLyHocVu.Dialog
         {
             if(txtTenKhoaHoc.Text.Length >0 && txtMaKhoaHoc.Text.Length > 0 && txtNamBatDau.Text.Length >0 && txtNamKetThuc.Text.Length >0)
             {
-                if(int.Parse(txtNamKetThuc.Text) - int.Parse(txtNamBatDau.Text) <= 7 && int.Parse(txtNamKetThuc.Text) - int.Parse(txtNamBatDau.Text) > 0)
-                    DialogResult = DialogResult.OK;
+                if(int.Parse(txtNamKetThuc.Text) - int.Parse(txtNamBatDau.Text) > 7)
+                    MessageBox.Show("Khoảng thời gian của một khóa học không thể lớn hơn 7", "Lỗi");
+                else if(int.Parse(txtNamKetThuc.Text) - int.Parse(txtNamBatDau.Text) < 0)
+                {
+                    MessageBox.Show("Năm kết thúc phải lớn hơn hoặc bằng năm bắt đầu", "Lỗi");
+
+                }
                 else
                 {
-                    MessageBox.Show("Khoảng thời gian của một khóa học không thể lớn hơn 7", "Lỗi");
+                    DialogResult = DialogResult.OK;
                 }
+
             }
             else
             {

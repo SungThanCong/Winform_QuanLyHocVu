@@ -36,10 +36,8 @@
             this.txtChuongTrinh = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ckbDamNhiemChinh = new System.Windows.Forms.CheckBox();
-            this.btnHuy = new System.Windows.Forms.PictureBox();
-            this.btnLuu = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -126,24 +124,26 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_huy;
-            this.btnHuy.Location = new System.Drawing.Point(367, 391);
+            this.btnHuy.BackColor = System.Drawing.Color.Tomato;
+            this.btnHuy.ForeColor = System.Drawing.Color.White;
+            this.btnHuy.Location = new System.Drawing.Point(276, 381);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(48, 36);
-            this.btnHuy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnHuy.TabIndex = 10;
-            this.btnHuy.TabStop = false;
+            this.btnHuy.Size = new System.Drawing.Size(83, 39);
+            this.btnHuy.TabIndex = 30;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Image = global::Nhom1_QuanLyHocVu.Properties.Resources.btn_luu;
-            this.btnLuu.Location = new System.Drawing.Point(435, 391);
+            this.btnLuu.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(365, 381);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(48, 36);
-            this.btnLuu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnLuu.TabIndex = 9;
-            this.btnLuu.TabStop = false;
+            this.btnLuu.Size = new System.Drawing.Size(118, 39);
+            this.btnLuu.TabIndex = 29;
+            this.btnLuu.Text = "Xác nhận";
+            this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // TaoDamNhiemMon
@@ -164,9 +164,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TaoDamNhiemMon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaoDamNhiemMon";
-            ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();
+            this.Text = "Đảm nhiệm môn";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +180,7 @@
         public System.Windows.Forms.ComboBox txtChuongTrinh;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.CheckBox ckbDamNhiemChinh;
-        private System.Windows.Forms.PictureBox btnLuu;
-        private System.Windows.Forms.PictureBox btnHuy;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnLuu;
     }
 }
